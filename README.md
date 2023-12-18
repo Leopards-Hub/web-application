@@ -14,7 +14,21 @@ Mentor: Cu Nguyen <cunguyen.dev@gmail.com>
 - [Ampps](https://ampps.com/) to run code PHP
 
 ## Getting Started
-Step by step to run this web in your local
+How to build web on your local
+### Windows operating system
+#### Install tools for develop
 
-### Start Ampps 
-Start Ampps and then open localhost. After that, find file index.php to run the website.
+The environment for this web development is [Visual Studio Code](https://code.visualstudio.com/)
+
+[PHP](https://www.php.net/releases/7_4_0.php) 7.4
+
+[MYSQL](https://www.mysql.com/) to store data
+
+[Ampps](https://ampps.com/) to run code PHP
+
+#### Run server
+
+Open on web: [http://localhost/](http://localhost/) (this is by default, you can custom it)
+
+### Mac, Linux
+- Coming soon
