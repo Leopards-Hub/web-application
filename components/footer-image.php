@@ -1,5 +1,5 @@
 <?php 
-    include 'linkbootstrap5.php';
+    // include 'linkbootstrap5.php';
     include '../root/CSS/component/footer-image.css.php';
 ?>
 <?php

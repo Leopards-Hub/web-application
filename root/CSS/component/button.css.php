@@ -64,4 +64,20 @@
         width: 100%;
     }
 
+    /* css for button explore menu no boder in hompage */
+    .btn-noboder{
+
+        height: 26px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 12px;color: #AD343E;
+        border: none;
+        font-family: DM Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px; /* 150% */
+        background-color: white;
+    }
 </style>

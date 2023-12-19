@@ -1,12 +1,11 @@
 <?php 
-    include './linkbootstrap5.php';
-    include 'logo.php';
-    include 'header-navbar.php';
-    include 'header-top-social.php';
+    // include './linkbootstrap5.php';
     include '../root/CSS/component/footer.css.php';
+    // include 'logo.php';
+    // include 'header-navbar.php';
+    // include 'header-top-social.php';
     include '../root/CSS/component/header-top-social.css.php';
     include 'footer-image.php';
-    
 ?>
 
 <footer>

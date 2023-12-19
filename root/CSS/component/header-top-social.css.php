@@ -1,6 +1,6 @@
 <style>
     a {
-        text-decoration: none;
+        text-decoration: none !important;
     }
 
     .header-top-right {

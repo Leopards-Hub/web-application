@@ -7,11 +7,12 @@
         display: flex;
         justify-content: center;
     }
-    .container{
+    .container-head{
         display: flex;
         justify-content: space-between;
         align-items: center;
         text-align: center;
+        width: 84%;
     }
     /* css for navbar */
     nav {
