@@ -33,7 +33,7 @@ function createEvent($image, $title, $description) {
     echo '</div>';
 }
 
-echo '<h2 class="title-event-large">We also offer unique services for your events</h2>';
+
 for ($i = 0; $i < count($array_event['image-event']); $i++) {
     $image = $array_event['image-event'][$i];
     $title = $array_event['title-event'][$i];

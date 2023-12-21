@@ -26,4 +26,6 @@ function createTitle($h1Content, $pContent1, $pContent2, $h1Class = '', $p1Class
         </div>
     ";
 }
+
 ?>
+

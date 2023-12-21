@@ -1,10 +1,4 @@
 <style>
-    body {
-        display: flex;
-        flex-wrap: wrap; /* Thêm thuộc tính flex-wrap để các .event-container xuống dòng nếu không vừa với container cha */
-        justify-content: center; /* Căn giữa các .event-container theo chiều ngang */
-        margin-top: 300px;
-    }
 
     .title-event-large {
         width: 675px;
