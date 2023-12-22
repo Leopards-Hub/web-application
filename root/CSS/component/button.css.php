@@ -42,7 +42,10 @@
         color: var(--Neutral-07, #182226);
     }
     .btn-ourmenu-all{
-        width: 120px;
+        width: 125px;
+    }
+    .btn-ourmenu-allmenu{
+        width: 135px;
     }
     .btn-ourmenu{
         display: flex;

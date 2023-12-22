@@ -6,5 +6,5 @@
     .card-larger{
         width: 50rem;
     }  
-
+    
 </style>
