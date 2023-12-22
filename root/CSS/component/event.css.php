@@ -1,11 +1,10 @@
 <style>
 
     .title-event-large {
-        width: 675px;
-        position: absolute;
+        width: 600px;
         right: 1180px;
         top:100px;
-        transform: translateX(-50%);
+        transform: translateX(5%);
         /* Headline/H2 */
         font-family: Playfair Display;
         font-size: 55px;

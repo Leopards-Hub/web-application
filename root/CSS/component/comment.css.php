@@ -1,21 +1,14 @@
 <style>
-.title-comment-large{
-  position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    /* Headline/H2 */
-    font-family: Playfair Display;
-    font-size: 55px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 60.5px; /* 110% */
-}
-  body{
-    display: flex;
-    justify-content: center;
-    margin-top: 200px;
-  }
+.container-fluid>h2{
+        color: var(--Neutral-07, #2C2F24);
+        text-align: center;
+        /* Headline/H2 */
+        font-family: Playfair Display;
+        font-size: 55px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 60.5px; /* 110% */
+    }
 .comment-container {
   display: inline-block;
   margin-right: 25px;
@@ -36,7 +29,7 @@
 
 }
 .hr-comment{
-  width: 415px;
+  width: 90%;
   height: 1px;
   opacity: 0.7;
   background: #DBDFD0;

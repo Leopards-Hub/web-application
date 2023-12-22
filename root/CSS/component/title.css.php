@@ -31,7 +31,7 @@
     text-align: left;
 }
 .content-title-h2{
-    width: 557px;
+    width: 500px;
     color: var(--Neutral-07, #2C2F24);
     /* Headline/H2 */
     font-family: Playfair Display;
@@ -41,7 +41,7 @@
     line-height: 60.5px; /* 110% */
 }
 .content-title-p1{
-    width: 557px;
+    width: 500px;
     color: var(--Neutral-07, #2C2F24);
     /* Body/18px/Medium */
     font-family: DM Sans;
@@ -51,7 +51,7 @@
     line-height: 28px; /* 155.556% */
 }
 .content-title-p2{
-    width: 557px;
+    width: 500px;
     color: var(--Neutral-06, #414536);
     /* Body/16px/Regular */
     font-family: DM Sans;

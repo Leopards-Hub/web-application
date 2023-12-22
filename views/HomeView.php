@@ -51,7 +51,7 @@
                         generateContactImage($array_contact_image[0]);
                         ?>
                     </div>
-                    <div class="col-md-6 pt-5 ">
+                    <div class="col-md-6 pt-5">
                         <?php
                         createTitle("We provide healthy food for your family.", "Our story began with a vision to create a unique dining experience
                                 that merges fine dining, exceptional service, and a vibrant ambiance. Rooted in city's rich culinary culture, we aim to honor our 
@@ -66,13 +66,92 @@
         </div>
         <div class="container-fluid bg-white" id="bg">
             <div class="container pt-5">
-                <h2 class="content-title-h2">We also offer unique services for your events</h2>
-                <div class="container-fluid d-flex flex-row pt-5 pb-5" >
+                <h2 class="title-event-large">We also offer unique services for your events</h2>
+                <div class="container-fluid d-flex flex-row pt-5 pb-5">
                     <?php include '../components/event.php'; ?>
                 </div>
             </div>
         </div>
+        <div class="container-fluid bg-1" id="bg">
+            <div class="container-fluid p-5">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="row d-flex flex-row">
+                            <div class="col-md-7 p-3" id="chef-left"></div>
+                            <div class="col-md-5 d-flex flex-column pt-5 p-3">
+                                <div class="mb-3" id="soup-top-right"></div>
+                                <div id="grill-bottom-right"></div>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="col-md-5 d-flex flex-column justify-content-center">
+                        <div class="container p-5">
+                            <?php
+                            createTitle("Fastest Food Delivery in City", "", "Our visual designer lets you quickly and of drag a down your way to customapps for both keep desktop."
+                                , "content-title-h2", "", "content-title-p2"); ?>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <p class="col-md-2"></p>
+                                <i class="fa fa-clock-o fa-lg col-md-2" aria-hidden="true" id="icon-fast-food"></i>
+                                <p class="col-md-8" id="content-fast-food">Delivery within 30 minutes</p>
+                            </div>
+                            <div class="row">
+                                <p class="col-md-2"></p>
+                                <i class="fa fa-bookmark-o fa-lg col-md-2" aria-hidden="true" id="icon-fast-food"></i>
+                                <p class="col-md-8" id="content-fast-food">Best Offer & Prices</p>
+                            </div>
+                            <div class="row">
+                                <p class="col-md-2"></p>
+                                <i class="fa fa-shopping-basket fa-lg col-md-2 " aria-hidden="true"
+                                    id="icon-fast-food"></i>
+                                <p class="col-md-8" id="content-fast-food">Online Services Available</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-white pb-5" id="bg">
+            <?php include '../components/comment.php'; ?>
+        </div>
+        <div class="container-fluid bg-1 p-5">
+            <div class="container d-flex flex-row justify-content-between pb-5">
+                <h2>Our Blog & Articles</h2>
+                <?php createButton("Read All Articles", "btn-read", "btn-primary"); ?>
+
+            </div>
+            <div class="container pb-5">
+                <?php include '../components/blogger-items.php'; ?>
+                <div class="row">
+                    <div class="col-md-6">
+                        <?php createBlogger($params[4], $class); ?>
+                    </div>
+                    <div class="col-md-6 d-flex flex-column gap-1">
+                        <div class="row">
+                            <div class="col-sm-6 p-2">
+                                <?php createBlogger($params[0], ""); ?>
+                            </div>
+                            <div class="col-sm-6 p-2">
+                                <?php createBlogger($params[1], ""); ?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 p-2">
+                                <?php createBlogger($params[2], ""); ?>
+                            </div>
+                            <div class="col-sm-6 p-2">
+                                <?php createBlogger($params[3], ""); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
     </div>
 
     <!-- init footer -->

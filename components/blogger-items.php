@@ -1,5 +1,5 @@
 <?php
-    include 'linkbootstrap5.php';
+    // include 'linkbootstrap5.php';
     include '../root/CSS/component/blogger-items.css.php';
 ?>
 
@@ -55,6 +55,6 @@ $params = array(
 );
 
 // Call the function, and it will automatically echo the result
-createBlogger($params[4],$class);
+// createBlogger($params[4],$class);
 
 ?>

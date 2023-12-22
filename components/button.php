@@ -7,5 +7,6 @@
         $class = "btn $additionalClass";
         echo "<button class='$class' id='btn-$index'>$label</button>";
     }
+    
 ?>
 
