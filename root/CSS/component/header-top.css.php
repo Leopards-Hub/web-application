@@ -9,7 +9,7 @@
         width: 100%;
         display: inline-flex;
         padding: 9px 154.316px 8.829px 120px;
-        gap: 831px;
+        justify-content: space-between;
         background: #474747;
         box-sizing: border-box;
     }

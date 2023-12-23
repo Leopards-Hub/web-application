@@ -1,6 +1,6 @@
-<?php 
-  include '../root/CSS/component/title.css.php';
-  $array_title = array(
+<?php
+include '../root/CSS/component/title.css.php';
+$array_title = array(
     'h1' => array(
         "Best food for your taste",
         "Our Menu",
@@ -28,4 +28,3 @@ function createTitle($h1Content, $pContent1, $pContent2, $h1Class = '', $p1Class
 }
 
 ?>
-

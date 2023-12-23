@@ -1,9 +1,10 @@
-<?php include '../root/CSS/component/logo.css.php';?>
+<?php include '../root/CSS/component/logo.css.php'; ?>
 
 
-<?php 
-    function createLogo($fill1,$fill2){
-        echo "<div class='logo-container'>
+<?php
+function createLogo($fill1, $fill2)
+{
+    echo "<div class='logo-container'>
         <svg xmlns='http://www.w3.org/2000/svg' width='57' height='55' viewBox='0 0 57 55' fill='none'>
             <g clip-path='url(#clip0_23_1637)'>
                 <path
@@ -24,5 +25,5 @@
         </svg>
         <h4 class='logo-title' style='color: $fill2;' >Yummy Food</h4>
     </div>";
-    }
+}
 ?>

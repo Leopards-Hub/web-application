@@ -29,15 +29,18 @@
         flex-direction: row;
     }
     .menu-card {
-        width: 250px;
-        height: 330px;
-        padding: 20px;
-        text-align: center;
-        margin: 50px 12.5px;
-        /* Khoảng cách 25px giữa các menu card và di chuyển xuống dưới 10px */
-        border-radius: 12px;
-        border: 1.5px solid var(--Neutral-03, #DBDFD0);
-        background: var(--Neutral-01, #FFF);
+    height: 330px;
+    padding: 40px;
+    text-align: center;
+    margin: 50px 0;
+    border-radius: 12px;
+    border: 1.5px solid var(--Neutral-03, #DBDFD0);
+    background: var(--Neutral-01, #FFF);
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
         
     }
 
