@@ -27,7 +27,7 @@
 }
 .item-about{
    position:absolute;
-   top:800px;
+   top:1300px;
     display:flex;
     width:1200px;
     margin-left: 180px;

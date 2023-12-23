@@ -13,6 +13,22 @@
   <!-- init header -->
   <?php include '../components/header.php'; ?>
   <div class="container-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <?php include '../components/contact-image.php';
+                generateContactImage($array_contact_image[1]);
+                ?>
+            </div>
+            <div class="col-6">
+            <?php include '../components/title.php';
+                 createTitle("We provide healthy food for your family.","Our story began with a vision to create a unique dining experience that merges fine dining, exceptional service, and a vibrant ambiance. Rooted in city's rich culinary 
+                 culture, we aim to honor our local roots while infusing a global palate.","At place, we believe that dining is not just about food, but also about the overall experience. Our staff, renowned for their warmth and dedication, 
+                 strives to make every visit an unforgettable event.",'content-title-h2','content-title-p1','content-title-p2','content-title')
+                ?>
+            </div>
+        </div>
+    </div>
     <div class="video-about">
         <div class="video-container">  
         <iframe src="https://www.youtube.com/embed/4DoyfMEc4cc?si=Y_xGQuU054mSKixl" frameborder="0" allowfullscreen></iframe>
@@ -103,6 +119,9 @@
             <img src="https://studiovietnam.com/wp-content/uploads/2022/03/hinh-anh-ve-do-an-20.jpg">
             </div>
     </div>
+    <div class="container-fluid bg-white pb-5" id="bg">
+            <?php include '../components/comment.php'; ?>
+        </div>
   </div>
 
   <!-- init footer -->
