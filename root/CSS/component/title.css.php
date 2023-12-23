@@ -15,6 +15,14 @@
     font-weight: 400;
     line-height: 96px; /* 96% */
 }
+.title-h1-blog{
+    width: 100%;
+    /* Headline/H1 */
+    font-family: Playfair Display;
+    font-size: 100px;
+    font-weight: 400;
+    line-height: 96px; /* 96% */
+}
 .title-p{
     width: 537px;
     /* Body/20px/Regular */

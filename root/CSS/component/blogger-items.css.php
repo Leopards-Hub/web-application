@@ -6,6 +6,9 @@
     .card {
         width: 100%;
     }
+    .card-blog{
+        width: 18rem;
+    }
 
     .card-larger{
         width: 100%;

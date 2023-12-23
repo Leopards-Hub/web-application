@@ -31,7 +31,7 @@
         echo "<ul class='$class'>";
         
         foreach ($navItems as $item) {
-            echo '<li>';
+            echo "<li>";
             
             // Kiểm tra nếu $item là mảng (đối tượng)
             if (is_array($item)) {
@@ -45,6 +45,7 @@
         }
         echo '</ul>';
         echo '</nav>';
+        
     }
 ?>
 
