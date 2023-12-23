@@ -44,15 +44,26 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-5">
+            <div style="width: 80%; height:450px; display:flex;justify-content: center; align-items: center; gap: 122px;margin-top: 2em;">
+                <div class="row" style="display: inline-flex; flex-direction: column;justify-content: center; align-items: center;">
+                    <div class="col-sm-4"> 
                         <?php 
-                            createTitle($array_title["h1"][1],$array_title['p'][1],'', 'title-h1', 'title-p','','hero-title');
+                            createTitle ("You can order through apps","Lorem ipsum dolor sit amet consectetur 
+                            adipiscing elit enim bibendum sed et aliquet aliquet risus tempor semper.",'','content-title-h2','content-title-p1');
                         ?>
                     </div>
-                    <div class="col-7"></div>
+                    <div class="col-sm-8"> 
+                        <p>hfdbfhbdhbhfh</p>                      
                         <?php ;?>
+                    </div>
+                </div>
             </div>
+        </div>
 
+        <div>
+            <?php  
+                include_once '../components/footer.php';
+            ?>
         </div>
     </body>
+</html>
