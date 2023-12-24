@@ -57,7 +57,7 @@ $array_menu = array(
 
 function createMenuCard($icon, $name, $content)
 {
-    echo '<div class="menu-card">';
+    echo '<div class="menu-card col-3">';
     echo $icon;
     echo '<h3>' . $name . '</h3>';
     echo '<p>' . $content . '</p>';
@@ -65,4 +65,3 @@ function createMenuCard($icon, $name, $content)
     echo '</div>';
 }
 ?>
-

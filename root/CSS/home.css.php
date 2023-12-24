@@ -70,6 +70,6 @@
         font-style: normal;
         font-weight: 500;
         line-height: 26px; /* 130% */
-     
+        padding-top: 15px;
     }
 </style>

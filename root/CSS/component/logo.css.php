@@ -1,4 +1,5 @@
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500&display=swap');
     .logo-container {
     display: flex;
     align-items: center; /* Căn giữa theo chiều dọc */

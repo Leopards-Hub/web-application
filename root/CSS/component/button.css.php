@@ -62,8 +62,8 @@
         border: 1px solid var(--Neutral-03, #DBDFD0);
     }
     .active{
-        background: #AD343E;
-        color: #FFF;
+        background: #AD343E !important;
+        color: #FFF !important;
     }
     .btn-send{
         width: 100%;
