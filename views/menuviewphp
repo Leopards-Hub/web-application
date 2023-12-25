@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Menu</title> 
         <?php
-            include '../components/linkbootstrap5.php';
+            include_once '../components/linkbootstrap5.php';
+            include_once '../root/CSS/menu.css.php';
         ?>    
     </head>
     <body>
@@ -44,8 +45,8 @@
         </div>
 
         <div class="container">
-            <div style="width: 80%; height:450px; display:flex;justify-content: center; align-items: center; gap: 122px;margin-top: 2em;">
-                <div class="row" style="display: inline-flex; flex-direction: column;justify-content: center; align-items: center;">
+            <div class ="sp">
+                <div class="row">
                     <div class="col-sm-4"> 
                         <?php 
                             createTitle ("You can order through apps","Lorem ipsum dolor sit amet consectetur 
@@ -53,13 +54,16 @@
                         ?>
                     </div>
                     <div class="col-sm-8"> 
-                        <p>hfdbfhbdhbhfh</p>                      
-                        <?php ;?>
+                                         
+                        <?php 
+                            // include '../components/sponsors.php';
+                            // createSponsor($arraySponsors);  
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
-
+        
         <div>
             <?php  
                 include_once '../components/footer.php';
