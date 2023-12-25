@@ -60,5 +60,30 @@
     font-weight: 400;
     line-height: 24px; /* 150% */
 }
+.content-title-h2-about{
+    width: 550px;
+    color: var(--Neutral-07, #2C2F24);
+    /* Headline/H2 */
+    font-family: Playfair Display;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 60.5px; /* 110% */
+}
+.text-bookTable{
+    padding-top: 60px;
+    padding-left: 400px;
+    text-align: center;
+}
+.title-h1-table{
+    width: 850px;
+    padding-right:250px;
+    /* Headline/H1 */
+    font-family: Playfair Display;
+    font-size: 100px;
+    font-weight: 400;
+    line-height: 96px; /* 96% */
+}
+
 
 </style>

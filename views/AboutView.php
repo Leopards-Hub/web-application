@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php include '../root/CSS/about.css.php';?>
+  <?php include '../root/CSS/htmlfont.css.php'; ?>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Yummy Food Restaurant</title>
 </head>
@@ -13,25 +14,31 @@
   <!-- init header -->
   <?php include '../components/header.php'; ?>
   <div class="container-about">
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center margin-center"style="width: 100%;">
+            <div class="col-md-6" id="contact-introduction">
                 <?php include '../components/contact-image.php';
-                generateContactImage($array_contact_image[1]);
+                 generateContactImage($array_contact_image[1]);
                 ?>
             </div>
-            <div class="col-6">
-            <?php include '../components/title.php';
-                 createTitle("We provide healthy food for your family.","Our story began with a vision to create a unique dining experience that merges fine dining, exceptional service, and a vibrant ambiance. Rooted in city's rich culinary 
-                 culture, we aim to honor our local roots while infusing a global palate.","At place, we believe that dining is not just about food, but also about the overall experience. Our staff, renowned for their warmth and dedication, 
-                 strives to make every visit an unforgettable event.",'content-title-h2','content-title-p1','content-title-p2','content-title')
+            <div class="col-md-6" id="text-introduction">
+                <?php include '../components/title.php';
+                createTitle("We provide healthy food for your family.","Our story began with a vision to create a unique dining experience that merges fine dining, exceptional service, and a vibrant ambiance. Rooted in city's rich culinary 
+                culture, we aim to honor our local roots while infusing a global palate.","At place, we believe that dining is not just about food, but also about the overall experience. Our staff, renowned for their warmth and dedication, 
+                strives to make every visit an unforgettable event.",'content-title-h2','content-title-p1','content-title-p2','content-title')
                 ?>
             </div>
         </div>
     </div>
     <div class="video-about">
         <div class="video-container">  
-        <iframe src="https://www.youtube.com/embed/4DoyfMEc4cc?si=Y_xGQuU054mSKixl" frameborder="0" allowfullscreen></iframe>
+        <video autoplay loop muted>
+        <source src="../root/assets/images-about/video-introduction.mp4" type="video/mp4">
+        </video>
+        <div class="text-overlay">
+        <h2>Feel the authentic & original taste from us</h2>
+         </div>
+
         </div>
         <div class="item-about">
            <div class="item">
@@ -90,7 +97,7 @@
                 <?php include_once '../components/title.php';
                 createTitle("A little information for our valuable guest","At place, we believe that dining is not just about food, but also about the overall experience. Our staff, renowned for
                  their warmth and dedication, strives to make every visit an 
-                 unforgettable event.","","content-title-h2","content-title-p1",)
+                 unforgettable event.","","content-title-h2-about","content-title-p1",)
                 ?>
                 <div class="card-number">
                     <div class="sum-card">
@@ -119,7 +126,7 @@
             <img src="https://studiovietnam.com/wp-content/uploads/2022/03/hinh-anh-ve-do-an-20.jpg">
             </div>
     </div>
-    <div class="container-fluid bg-white pb-5" id="bg">
+    <div class="container-fluid bg-white pb-5" id="comment-about">
             <?php include '../components/comment.php'; ?>
         </div>
   </div>
