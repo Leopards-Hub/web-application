@@ -6,6 +6,7 @@
     <title>Our Blog</title>
     <?php
         include '../components/linkbootstrap5.php';
+        include '../root/CSS/blog.css.php';
     ?>
 </head>
 <body>
@@ -15,13 +16,13 @@
         ?>
     </div>
 
-    <div class="container" style="width:100%; display:flex; align-items: center; justify-content: center;">
+    <div class="container blog-title">
         <?php
             include '../components/title.php';
             createTitle($array_title['h1'][3], $array_title['p'][1], '', 'title-h1-blog', 'title-p1');
         ?>
     </div>
-    <div class="container">
+    <div class="container blog-items">
         <div class="row" style="gap: 2em;">
             <?php
                 include '../components/blogger-items.php';
