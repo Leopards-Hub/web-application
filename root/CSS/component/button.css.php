@@ -48,6 +48,10 @@
     .btn-ourmenu-all:hover{
         background-color: white;
         color: #AD343E;
+        width: 125px;
+    }
+    .btn-ourmenu-allmenu{
+        width: 135px;
     }
     .btn-ourmenu{
         display: flex;

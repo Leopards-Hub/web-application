@@ -5,11 +5,11 @@
     align-items: center; /* Căn giữa theo chiều dọc */
     gap: 10px; /* Khoảng cách giữa hai phần tử */
     }   
-    svg{
+    /* svg{
         width: 56px;
         height: 55px;
         flex-shrink: 0;
-    }
+    } */
     .logo-title{
         color: #474747;
         margin: 0; /* Loại bỏ margin mặc định */

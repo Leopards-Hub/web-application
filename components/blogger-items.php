@@ -11,6 +11,7 @@ function createBlogger($params, $class) {
     $label = isset($params['label']) ? $params['label'] : '';
     $p = isset($params['p']) ? $params['p'] : '';
     $infor = isset($params['infor']) ? $params['infor'] : '';
+    
     // Generate HTML code for the card
     $html = '<div class="card '.$class.'">';
     $html .= '<img src="' . $src . '" class="card-img-top" alt="images">';
