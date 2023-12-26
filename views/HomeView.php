@@ -4,24 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include '../root/CSS/home.css.php'; ?>
-    <?php include '../root/CSS/htmlfont.css.php'; ?>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet"> -->
+    <?php include 'root/CSS/home.css.php'; ?>
+    <?php include 'root/CSS/htmlfont.css.php'; ?>
     <title>Yummy Food Restaurant</title>
 </head>
 
 <body>
     <!-- init header -->
-    <?php include '../components/header.php'; ?>
+    <?php include 'components/header.php'; ?>
 
     <div class="container-fluid ">
         <!-- init header - body -->
         <div class="container-fluid " id="hero">
             <?php
-            include '../components/title.php';
+            include 'components/title.php';
             createTitle($array_title['h1'][0], $array_title['p'][0], "", "title-h1", "title-p", "", "hero-title");
             ?>
             <div id="hero-button">
@@ -32,7 +28,7 @@
             </div>
         </div>
         <!-- include section-menu -->
-        <?php include '../components/menu.php'; ?>
+        <?php include 'components/menu.php'; ?>
         <div class="container-fluid bg-white" id="bg">
             <h2>Browse Our Menu</h2>
             <div class="container d-flex flex-row justify-content-between gap-2">
@@ -50,9 +46,9 @@
         </div>
         <div class="container-fluid bg-1" id="bg" style="height: 700px;">
             <div class="container d-md-flex align-items-center pt-5" id="bg-item">
-                <div class="row" style="width: 100%;">
+                <div class="row justify-content-center align-items-center margin-center" style="width: 100%;">
                     <div class="col-md-6">
-                        <?php include '../components/contact-image.php';
+                        <?php include 'components/contact-image.php';
                         generateContactImage($array_contact_image[0]);
                         ?>
                     </div>
@@ -73,7 +69,7 @@
             <div class="container pt-5">
                 <h2 class="title-event-large">We also offer unique services for your events</h2>
                 <div class="container-fluid d-flex flex-row pt-5 pb-5">
-                    <?php include '../components/event.php'; ?>
+                    <?php include 'components/event.php'; ?>
                 </div>
             </div>
         </div>
@@ -127,7 +123,7 @@
             </div>
         </div>
         <div class="container-fluid bg-white pb-5" id="bg">
-            <?php include '../components/comment.php'; ?>
+            <?php include 'components/comment.php'; ?>
         </div>
         <div class="container-fluid bg-1 p-5">
             <div class="container d-flex flex-row justify-content-between pb-5">
@@ -136,7 +132,7 @@
 
             </div>
             <div class="container pb-5">
-                <?php include '../components/blogger-items.php'; ?>
+                <?php include 'components/blogger-items.php'; ?>
                 <div class="row">
                     <div class="col-md-6">
                         <?php createBlogger($params[4], $class); ?>
@@ -167,8 +163,7 @@
     </div>
 
     <!-- init footer -->
-    <?php
-    include '../components/footer.php'; ?>
+    <?php include 'components/footer.php'; ?>
 </body>
 
 </html>

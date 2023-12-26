@@ -14,6 +14,7 @@
     font-size: 100px;
     font-weight: 400;
     line-height: 96px; /* 96% */
+    
 }
 .title-h1-blog{
     width: 100%;
@@ -24,18 +25,19 @@
     line-height: 96px; /* 96% */
 }
 .title-p{
-    width: 537px;
+    width: 600px;
     /* Body/20px/Regular */
     font-family: DM Sans;
     font-size: 20px;
     font-weight: 400;
     line-height: 32px; /* 160% */
+    padding-top: 12px;
 }
 .content-title{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 40px;
+    /* gap: 40px; */
     text-align: left;
 }
 .content-title-h2{
@@ -47,6 +49,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 60.5px; /* 110% */
+    padding-top: 12px;
 }
 .content-title-p1{
     width: 350px;
@@ -60,7 +63,7 @@
     margin-top:1em;
 }
 .content-title-p2{
-    width: 500px;
+    width: 600px;
     color: var(--Neutral-06, #414536);
     /* Body/16px/Regular */
     font-family: DM Sans;
@@ -68,6 +71,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 150% */
+    padding-top: 12px;
 }
 .content-title-h2-about{
     width: 550px;

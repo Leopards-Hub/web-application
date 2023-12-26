@@ -1,5 +1,5 @@
 <?php 
-  include("../root/CSS/component/sponsors.css.php");
+  include("root/CSS/component/sponsors.css.php");
 ?>
 <?php
     $arraySponsors=array(

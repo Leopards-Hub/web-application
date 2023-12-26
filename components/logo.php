@@ -1,4 +1,4 @@
-<?php include '../root/CSS/component/logo.css.php'; ?>
+<?php include 'root/CSS/component/logo.css.php'; ?>
 
 
 <?php

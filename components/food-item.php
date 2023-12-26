@@ -1,6 +1,6 @@
 <?php
     // include 'linkbootstrap5.php';
-    include '../root/CSS/component/food-item.css.php';
+    include 'root/CSS/component/food-item.css.php';
 ?>
 <?php
 

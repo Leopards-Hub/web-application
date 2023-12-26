@@ -1,19 +1,20 @@
 <?php
-    include '../root/CSS/component/header-navbar.css.php';
+    include 'root/CSS/component/header-navbar.css.php';
     $array_navbar_1 = [
-        ["label" => "Home", "url" => ""],
-        ["label" => "About", "url" => ""],
-        ["label" => "Menu", "url" => ""],
-        ["label" => "Pages", "url" => ""],
-        ["label" => "Contact", "url" => ""],
+        ["label" => "Home", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/homecontroller"],
+        ["label" => "About", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/aboutcontroller"],
+        ["label" => "Menu", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/menucontroller"],
+        ["label" => "Book", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/booktablecontroller"],
+        ["label" => "Pages", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/blogcontroller"],
+        ["label" => "Contact", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/contactcontroller"],
     ];
     $array_navbar_2 = [
-        ["label" => "Home", "url" => ""],
+        ["label" => "Home", "url" =>  URL_ROOT . URL_SUBFLODER. "/controllers/homecontroller"],
         ["label" => "About", "url" => ""],
         ["label" => "Menu", "url" => ""],
         ["label" => "Pricing", "url" => ""],
         ["label" => "Blog", "url" => ""],
-        ["label" => "Contact", "url" => ""],
+        ["label" => "Contact", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/contactcontroller"],
         ["label" => "Delivery", "url" => ""]
     ];
     $array_navbar_3 = [

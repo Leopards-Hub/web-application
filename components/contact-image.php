@@ -1,8 +1,8 @@
 <?php
-include '../root/CSS/component/contact-image.css.php';
+include 'root/CSS/component/contact-image.css.php';
 $array_contact_image = [
-    ['src' => '../root/assets/homepage-image/contact-image1.png', 'alt' => 'Image'],
-    ['src' => '../root/assets/homepage-image/contact-image2.png', 'alt' => 'Image'],
+    ['src' => URL_ROOT . URL_SUBFLODER .'/root/assets/homepage-image/contact-image1.png', 'alt' => 'Image'],
+    ['src' => URL_ROOT . URL_SUBFLODER .'/root/assets/homepage-image/contact-image2.png', 'alt' => 'Image'],
 ];
 function generateContactImage($image)
 {

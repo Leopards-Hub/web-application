@@ -1,5 +1,5 @@
 <?php
-  include '../root/CSS/component/event.css.php';
+  include 'root/CSS/component/event.css.php';
 $array_event = array(
     'image-event' => array(
         "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSfxfaqudBsnvRtFB1UsqkK182uJRpkVSoQmox2Bu5A9EbqWqzB",

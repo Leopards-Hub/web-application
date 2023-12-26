@@ -1,8 +1,8 @@
 <?php 
-    include '../components/button.php';
-    include '../components/header-navbar.php';
-    include '../root/CSS/component/header-navbar.css.php';
-    include '../components/logo.php';
+    include 'components/button.php';
+    include 'components/header-navbar.php';
+    include 'root/CSS/component/header-navbar.css.php';
+    include 'components/logo.php';
 ?>
 
 <div class="header-navbarcontainer" >
