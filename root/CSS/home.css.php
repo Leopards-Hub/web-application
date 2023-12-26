@@ -17,7 +17,7 @@
     #hero {
         width: 100%;
         height: 800px;
-        background: url('../root/assets/homepage-image/bacground-homepage.png') center/cover no-repeat; 
+        background: url(<?=URL_ROOT . URL_SUBFLODER .'/root/assets/homepage-image/bacground-homepage.png';?>) center/cover no-repeat; 
         margin: 10px 0 50px 0;
         display: flex;
         flex-direction: column;
@@ -38,7 +38,7 @@
         height: 600px;
         flex-shrink: 0;
         border-radius: 12px;
-        background-image: url('../../root/assets/homepage-image/chef-left.png'), linear-gradient(lightgray, lightgray);
+        background-image: url(<?=URL_ROOT . URL_SUBFLODER .'/root/assets/homepage-image/chef-left.png';?>), linear-gradient(lightgray, lightgray);
         background-position: center, 50% 50%;
         background-size: cover, auto; /* Set the size as needed */
         background-repeat: no-repeat;
@@ -47,7 +47,7 @@
         height: 333px;
         flex-shrink: 0;
         border-radius: 12px;
-        background: url('../../root/assets/homepage-image/soup-top-right.png'), linear-gradient(lightgray, lightgray);
+        background: url(<?=URL_ROOT . URL_SUBFLODER .'/root/assets/homepage-image/soup-top-right.png';?>), linear-gradient(lightgray, lightgray);
         background-position: center, 50% 50%;
         background-size: cover, auto; /* Set the size as needed */
         background-repeat: no-repeat;
@@ -56,7 +56,7 @@
         height: 240px;
         flex-shrink: 0;
         border-radius: 12px;
-        background: url('../../root/assets/homepage-image/grill-bottom-right.png'), linear-gradient(lightgray, lightgray);
+        background: url(<?=URL_ROOT . URL_SUBFLODER .'/root/assets/homepage-image/grill-bottom-right.png';?>), linear-gradient(lightgray, lightgray);
         background-position: center, 50% 50%;
         background-size: cover, auto; /* Set the size as needed */
         background-repeat: no-repeat;

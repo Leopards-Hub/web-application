@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yummy Restaurant</title>
-</head>
-<body>
-    <?php include_once './models/home.model.php'; ?>
-</body>
-</html>
+<?php 
+session_start();
+require_once './configs/app.php';
+require_once './bootstrap..php';
+$app = new App();
+?>

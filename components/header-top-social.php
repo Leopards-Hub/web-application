@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
-        include '../root/CSS/component/header-top-social.css.php';
+        include 'root/CSS/component/header-top-social.css.php';
 
     function generateSocial($color){
         echo "<div class='header-top-right'>

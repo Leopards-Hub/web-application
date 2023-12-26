@@ -14,7 +14,7 @@
     }
     form{
         position: absolute;
-        top: 45%;
+        top: 48%;
         right: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -49,10 +49,10 @@
     }
     #contact-us{
         width: 800px;
-        height: 580px;
+        height: 200px;
         position: absolute;
-        top: 100%;
-        left: 50%;
+        top: 85%;
+        left: 52%;
         transform: translate(-50%, -50%);
     }
     #btn-btn-id-send:hover{

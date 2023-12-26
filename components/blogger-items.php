@@ -1,6 +1,6 @@
 <?php
     // include 'linkbootstrap5.php';
-    include '../root/CSS/component/blogger-items.css.php';
+    include 'root/CSS/component/blogger-items.css.php';
 ?>
 
 <?php
@@ -32,23 +32,23 @@ $class = 'card-larger';
 
 // Example usage
 $params = array(
-    ['src'   => '../root/assets/images-blogger/photo-bg1.png',
+    ['src'   => URL_ROOT . URL_SUBFLODER .'/root/assets/images-blogger/photo-bg1.png',
     'label' => 'January 12, 2023',
     'p'     => 'How to prepare the perfect french fries in an air frye'
     ],
-    ['src'   => '../root/assets/images-blogger/photo-bg2.png',
+    ['src'   => URL_ROOT . URL_SUBFLODER .'/root/assets/images-blogger/photo-bg2.png',
     'label' => 'January 12, 2023',
     'p'     => 'How to prepare delicious chicken tenders'
     ],
-    ['src'   => '../root/assets/images-blogger/photo-bg3.png',
+    ['src'   => URL_ROOT . URL_SUBFLODER .'/root/assets/images-blogger/photo-bg3.png',
     'label' => 'January 12, 2023',
     'p'     => '7 delicious cheesecake recipes you can prepare'
     ],
-    ['src'   => '../root/assets/images-blogger/photo-bg4.png',
+    ['src'   => URL_ROOT . URL_SUBFLODER .'/root/assets/images-blogger/photo-bg4.png',
     'label' => 'January 12, 2023',
     'p'     => '5 great pizza restaurants you should visit this city'
     ],
-    ['src'   => '../root/assets/images-blogger/photo-biggest.png',
+    ['src'   => URL_ROOT . URL_SUBFLODER .'/root/assets/images-blogger/photo-biggest.png',
     'label' => 'January 12, 2023',
     'p'     => 'The secret tips & tricks to prepare a perfect burger & pizza for our customers',
     'infor' => 'Lorem ipsum dolor sit amet consectetur of a adipiscing elitilmim semper adipiscing massa gravida nisi cras enim quis nibholm varius amet gravida ut facilisis neque egestas.'

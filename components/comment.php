@@ -1,5 +1,5 @@
 <?php
-include '../root/CSS/component/comment.css.php';
+include 'root/CSS/component/comment.css.php';
 
 $array_menu = array(
     'profile' => array(

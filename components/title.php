@@ -1,5 +1,5 @@
 <?php
-include '../root/CSS/component/title.css.php';
+include 'root/CSS/component/title.css.php';
 $array_title = array(
     'h1' => array(
         "Best food for your taste",
@@ -19,7 +19,7 @@ $array_title = array(
 function createTitle($h1Content, $pContent1, $pContent2, $h1Class = '', $p1Class = '', $p2Class = '', $additionalClass = '')
 {
     echo "
-        <div class='$additionalClass'>
+        <div class='$additionalClass title'>
             <h1 class='$h1Class'>$h1Content</h1>
             <p class='$p1Class'>$pContent1</p>
             <p class='$p2Class'>$pContent2</p>

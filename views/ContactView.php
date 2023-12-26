@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include '../root/CSS/contact.css.php'; ?>
+    <?php include 'root/CSS/contact.css.php'; ?>
+    <?php include 'root/CSS/htmlfont.css.php'; ?>
     <title>Yummy Food Restaurant</title>
 </head>
 <body>
     <!-- init header -->
-    <?php include '../components/header.php'; ?>
+    <?php include 'components/header.php'; ?>
     <div class="container-fluid" id="container-fluid">
         <div class="container-fluid bg-1 p-5" id="bg">
-            <?php include '../components/title.php';
+            <?php include 'components/title.php';
             createTitle($array_title['h1'][4], $array_title['p'][4], "", "title-h1", "title-p", "", "hero-title"); ?>
         </div>
         <div class="container-fluid bg-white p-5" id="bg">
@@ -43,7 +44,7 @@
             </form>
         </div>
         <div class="container" id="contact-us" >
-        <?php include '../components/contact-us.php' ; ?>
+        <?php include 'components/contact-us.php' ; ?>
             <div class="row d-flex flex-row">
                 <div class="col-4"><?php generateContactUs($array_contact_us['label'][0],$array_contact_us['content'][0],"custom-class");?></div>
                 <div class="col-4"><?php generateContactUs($array_contact_us['label'][1],$array_contact_us['content'][1],"hour-location");?></div>
@@ -54,7 +55,7 @@
         </div>
     </div>
     <!-- init footer -->
-    <?php include '../components/footer.php'; ?>
+    <?php include 'components/footer.php'; ?>
 </body>
 
 </html>

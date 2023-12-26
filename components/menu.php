@@ -1,5 +1,5 @@
 <?php
-include '../root/CSS/component/menu.css.php';
+include 'root/CSS/component/menu.css.php';
 // include '../components/button.php';
 
 
