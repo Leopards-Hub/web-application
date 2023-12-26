@@ -58,4 +58,11 @@ $params = array(
 // Call the function, and it will automatically echo the result
 // createBlogger($params[4],$class);
 
+function createBlog( $params ) {
+    $i =0;
+    while($i <count($params)-1) {
+        createBlogger($params[$i],"card-blog");
+        $i ++;
+    }
+}
 ?>

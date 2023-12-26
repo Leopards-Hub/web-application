@@ -3,8 +3,20 @@
     
     height: auto;
 }
-    .card {
+    
+    .card-img-top{
         width: 100%;
+        
+        margin: 0;
+        box-shadow: none;
+    }
+    .card {
+        padding: 0;
+        width: 100%;
+        border-radius: 12px;
+    }
+    .card-blog{
+        width: 18rem;
     }
 
     .card-larger{
