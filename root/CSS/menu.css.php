@@ -1,8 +1,10 @@
 <style>
+
     .sp{
         width: 80%;
         height:450px;
         display:flex;
+        
         justify-content: center;
         align-items: center;
         gap: 122px;
@@ -10,9 +12,10 @@
     }
 
     .sp .row {
-        display: inline-flex;
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
     }
+
 </style>

@@ -1,6 +1,8 @@
 <style>
     .sponsors-first{
         
+        /* width: 100px;
+        height: auto; */
     }
     .sponsors-second{
         
@@ -15,4 +17,5 @@
         align-items: center;
         justify-content: center;
     }   
+
 </style>
