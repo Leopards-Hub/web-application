@@ -49,6 +49,17 @@
     text-align: left;
 }
 .content-title-h2{
+    width: 600px;
+    color: var(--Neutral-07, #2C2F24);
+    /* Headline/H2 */
+    font-family: Playfair Display;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 60.5px; /* 110% */
+    padding-top: 12px;
+}
+.content-title-h2-menu{
     width: 400px;
     color: var(--Neutral-07, #2C2F24);
     /* Headline/H2 */
@@ -60,6 +71,17 @@
     padding-top: 12px;
 }
 .content-title-p1{
+    width: 600px;
+    color: var(--Neutral-07, #2C2F24);
+    /* Body/18px/Medium */
+    font-family: DM Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 155.556% */
+    
+}
+.content-title-p1-menu{
     width: 350px;
     color: var(--Neutral-07, #2C2F24);
     /* Body/18px/Medium */

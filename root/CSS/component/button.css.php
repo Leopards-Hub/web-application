@@ -51,7 +51,7 @@
         width: 125px;
     }
     .btn-ourmenu-allmenu{
-        width: 135px;
+        width: 145px;
     }
     .btn-ourmenu{
         display: flex;

@@ -26,6 +26,7 @@
     }
 
     .footer-pages{
+        
         gap: 80px;
     }
     .logo{
@@ -33,14 +34,17 @@
     }
     
     .footer-pages-title1{
+        color: #ffffff;
         margin-bottom: 40px;
-        margin-left: -15px;
+        margin-left: -18px;
     }
     .footer-pages-title2{
+        color: #ffffff;
         margin-bottom: 40px;
-        margin-left: 8px;
+        margin-left: 2px;
     }
     .footer-pages-title3{
+        color: #ffffff;
         margin-bottom: 40px;
     }
     

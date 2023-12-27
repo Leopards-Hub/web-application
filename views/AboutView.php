@@ -20,7 +20,7 @@
                 <div class="row justify-content-center align-items-center margin-center" style="width: 100%;">
                     <div class="col-6" id="">
                         <?php include 'components/contact-image.php';
-                        generateContactImage($array_contact_image[1]);
+                            generateContactImage($array_contact_image[1]);
                         ?>
                     </div>
                     <div class="col-6" id="">

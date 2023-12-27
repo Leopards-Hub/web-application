@@ -49,6 +49,8 @@
         color: #ff0000; /* Màu chữ khi di chuột qua mỗi mục (tùy chọn) */
     }
     .menu2{
+        
+        width: 400px;
         display: flex;
         flex-direction: column;
         gap: 20px;

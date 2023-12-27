@@ -26,7 +26,12 @@
             include_once 'components/button.php';
             $arrayButton = ["All", "Breakfast", "Main Dishes", "Drinks", "Desserts"];
             foreach ($arrayButton as $key) {
-                createButton($key, "btn-id", "btn active btn-ourmenu-allmenu");
+                if($key === "All") {
+                    createButton($key, "btn-id", "btn active btn-ourmenu-allmenu");
+                }
+                else{
+                    createButton($key, "btn-id", "btn btn-ourmenu-allmenu");
+                }
             }
             ?>
         </div>
@@ -52,7 +57,7 @@
                 <div class="col-4" style="padding: 105px 95px 95px 85px;">                    
                     <?php
                     createTitle("You can order through apps", "Lorem ipsum dolor sit amet consectetur 
-                            adipiscing elit enim bibendum sed et aliquet aliquet risus tempor semper.", '', 'content-title-h2', 'content-title-p1');
+                            adipiscing elit enim bibendum sed et aliquet aliquet risus tempor semper.", '', 'content-title-h2-menu', 'content-title-p1-menu');
                     ?>
                 </div>
                 

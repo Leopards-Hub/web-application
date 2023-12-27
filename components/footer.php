@@ -16,7 +16,7 @@
                     
                     <?php createLogo("white","white"); ?>
                     
-                    <p>In the new era of technology we look a in the future with certainty and pride to for our company and.</p>
+                    <p style="color: #ffffff !important;">In the new era of technology we look a in the future with certainty and pride to for our company and.</p>
                     
                     <?php generateSocial("bg-danger");?>
                     
@@ -27,7 +27,7 @@
                             <p class="footer-pages-title1"><strong>Pages</strong></p>
                             <?php generateNavbar($array_navbar_2,"menu2") ?>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6" style="padding: 0;">
                             <p class="footer-pages-title2"><strong>Utility Pages</strong></p>
                             <?php generateNavbar($array_navbar_3,"menu2") ?>
                         </div>
