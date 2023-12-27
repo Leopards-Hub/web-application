@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include 'root/CSS/home.css.php'; ?>
     <?php include 'root/CSS/htmlfont.css.php'; ?>
+    <?php include_once 'components/linkbootstrap5.php';?>
     <title>Yummy Food Restaurant</title>
 </head>
 
@@ -22,8 +23,8 @@
             ?>
             <div id="hero-button">
                 <?php
-                createButton($array_button[0], "btn-book-tb", "btn-primary");
-                createButton($array_button[1], "btn-explore", "btn-second");
+                createButton($array_button[0], "book-tb", "btn-primary");
+                createButton($array_button[1], "explore", "btn-second");
                 ?>
             </div>
         </div>
