@@ -24,7 +24,7 @@
         <div class="container-fluid bg-2 p-5 bg-white " id="bg-2" >
         </div>
         <div class="container">
-            <form action="" method="" >
+            <form action="" method="post" >
                 <div class="row">
                     <label for="name" class="col-form-label custom-label">Username</label>
                     <input type="text" class="form-control rounded-pill" name="username" id="name" placeholder="Enter the username">

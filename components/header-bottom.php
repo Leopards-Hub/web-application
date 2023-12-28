@@ -13,8 +13,14 @@
 
             generateNavbar($array_navbar_1,"");
 
-            createButton($array_button[0],"set-table","");
+            createButton("Login","login","");
         ?>
     </div>
 
 </div>
+<script>
+    const btn_login =document.getElementById("btn-login");
+    btn_login.addEventListener('click',() =>{
+        window.location.href = "logincontroller";
+    })
+</script>
