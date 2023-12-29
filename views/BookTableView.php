@@ -25,25 +25,25 @@
          <img src="../root/assets/images-table/map.png" alt="Bottom Image" class="full-width-image" id="container-map" >
         </div>
         <div class="container" >
-            <form>
+            <form action="" method="get" >
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="date">Date</label>
-                        <input type="date" class="form-control" id="date">
+                        <input type="date" name="date" class="form-control" id="date">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="time">Time</label>
-                        <input type="time" class="form-control" id="time">
+                        <input type="time" name="time" class="form-control" id="time">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="fullName">Full Name</label>
-                        <input type="text" class="form-control" value="" id="fullName" placeholder="Enter your name" >
+                        <input type="text" name="fullname" class="form-control" value="" id="fullName" placeholder="Enter your name" >
                     </div>
                     <div class="form-group col-md-6">
                         <label for="phone">Phone</label>
-                        <input type="tel" class="form-control" value="" id="phone" placeholder="x-xxx-xxx-xxxx" >
+                        <input type="tel" name="phone" class="form-control" value="" id="phone" placeholder="x-xxx-xxx-xxxx" >
                     </div>
                 </div>
                 <div class="form-group pb-4">
