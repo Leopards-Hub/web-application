@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include 'root/CSS/htmlfont.css.php'; ?>
-    <title>Menu</title>
+    <title>Yummy Food Restaurant</title>
     <?php
     include_once 'components/linkbootstrap5.php';
 
