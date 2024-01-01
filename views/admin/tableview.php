@@ -237,6 +237,7 @@
             <!-- partial -->
             <div class="main-panel">
             <div class="content-wrapper">
+
             <a class='btn btn-danger' id="addNewButton" href="#" data-toggle="modal" data-target="#addNewModal">Add new</a>
   <table class="table">
     <thead>
@@ -264,6 +265,7 @@
     </tbody>
   </table>
 </div>
+
 <!-- Add New Modal -->
 <div class="modal" id="addNewModal">
   <div class="modal-dialog">
