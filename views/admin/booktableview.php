@@ -306,7 +306,11 @@
       <div class="modal-body" id="editModalBody">
         <form id="editForm" action="../../controllers/admin/booktablecontroller.php" method="POST">
           <input type="hidden" name="action" value="edit">
-          <input type="hidden" name="Book_id" id="editBookId" value="">
+         
+          <div class="form-group">
+          <label for="editBookId">ID:</label>
+          <input type="number"  class="form-control" name="Book_id" id="editBookId" readonly value="">
+          </div>
           <div class="form-group">
             <label for="editUserId">User ID:</label>
             <input type="text" class="form-control" id="editUserId" name="User_id">

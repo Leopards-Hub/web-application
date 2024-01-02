@@ -309,7 +309,10 @@
         <!-- Thêm action và method vào form -->
         <form action="../../controllers/admin/tablecontroller.php" method="POST">
           <input type="hidden" name="action" value="edit"> <!-- Thêm action để phân biệt hành động là edit -->
-          <input type="hidden" name="table_id" id="editTableId" value="">
+          <div class="form-group">
+          <label for="editTableId">ID:</label>
+          <input type="number"  class="form-control" name="table_id" id="editTableId" readonly value="">
+          </div>
           <div class="form-group">
             <label for="editTableName">Table Name:</label>
             <input type="text" class="form-control" id="editTableName" name="Tablename">
