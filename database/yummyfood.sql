@@ -1,10 +1,10 @@
-create database yummyfood;
-go
+-- create database yummyfood;
+-- go
 use yummyfood;
-go
+-- go
 
 -- Create the User table
-CREATE TABLE IF NOT EXISTS User (
+CREATE TABLE IF NOT EXISTS Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     Username VARCHAR(255) NOT NULL,
     Password VARCHAR(255) NOT NULL,
