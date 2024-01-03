@@ -177,13 +177,13 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" 
-                                        href="../controllers/admin/tablecontroller.php">Table</a></li>
+                                        href="../admin/tablecontroller.php">Table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="">Orders</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="">Dish</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="../../controllers/admin/booktablecontroller.php">Book table</a></li>
+                                        href="../admin/booktablecontroller.php">Book table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"

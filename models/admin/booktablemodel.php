@@ -65,4 +65,14 @@ function deleteBookTable($Book_id): bool
     }
 }
 
+function getAllIds($table, $id): array
+{
+    global $db;
+    $statement = $db->prepare("SELECT $id FROM  `$table`");
+    $statement->execute();
+    $result = $statement->fetchAll(PDO::FETCH_COLUMN);
+    return $result;
+}
+
+
 ?>

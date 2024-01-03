@@ -177,13 +177,13 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" 
-                                        href="../controllers/admin/tablecontroller.php">Table</a></li>
+                                        href="../admin/tablecontroller.php">Table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="">Orders</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="">Dish</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="../../controllers/admin/booktablecontroller.php">Book table</a></li>
+                                        href="../admin/booktablecontroller.php">Book table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"
@@ -278,11 +278,23 @@
           <input type="hidden" name="action" value="create">
           <div class="form-group">
             <label for="User_id">User ID:</label>
-            <input type="text" class="form-control" id="User_id" name="User_id">
+            <select type="" class="form-control" id="User_id" name="User_id">
+            <?php $arr = getAllIds('User','user_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
           </div>
           <div class="form-group">
             <label for="Table_id">Table ID:</label>
-            <input type="text" class="form-control" id="Table_id" name="Table_id">
+            <select type="" class="form-control" id="Table_id" name="Table_id">
+            <?php $arr = getAllIds('Table','table_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
           </div>
           <div class="form-group">
             <label for="time">Time:</label>
@@ -313,11 +325,23 @@
           </div>
           <div class="form-group">
             <label for="editUserId">User ID:</label>
-            <input type="text" class="form-control" id="editUserId" name="User_id">
+            <select type="" class="form-control" id="editUserId" name="User_id">
+            <?php $arr = getAllIds('User','user_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
           </div>
           <div class="form-group">
             <label for="editTableId">Table ID:</label>
-            <input type="text" class="form-control" id="editTableId" name="Table_id">
+            <select type="" class="form-control" id="editTableId" name="Table_id">
+            <?php $arr = getAllIds('Table','table_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
           </div>
           <div class="form-group">
             <label for="editTime">Time:</label>
