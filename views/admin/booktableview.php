@@ -237,28 +237,27 @@
             <!-- partial -->
             <div class="main-panel">
             <div class="content-wrapper">
-
-            <a class='btn btn-danger' id="addNewButton" href="#" data-toggle="modal" data-target="#addNewModal">Add new</a>
+  <a class='btn btn-danger' id="addNewButton" href="#" data-toggle="modal" data-target="#addNewModal">Add new</a>
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>NUMBER OF CHAIR</th>
-        <th>STATUS</th>
+      <th>Book_id</th>
+        <th>User_id</th>
+        <th>Table_id</th>
+        <th>Time</th>
         <th>ACTIONS</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach ($posts as $post): ?>
         <tr>
-          <td><?php echo $post['table_id']; ?></td>
-          <td><?php echo $post['Tablename']; ?></td>
-          <td><?php echo $post['numberchair']; ?></td>
-          <td><?php echo $post['status']; ?></td>
+        <td><?php echo $post['Book_id']; ?></td>
+          <td><?php echo $post['User_id']; ?></td>
+          <td><?php echo $post['Table_id']; ?></td>
+          <td><?php echo $post['time']; ?></td>
           <td>
-            <a class='btn btn-danger' onclick="openDeleteModal(<?php echo $post['table_id']; ?>)">Delete</a> 
-            <a class='btn btn-success' onclick="openEditModal(<?php echo $post['table_id']; ?>, '<?php echo $post['Tablename']; ?>', <?php echo $post['numberchair']; ?>, '<?php echo $post['status']; ?>')">Edit</a>
+            <a class='btn btn-danger' onclick="openDeleteModal(<?php echo $post['Book_id']; ?>)">Delete</a> 
+            <a class='btn btn-success' onclick="openEditModal( <?php echo $post['Book_id']; ?>, <?php echo $post['User_id']; ?>, <?php echo $post['Table_id']; ?>, '<?php echo $post['time']; ?>')">Edit</a>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -275,20 +274,31 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeAddNewModal()">&times;</button>
       </div>
       <div class="modal-body">
-        <form id="addNewForm" method="POST" action="../../controllers/admin/tablecontroller.php">
-          <!-- Thêm trường ẩn để xác định hành động -->
+        <form id="addNewForm" method="POST" action="../../controllers/admin/booktablecontroller.php">
           <input type="hidden" name="action" value="create">
           <div class="form-group">
-            <label for="Tablename">Table Name:</label>
-            <input type="text" class="form-control" id="Tablename" name="Tablename">
+            <label for="User_id">User ID:</label>
+            <select type="" class="form-control" id="User_id" name="User_id">
+            <?php $arr = getAllIds('User','user_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
           </div>
           <div class="form-group">
-            <label for="numberchair">Number of Chairs:</label>
-            <input type="text" class="form-control" id="numberchair" name="numberchair">
+            <label for="Table_id">Table ID:</label>
+            <select type="" class="form-control" id="Table_id" name="Table_id">
+            <?php $arr = getAllIds('Table','table_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
           </div>
           <div class="form-group">
-            <label for="status">Status:</label>
-            <input type="text" class="form-control" id="status" name="status">
+            <label for="time">Time:</label>
+            <input type="datetime-local" class="form-control" id="time" name="time">
           </div>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddNewModal()">Close</button>
           <button type="submit" form="addNewForm" class="btn btn-primary">Save</button>
@@ -306,29 +316,40 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeEditModal()">&times;</button>
       </div>
       <div class="modal-body" id="editModalBody">
-        <!-- Thêm action và method vào form -->
-        <form action="../../controllers/admin/tablecontroller.php" method="POST">
-          <input type="hidden" name="action" value="edit"> <!-- Thêm action để phân biệt hành động là edit -->
+        <form id="editForm" action="../../controllers/admin/booktablecontroller.php" method="POST">
+          <input type="hidden" name="action" value="edit">
+         
           <div class="form-group">
-          <label for="editTableId">ID:</label>
-          <input type="number"  class="form-control" name="table_id" id="editTableId" readonly value="">
+          <label for="editBookId">ID:</label>
+          <input type="number"  class="form-control" name="Book_id" id="editBookId" readonly value="">
           </div>
           <div class="form-group">
-            <label for="editTableName">Table Name:</label>
-            <input type="text" class="form-control" id="editTableName" name="Tablename">
+            <label for="editUserId">User ID:</label>
+            <select type="" class="form-control" id="editUserId" name="User_id">
+            <?php $arr = getAllIds('User','user_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
           </div>
           <div class="form-group">
-            <label for="editNumberOfChairs">Number of Chairs:</label>
-            <input type="text" class="form-control" id="editNumberOfChairs" name="numberchair">
+            <label for="editTableId">Table ID:</label>
+            <select type="" class="form-control" id="editTableId" name="Table_id">
+            <?php $arr = getAllIds('Table','table_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
           </div>
           <div class="form-group">
-            <label for="editStatus">Status:</label>
-            <input type="text" class="form-control" id="editStatus" name="status">
+            <label for="editTime">Time:</label>
+            <input type="datetime-local" class="form-control" id="editTime" name="time">
           </div>
-          <!-- Add other fields as needed -->
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeEditModal()">Close</button>
-            <button type="submit" class="btn btn-success">Save Changes</button>
+            <button type="button" class="btn btn-success" onclick="submitEditForm()">Save Changes</button>
           </div>
         </form>
       </div>
@@ -346,10 +367,9 @@
       </div>
       <div class="modal-body" id="deleteModalBody">
         <p>Are you sure you want to delete this item?</p>
-        <form id="deleteForm" method="POST" action="../../controllers/admin/tablecontroller.php">
-          <!-- Thêm trường ẩn để xác định hành động -->
+        <form id="deleteForm" method="POST" action="../../controllers/admin/booktablecontroller.php">
           <input type="hidden" name="action" value="delete">
-          <input type="hidden" name="table_id" id="deleteTableId" value="">
+          <input type="hidden" name="Book_id" id="deleteBookId" value="">
         </form>
       </div>
       <div class="modal-footer">
@@ -361,59 +381,46 @@
 </div>
 
 <script>
- // Function to open the Edit Modal
- function openEditModal(tableId, tableName, numberOfChairs, status) {
-    $('#editTableName').val(tableName);
-    $('#editNumberOfChairs').val(numberOfChairs);
-    $('#editStatus').val(status);
+  function openEditModal(Book_id,userId, tableId, time) {
+    $('#editBookId').val(Book_id);
+    $('#editUserId').val(userId);
+    $('#editTableId').val(tableId);
+    $('#editTime').val(time);
     $('#editModal').modal('show');
   }
 
-  // Function to close the Edit Modal
   function closeEditModal() {
     $('#editModal').modal('hide');
   }
 
-  // Function to open the Delete Modal
-  function openDeleteModal(tableId) {
-    // Đặt giá trị cho trường ẩn trong form
-    $('#deleteTableId').val(tableId);
+  
+
+  function submitEditForm() {
+    $('#editForm').submit();
+  }
+
+  function openDeleteModal(Book_id) {
+    $('#deleteBookId').val(Book_id);
     $('#deleteModal').modal('show');
   }
 
-  // Function to close the Delete Modal
   function closeDeleteModal() {
     $('#deleteModal').modal('hide');
   }
 
-  // Function to handle the form submission for deleting an item
   function deleteItem() {
-    // Submit form
     $('#deleteForm').submit();
   }
- // Function to open the Add New Modal
- function openAddNewModal() {
+
+  function openAddNewModal() {
     $('#addNewModal').modal('show');
   }
 
-  // Function to close the Add New Modal
   function closeAddNewModal() {
     $('#addNewModal').modal('hide');
   }
-
-function openEditModal(tableId, tableName, numberOfChairs, status) {
-  $('#editTableId').val(tableId);
-  $('#editTableName').val(tableName);
-  $('#editNumberOfChairs').val(numberOfChairs);
-  $('#editStatus').val(status);
-  $('#editModal').modal('show');
-}
-
-function closeEditModal() {
-  $('#editModal').modal('hide');
-}
-
 </script>
+
 
                 <footer class="footer">
                     <div class="container-fluid d-flex justify-content-center">

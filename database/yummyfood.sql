@@ -1,7 +1,6 @@
-create database yummyfood;
-go
+
 use yummyfood;
-go
+
 
 -- Create the User table
 CREATE TABLE IF NOT EXISTS User (
@@ -18,7 +17,7 @@ CREATE TABLE IF NOT EXISTS User (
 CREATE TABLE IF NOT EXISTS `Table` (
     table_id INT AUTO_INCREMENT PRIMARY KEY,
     Tablename VARCHAR(255) NOT NULL,
-    `Number of chair` INT,
+    numberchair INT,
     status VARCHAR(50)
 );
 
