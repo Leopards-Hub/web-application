@@ -28,12 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 case 'customer':
                     header('Location: /controllers/views/HomeView.php');
                     break;
-                case 'waiter':
-                    header('Location: ../views/adminview.php');
-                    break;
-                case 'chef':
-                    header('Location: ../views/adminview.php');
-                    break;
                 default:
                     header('Location: index.php');
             }
