@@ -25,7 +25,7 @@
     /* Css for second Set A table */
     .btn-primary{
         padding: 20px 32px;
-        background: #AD343E;
+        background-color: #AD343E;
         color: var(--Neutral-01, #FFF);
     }
     

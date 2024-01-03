@@ -1,12 +1,12 @@
 <?php
     include 'root/CSS/component/header-navbar.css.php';
     $array_navbar_1 = [
-        ["label" => "Home", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/homecontroller"],
-        ["label" => "About", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/aboutcontroller"],
-        ["label" => "Menu", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/menucontroller"],
-        ["label" => "Book", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/booktablecontroller"],
-        ["label" => "Pages", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/blogcontroller"],
-        ["label" => "Contact", "url" => URL_ROOT . URL_SUBFLODER. "/controllers/contactcontroller"],
+        ["label" => "Home", "url" => "home"],
+        ["label" => "About", "url" => "about"],
+        ["label" => "Menu", "url" => "menu"],
+        ["label" => "Book", "url" => "booktable"],
+        ["label" => "Pages", "url" => "blog"],
+        ["label" => "Contact", "url" => "contact"],
     ];
     $array_navbar_2 = [
         ["label" => "Home", "url" =>  URL_ROOT . URL_SUBFLODER. "/controllers/homecontroller"],

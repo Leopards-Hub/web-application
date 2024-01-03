@@ -166,5 +166,14 @@
     <!-- init footer -->
     <?php include 'components/footer.php'; ?>
 </body>
-
+<script>
+    const booktable =document.getElementById('btn-book-tb');
+    booktable.addEventListener('click',() => {
+        window.location.href = "booktable";
+    });
+    const btn_explore =document.getElementById("btn-explore");
+    btn_explore.addEventListener('click',() => {
+        window.location.href = "menu";
+    })
+</script>
 </html>
