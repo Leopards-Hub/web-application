@@ -29,42 +29,42 @@
 
     // Example usage
     $Foods = array(
-        ['src'   => '../root/assets/images-food/food1.png',
+        ['src'   => './root/assets/images-food/food1.png',
         'cost' => '$ 9.99',
         'title' => 'Fried Eggs',
         'infor'     => 'How to prepare the perfect french fries in an air frye'
         ],
-        ['src'   => '../root/assets/images-food/food2.png',
+        ['src'   => './root/assets/images-food/food2.png',
         'cost' => '$ 9.99',
         'title' => 'Fried Eggs',
         'infor'     => 'How to prepare delicious chicken tenders'
         ],
-        ['src'   => '../root/assets/images-food/food3.png',
+        ['src'   => './root/assets/images-food/food3.png',
         'cost' => '$ 9.99',
         'title' => 'Fried Eggs',
         'infor'     => '7 delicious cheesecake recipes you can prepare'
         ],
-        ['src'   => '../root/assets/images-food/food4.png',
+        ['src'   => './root/assets/images-food/food4.png',
         'cost' => '$ 9.99',
         'title' => 'Fried Eggs',
         'infor'     => '5 great pizza restaurants you should visit this city'
         ],
-        ['src'   => '../root/assets/images-food/food5.png',
+        ['src'   => './root/assets/images-food/food5.png',
         'cost' => '$ 9.99',
         'title' => 'Fried Eggs',
         'infor'     => '5 great pizza restaurants you should visit this city'
         ],
-        ['src'   => '../root/assets/images-food/food6.png',
+        ['src'   => './root/assets/images-food/food6.png',
         'cost' => '$ 9.99',
         'title' => 'Fried Eggs',
         'infor'     => '5 great pizza restaurants you should visit this city'
         ],
-        ['src'   => '../root/assets/images-food/food7.png',
+        ['src'   => './root/assets/images-food/food7.png',
         'cost' => '$ 9.99',
         'title' => 'Fried Eggs',
         'infor'     => '5 great pizza restaurants you should visit this city'
         ],
-        ['src'   => '../root/assets/images-food/food8.png',
+        ['src'   => './root/assets/images-food/food8.png',
         'cost' => '$ 9.99',
         'title' => 'Fried Eggs',
         'infor'     => '5 great pizza restaurants you should visit this city'

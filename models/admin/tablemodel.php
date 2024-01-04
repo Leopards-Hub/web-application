@@ -1,5 +1,5 @@
 <?php
-require_once "../../database/database.php";
+require_once "database/database.php";
 
 function createTable($Tablename, $numberchair, $status): bool
 {
@@ -9,8 +9,6 @@ function createTable($Tablename, $numberchair, $status): bool
 
     return  $createTable;
 }
-
-
 
 function getTable(int $id): array
 {
@@ -36,7 +34,6 @@ function updateTable($Tablename, $numberchair, $status, $table_id): bool
 
     return $statement->rowCount() > 0; // Trả về true nếu có ít nhất một dòng được ảnh hưởng
 }
-
 
 function deleteTable($table_id): bool
 {

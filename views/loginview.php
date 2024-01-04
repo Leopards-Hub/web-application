@@ -30,9 +30,9 @@
                     <input type="text" class="form-control rounded-pill" name="username" id="name" placeholder="Enter the username">
                 </div>
                 <div class="row">
-                    <label for="password" class="col-form-label custom-label">Password</label>
-                    <input type="password" class="form-control rounded-pill" name="password" id="password" placeholder="Enter the password">
-                </div>
+                    <label for="password" class="col-form-label custom-label">Message</label>
+                    <input type="password" class="form-control rounded-pill" name="password" id="password" placeholder="Enter the password">                </div>
+               
                 <div class="row d-flex flex-column align-items-center justify-content-center pt-4 text-center">
                     <p class="">You don't have an account? <a href="<?php echo URL_ROOT.URL_SUBFLODER;?>registercontroller">Register now</a></p>
                     <input type="submit" value="Login" class="btn active" id="id-login">

@@ -1,5 +1,5 @@
 <?php
-require_once "../../models/admin/tablemodel.php";
+require_once "models/admin/tablemodel.php";
 
 $heading = "Post Page";
 
@@ -34,7 +34,7 @@ function handleCreate() {
         $create = createTable($Tablename, $numberchair, $status);
 
         if ($create) {
-            header("Location: /controllers/admin/tablecontroller.php");
+            header("Location: table");
             echo " created successfully";
         } else {
             echo "Failed to create table";
@@ -54,7 +54,7 @@ function handleEdit() {
         $edit = updateTable($Tablename, $numberchair, $status, $tableId);
 
         if ($edit) {
-            header("Location: /controllers/admin/tablecontroller.php");
+            header("Location: table");
             echo "edited successfully";
         } else {
             echo "Failed to edit table";
@@ -73,7 +73,7 @@ function handleDelete() {
         $delete = deleteTable($table_id);
 
         if ($delete) {
-            header("Location: /controllers/admin/tablecontroller.php");
+            header("Location: table");
             echo "deleted successfully";
         } else {
             echo "Failed to delete table";
@@ -83,5 +83,5 @@ function handleDelete() {
     }
 }
 
-require "../../views/admin/tableview.php";
+require "views/admin/tableview.php";
 ?>
