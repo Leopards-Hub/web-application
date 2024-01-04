@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['username'] = $user['Username'];
         $_SESSION['name'] = $user['Name'];
         $_SESSION['role'] = $user['role'];
-
+        
         header('Location: /');
         exit();
     } else {
@@ -26,5 +26,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-    
 
