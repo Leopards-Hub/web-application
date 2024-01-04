@@ -7,8 +7,10 @@
     <title>YummyFood Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <?php include "components/linkbootstrap5.php"; ?>
-    <link rel="stylesheet" href="./root/CSS/admin/style.css">
-    <link rel="stylesheet" href="./root/CSS/admin/order.css">
+    <link rel="stylesheet" href="../root/CSS/admin/style.css">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 
 </head>
 
@@ -175,17 +177,17 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" 
-                                        href="admin/table">Table</a></li>
+                                        href="table">Table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="admin/order">Orders</a></li>
+                                        href="order">Orders</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="admin/dish">Dish</a></li>
+                                        href="dish">Dish</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="admin/booktable">Book table</a></li>
+                                        href="#">Book table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="admin/user">User</a></li>
+                                        href="user">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="admin/orderdetail">Order detail</a></li>
+                                        href="orderdetail">Order detail</a></li>
                             </ul>
                         </div>
                     </li>
@@ -234,83 +236,192 @@
             </nav>
             <!-- partial -->
             <div class="main-panel">
-                <div class="content-wrapper">
-                    <div class="page-header">
-                        <h3 class="page-title">
-                            <span class="page-title-icon bg-gradient-primary text-white me-2">
-                            </span> Dashboard
-                        </h3>
-                        <nav aria-label="breadcrumb">
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    <span></span>Overview <i
-                                        class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-danger card-img-holder text-white">
-                                <div class="card-body">
-                                    
-                                    <h4 class="font-weight-normal mb-3">Weekly Sales <i
-                                            class="mdi mdi-chart-line mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">$ 15,0000</h2>
-                                    <h6 class="card-text">Increased by 60%</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-info card-img-holder text-white">
-                                <div class="card-body">
-                                    <h4 class="font-weight-normal mb-3">Weekly Orders <i
-                                            class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">45,6334</h2>
-                                    <h6 class="card-text">Decreased by 10%</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-success card-img-holder text-white">
-                                <div class="card-body">
-                                    
-                                    <h4 class="font-weight-normal mb-3">Visitors Online <i
-                                            class="mdi mdi-diamond mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">95,5741</h2>
-                                    <h6 class="card-text">Increased by 5%</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="clearfix">
-                                        <h4 class="card-title float-left">Google Analytics</h4>
-                                        <div id="visit-sale-chart-legend"
-                                            class="rounded-legend legend-horizontal legend-top-right float-right"></div>
-                                    </div>
-                                    <canvas id="visit-sale-chart" class="mt-4"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Traffic Sources</h4>
-                                    <canvas id="traffic-chart"></canvas>
-                                    <div id="traffic-chart-legend"
-                                        class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="content-wrapper">
+  <a class='btn btn-danger' id="addNewButton" href="#" data-toggle="modal" data-target="#addNewModal">Add new</a>
+  <table class="table">
+    <thead>
+      <tr>
+      <th>Book_id</th>
+        <th>User_id</th>
+        <th>Table_id</th>
+        <th>Time</th>
+        <th>ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($posts as $post): ?>
+        <tr>
+        <td><?php echo $post['Book_id']; ?></td>
+          <td><?php echo $post['User_id']; ?></td>
+          <td><?php echo $post['Table_id']; ?></td>
+          <td><?php echo $post['time']; ?></td>
+          <td>
+            <a class='btn btn-danger' onclick="openDeleteModal(<?php echo $post['Book_id']; ?>)">Delete</a> 
+            <a class='btn btn-success' onclick="openEditModal( <?php echo $post['Book_id']; ?>, <?php echo $post['User_id']; ?>, <?php echo $post['Table_id']; ?>, '<?php echo $post['time']; ?>')">Edit</a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
+
+<!-- Add New Modal -->
+<div class="modal" id="addNewModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add New</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeAddNewModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="addNewForm" method="POST" action="../../controllers/admin/booktablecontroller.php">
+          <input type="hidden" name="action" value="create">
+          <div class="form-group">
+            <label for="User_id">User ID:</label>
+            <select type="" class="form-control" id="User_id" name="User_id">
+            <?php $arr = getAllIds('User','user_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="Table_id">Table ID:</label>
+            <select type="" class="form-control" id="Table_id" name="Table_id">
+            <?php $arr = getAllIds('Table','table_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="time">Time:</label>
+            <input type="datetime-local" class="form-control" id="time" name="time">
+          </div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddNewModal()">Close</button>
+          <button type="submit" form="addNewForm" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Edit Modal -->
+<div class="modal" id="editModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeEditModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="editModalBody">
+        <form id="editForm" action="../../controllers/admin/booktablecontroller.php" method="POST">
+          <input type="hidden" name="action" value="edit">
+         
+          <div class="form-group">
+          <label for="editBookId">ID:</label>
+          <input type="number"  class="form-control" name="Book_id" id="editBookId" readonly value="">
+          </div>
+          <div class="form-group">
+            <label for="editUserId">User ID:</label>
+            <select type="" class="form-control" id="editUserId" name="User_id">
+            <?php $arr = getAllIds('User','user_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editTableId">Table ID:</label>
+            <select type="" class="form-control" id="editTableId" name="Table_id">
+            <?php $arr = getAllIds('Table','table_id') ?>
+            <?php foreach($arr as $ar) {
+              echo '<option  value="'.$ar.'">'.$ar.'</option>';
+            }
+            ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editTime">Time:</label>
+            <input type="datetime-local" class="form-control" id="editTime" name="time">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeEditModal()">Close</button>
+            <button type="button" class="btn btn-success" onclick="submitEditForm()">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal" id="deleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Delete</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeDeleteModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="deleteModalBody">
+        <p>Are you sure you want to delete this item?</p>
+        <form id="deleteForm" method="POST" action="../../controllers/admin/booktablecontroller.php">
+          <input type="hidden" name="action" value="delete">
+          <input type="hidden" name="Book_id" id="deleteBookId" value="">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeDeleteModal()">No</button>
+        <button type="button" class="btn btn-danger" onclick="deleteItem()">Yes, Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openEditModal(Book_id,userId, tableId, time) {
+    $('#editBookId').val(Book_id);
+    $('#editUserId').val(userId);
+    $('#editTableId').val(tableId);
+    $('#editTime').val(time);
+    $('#editModal').modal('show');
+  }
+
+  function closeEditModal() {
+    $('#editModal').modal('hide');
+  }
+
+  
+
+  function submitEditForm() {
+    $('#editForm').submit();
+  }
+
+  function openDeleteModal(Book_id) {
+    $('#deleteBookId').val(Book_id);
+    $('#deleteModal').modal('show');
+  }
+
+  function closeDeleteModal() {
+    $('#deleteModal').modal('hide');
+  }
+
+  function deleteItem() {
+    $('#deleteForm').submit();
+  }
+
+  function openAddNewModal() {
+    $('#addNewModal').modal('show');
+  }
+
+  function closeAddNewModal() {
+    $('#addNewModal').modal('hide');
+  }
+</script>
+
+
                 <footer class="footer">
                     <div class="container-fluid d-flex justify-content-center">
                         <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©
@@ -320,6 +431,13 @@
             </div>
         </div>
     </div>
-</body>
 
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  
 </html>
+

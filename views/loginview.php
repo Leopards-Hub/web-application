@@ -22,21 +22,24 @@
         <div class="container-fluid bg-2 p-5 bg-white" id="bg-2">
         </div>
         <div class="container">
-                <form action="../controllers/logincontroller.php" method="post">
-            <div class="row">
-                <label for="Username" class="col-form-label custom-label">Username</label>
-                <input type="text" class="form-control rounded-pill" name="Username" id="Username" placeholder="Enter the username">
-            </div>
-            <div class="row">
-                <label for="Password" class="col-form-label custom-label">Password</label>
-                <input type="password" class="form-control rounded-pill" name="Password" id="Password" placeholder="Enter the password">
-            </div>
-            <div class="row d-flex flex-column align-items-center justify-content-center pt-4 text-center">
-                <p class="">You don't have an account?<a href="#">Register now</a></p>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </div>
-        </form>
-
+            <form action="" method="post">
+                <div class="row">
+                    <label for="Username" class="col-form-label custom-label">Username</label>
+                    <input type="text" class="form-control rounded-pill" name="Username" id="Username" value="" placeholder="Enter the username">
+                </div>
+                <div class="row">
+                    <label for="Password" class="col-form-label custom-label">Password</label>
+                    <input type="password" class="form-control rounded-pill" name="Password" id="Password" placeholder="Enter the password">
+                </div>
+                <div class="row d-flex flex-column align-items-center justify-content-center pt-4 text-center">
+                    <?php if (!empty($_SESSION['error_message'])) : ?>
+                        <p class="text-danger"><?php echo $_SESSION['error_message']; ?></p>
+                        <?php unset($_SESSION['error_message']); ?>
+                    <?php endif; ?>
+                    <p class="">You don't have an account?<a href="#">Register now</a></p>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
         </div>
     </div>
     <?php include_once 'components/footer.php'; ?>

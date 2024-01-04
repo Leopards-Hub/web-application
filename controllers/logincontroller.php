@@ -1,13 +1,7 @@
 <?php
 
-require_once '../database/database.php';
-require_once '../models/loginmodel.php';
-
-class LoginController {
-    public function index() {
-        require_once 'views/loginview.php';
-    }
-}
+require_once 'database/database.php';
+require_once 'models/loginmodel.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['Username']) && isset($_POST['Password'])) {
@@ -23,18 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Redirect based on user role
             switch ($User['role']) {
                 case 'admin':
-                    header('Location: ../views/adminview.php');
-                    break;
+                    header('Location: /web-application/admin');
+                    exit();
                 case 'customer':
-                    header('Location: /controllers/views/HomeView.php');
-                    break;
-                default:
-                    header('Location: index.php');
+                    header('Location: /web-application/home');
+                    exit();
             }
-            exit();
         } else {
-            echo "Invalid username or password";
+            $_SESSION['error_message'] = "Invalid username or password";
+            $_SESSION['username_input'] = ''; // Xóa giá trị của biến $_SESSION['username_input']
         }
     }
 }
+
+require_once 'views/loginview.php';
 ?>

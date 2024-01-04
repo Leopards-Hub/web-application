@@ -36,7 +36,7 @@
         <div class="container-fluid d-flex flex-column align-items-center justify-content-center p-5 bg-white">
             <div class="video-container p-5">
                 <video autoplay loop muted>
-                    <source src="../root/assets/images-about/video-introduction.mp4" type="video/mp4">
+                    <source src="./root/assets/images-about/video-introduction.mp4" type="video/mp4">
                 </video>
                 <div class="text-overlay">
                     <h1>Feel the authentic & original taste from us</h1>
