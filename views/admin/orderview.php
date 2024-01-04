@@ -296,7 +296,8 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="" method="get">
+                                    <form action="" method="post">
+                                    <input type="hidden" name="form_type" value="update">
                                         <div class="">
                                             <label for="modalOrderId" class="col-form-label">ID:</label>
                                             <input type="text" class="form-control" id="modalOrderId"
@@ -305,13 +306,13 @@
                                         <div class="">
                                             <label for="modalUsername" class="col-form-label">Name:</label>
                                             <input type="text" class="form-control" id="modalUsername"
-                                                value="<?php echo $dataone[0]['Username']; ?>" name="username">
+                                                value="<?php echo $dataone[0]['Username']; ?>" readonly name="username">
                                         </div>
                                         <div class="">
                                             <label for="modalOrderDate" class="col-form-label">Order
                                                 Date:</label>
                                             <input type="datetime-local" class="form-control" id="modalOrderDate"
-                                                value="<?php echo $dataone[0]['order_date']; ?>" readonly
+                                                value="<?php echo $dataone[0]['order_date']; ?>"  readonly
                                                 name="orderdate">
                                         </div>
                                         <div class="">
