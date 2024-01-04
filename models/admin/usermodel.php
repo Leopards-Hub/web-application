@@ -1,9 +1,9 @@
 <?php
 require_once "../../database/database.php";
 
-function createUser($Username, $password, $Name, $Phone, $Email, $Role): bool
+function createUser($Username, $password, $Name, $Phone, $Email, $Role,$db): bool
 {
-    global $db;
+    // global $db;
     $statement = $db->prepare("INSERT INTO `Users` (`Username`, `Password`, `Name`, `Phone`,`Email`,`role`) VALUES (?, ?, ?, ?, ?, ?)");
     $createUser=  $statement->execute([$Username, $password, $Name, $Phone, $Email, $Role]);
 
@@ -28,9 +28,9 @@ function getUsers(): array
     return $statement->fetchAll();
 }
 
-function updateUser($username, $password, $name, $phone, $Email,$Role, $user_id): bool
+function updateUser($username, $password, $name, $phone, $Email,$Role, $user_id,$db): bool
 {
-    global $db;
+    // global $db;
     $statement = $db->prepare("UPDATE `Users` SET `Username` = ?, `Password` = ?, `Name` = ?,`Phone` = ?,`Email` = ?,`role` = ? WHERE user_id = ?");
     $statement->execute([$username, $password, $name, $phone, $Email,$Role, $user_id]);
 
@@ -38,9 +38,9 @@ function updateUser($username, $password, $name, $phone, $Email,$Role, $user_id)
 }
 
 
-function deleteUser($user_id): bool
+function deleteUser($user_id,$db): bool
 {
-    global $db;
+    // global $db;
     
     try {
         $statement = $db->prepare("DELETE FROM `Users` WHERE user_id = :user_id;");

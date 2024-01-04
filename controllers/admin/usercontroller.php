@@ -12,20 +12,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     switch ($action) {
         case 'create':
-            handleCreate();
+            handleCreate($db);
             break;
         case 'edit':
-            handleEdit();
+            handleEdit($db);
             break;
         case 'delete':
-            handleDelete();
+            handleDelete($db);
             break;
         default:
             echo "Invalid action";
     }
 }
 
-function handleCreate() {
+function handleCreate($db) {
     if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['phone'])  && !empty($_POST['email']) && !empty($_POST['role'])) {
         $Username = $_POST['username'];
         $password = $_POST['password'];
@@ -34,7 +34,7 @@ function handleCreate() {
         $Email = $_POST['email'];
         $Role = $_POST['role'];
 
-        $create = createUser($Username, $password, $Name, $Phone, $Email, $Role);
+        $create = createUser($Username, $password, $Name, $Phone, $Email, $Role,$db);
 
         if ($create) {
             header("Location: /controllers/admin/usercontroller.php");
@@ -46,7 +46,7 @@ function handleCreate() {
         echo "Missing data";
     }
 }
-function handleEdit() {
+function handleEdit($db) {
     // Xử lý sửa
     if (isset($_POST['user_id']) && !empty($_POST['Username']) && !empty($_POST['Password']) && !empty($_POST['Name']) && !empty($_POST['Phone']) && !empty($_POST['Email']) && !empty($_POST['role'])) {
         $user_id = $_POST['user_id'];
@@ -58,7 +58,7 @@ function handleEdit() {
         $role = $_POST['role'];
         
 
-        $edit = updateUser($username, $password, $name, $phone, $email,$role, $user_id);
+        $edit = updateUser($username, $password, $name, $phone, $email,$role, $user_id,$db);
 
         if ($edit) {
             header("Location: /controllers/admin/usercontroller.php");
@@ -72,12 +72,12 @@ function handleEdit() {
 }
 
 
-function handleDelete() {
+function handleDelete($db) {
     // Xử lý xóa
     if (isset($_POST['user_id'])) {
         $user_id = $_POST['user_id'];
 
-        $delete = deleteUser($user_id);
+        $delete = deleteUser($user_id,$db);
 
         if ($delete) {
             header("Location: /controllers/admin/usercontroller.php");
