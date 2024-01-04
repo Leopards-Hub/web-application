@@ -22,7 +22,7 @@
                 createTitle($array_title['h1'][2], $array_title['p'][2], "", "title-h1", "title-p", "", "hero-title"); ?>
         </div>
         <div class="container-fluid" id="container-map" >
-         <img src="../root/assets/images-table/map.png" alt="Bottom Image" class="full-width-image" id="container-map" >
+         <img src="./root/assets/images-table/map.png" alt="Bottom Image" class="full-width-image" id="container-map" >
         </div>
         <div class="container" >
             <form action="" method="get" >

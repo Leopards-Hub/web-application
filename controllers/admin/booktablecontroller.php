@@ -1,5 +1,5 @@
 <?php
-require_once "../../models/admin/booktablemodel.php";
+require_once "models/admin/booktablemodel.php";
 
 $heading = "Post Page";
 
@@ -82,5 +82,6 @@ function handleDelete() {
     }
 }
 
-require "../../views/admin/booktableview.php";
+
+require "views/admin/booktableview.php";
 ?>

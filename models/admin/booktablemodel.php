@@ -1,5 +1,5 @@
 <?php
-require_once "../../database/database.php";
+require_once "database/database.php";
 function createdBookTable($User_id,$Table_id, $time): bool
 {
     global $db;
