@@ -40,6 +40,7 @@ class App {
             '/admin/table' => 'admin/tablecontroller.php',
             '/admin/booktable' => 'admin/booktablecontroller.php',
             '/admin/dish' => 'admin/dishcontroller.php',
+            '/admin/user' => 'admin/usercontroller.php',
         ];
     
         foreach ($routes as $route => $controllerFile) {

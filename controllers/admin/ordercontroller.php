@@ -25,7 +25,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['order_id'];
         $od->deleteOrder($id);
     } elseif ($formType === 'update') {
-
+        $id = $_POST['id'];
+        $user_id = $od->getId($_POST['username']);
+        $value = [
+            "user_id" => $user_id[0]['user_id'],
+            "order_date" => $_POST['orderdate'],
+            "status" => $_POST['status'],
+            "delivery_date" => $_POST['deliverydate'],
+            // "user_id" => $_POST['user_id'],
+            "discount" => $_POST['discount'],
+        ];
+        $od->updateOrder($id, $value);
+        
     }
 }
 
