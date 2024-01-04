@@ -61,10 +61,12 @@ class OrderModel
         foreach ($values as $key => $value) {
             $allowedFields = ['order_date', 'status', 'delivery_date', 'user_id', 'discount'];
     
+
             if (in_array($key, $allowedFields)) {
                 $setClauses[] = "$key = :$key";
             }
         }
+
     
         if (empty($setClauses)) {
             return false;
@@ -90,13 +92,12 @@ class OrderModel
             }
     
             
+
         } catch (PDOException $e) {
             echo "Error updating: " . $e->getMessage();
             return false;
         }
     }
-    
-
 
     public function createOrder($values)
     {
@@ -117,6 +118,7 @@ class OrderModel
         try {
             $stmt = $this->db->prepare($query);
             $stmt->execute($values);
+
             if ($stmt->rowCount() > 0){
                 echo '<script>window.location.href = "order";</script>';
                 return true;
@@ -124,6 +126,7 @@ class OrderModel
                 echo "errol";
                 return false;
             }
+
         } catch (PDOException $e) {
             echo "Error creating order: " . $e->getMessage();
             return false;
@@ -132,6 +135,7 @@ class OrderModel
 
 
     public function deleteOrder($id)
+
     {
         if (!is_numeric($id) || $id <= 0) {
             return false;
@@ -173,6 +177,7 @@ class OrderModel
     }
     public function getId($name)
     {
+
         $query = "SELECT user_id FROM users WHERE username = :username";
         try {
             $stmt = $this->db->prepare($query);
