@@ -15,12 +15,13 @@
 
             createButton("Login","login","");
         ?>
+
     </div>
 
 </div>
 <script>
     const btn_login =document.getElementById("btn-login");
     btn_login.addEventListener('click',() =>{
-        window.location.href = "logincontroller";
+        window.location.href = "login";
     })
 </script>

@@ -1,11 +1,7 @@
 <?php 
-class logincontroller{
-    public function index(){
-        require_once 'views/loginview.php';
-    }
-}
 require_once 'models/loginmodel.php';
 require_once './database/database.php';
+require_once 'views/loginview.php';
 
 $userModal = new UserModal($db);
 
@@ -22,10 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['name'] = $user['Name'];
         $_SESSION['role'] = $user['role'];
 
-        header('Location: index.php');
+        header('Location: /');
         exit();
     } else {
         echo "Invalid username or password";
     }
 }
 ?>
+
+    
+
