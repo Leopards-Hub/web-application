@@ -200,12 +200,6 @@ class OrderModel
         }
     }
     
-    
-    
-    
-
-
-
 
     function deleteOrder($id)
     {

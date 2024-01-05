@@ -296,80 +296,40 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="form_type" value="update">
-
-                                        <input type="hidden" class="form-control"
-                                            value="<?= $dataone[0]['order_id']; ?>" readonly name="id">
-
-                                        <div class="row">
-
-
-                                            <div class="form-group">
-                                                <label for="modalUsername" class="col-form-label">Name:</label>
-                                                <input type="text" class="form-control" id="modalUsername"
-                                                    value="<?= $dataone[0]['Username']; ?>" readonly name="username">
-                                            </div>
-
+                                    <form action="" method="get">
+                                        <div class="">
+                                            <label for="modalOrderId" class="col-form-label">ID:</label>
+                                            <input type="text" class="form-control" id="modalOrderId"
+                                                value="<?php echo $dataone[0]['order_id']; ?>" readonly name="id">
+                                        </div>
+                                        <div class="">
+                                            <label for="modalUsername" class="col-form-label">Name:</label>
+                                            <input type="text" class="form-control" id="modalUsername"
+                                                value="<?php echo $dataone[0]['Username']; ?>" name="username">
+                                        </div>
+                                        <div class="">
+                                            <label for="modalOrderDate" class="col-form-label">Order
+                                                Date:</label>
+                                            <input type="datetime-local" class="form-control" id="modalOrderDate"
+                                                value="<?php echo $dataone[0]['order_date']; ?>" readonly
+                                                name="orderdate">
+                                        </div>
+                                        <div class="">
+                                            <label for="modalStatus" class="col-form-label">Status:</label>
+                                            <select class="form-select" id="modalStatus" name="status">
+                                                <option value=" <?php echo $dataone[0]['status']; ?>">
+                                                    <?php echo $dataone[0]['status']; ?>
+                                                </option>
+                                                <option value="pending">Pending</option>
+                                                <option value="completed">Completed</option>
+                                            </select>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="modalOrderDate" class="col-form-label">Order
-                                                        Date:</label>
-                                                    <input type="datetime-local" class="form-control"
-                                                        id="modalOrderDate" value="<?= $dataone[0]['order_date']; ?>"
-                                                        readonly name="orderdate">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="modalStatus" class="col-form-label">Status:</label>
-                                                    <select class="form-select" id="modalStatus" name="status">
-                                                        <option value="<?= $dataone[0]['status']; ?>">
-                                                            <?= $dataone[0]['status']; ?>
-                                                        </option>
-                                                        <option value="pending">Pending</option>
-                                                        <option value="completed">Completed</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="modalDelivery" class="col-form-label">Delivery
-                                                        Date:</label>
-                                                    <input type="datetime-local" class="form-control" id="modalDelivery"
-                                                        value="<?= $dataone[0]['delivery_date']; ?>"
-                                                        name="deliverydate">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="modalDiscount" class="col-form-label">Discount:</label>
-                                                    <input type="text" class="form-control" id="modalDiscount"
-                                                        value="<?= $dataone[0]['discount']; ?>" name="discount">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="modalDishName" class="col-form-label">Dish Name:</label>
-                                                    <input type="text" class="form-control" id="modalDishName"
-                                                        value="<?= $dataone[0]['dish_name']; ?>" name="dish_name"
-                                                        readonly>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="modalPrice" class="col-form-label">Price:</label>
-                                                    <input type="text" class="form-control" id="modalPrice"
-                                                        value="<?= $dataone[0]['price']; ?>" name="price" readonly>
-                                                </div>
-                                            </div>
+                                        <div class="">
+                                            <label for="modalDelivery" class="col-form-label">Delivery
+                                                Date:</label>
+                                            <input type="datetime-local" class="form-control" id="modalOrderDate"
+                                                value="<?= $dataone[0]['delivery_date']; ?>" name="deliverydate">
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">

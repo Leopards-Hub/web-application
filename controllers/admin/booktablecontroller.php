@@ -7,33 +7,35 @@ $statement = $db->prepare("SELECT * FROM Booktable ");
 $statement->execute();
 $posts = $statement->fetchAll();
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $action = $_POST['action']; // Thêm dòng này để lấy hành động từ form
 
     switch ($action) {
         case 'create':
-            handleCreate();
+            handleCreate($db);
             break;
         case 'edit':
-            handleEdit();
+            handleEdit($db);
             break;
         case 'delete':
-            handleDelete();
+            handleDelete($db);
             break;
         default:
             echo "Invalid action";
     }
 }
 
-function handleCreate() {
+function handleCreate($db) {
     if (!empty($_POST['User_id']) && !empty($_POST['Table_id']) && !empty($_POST['time']) ) {
         $User_id = $_POST['User_id'];
         $Table_id = $_POST['Table_id'];
         $time = $_POST['time'];
-        $create = createdBookTable($User_id,$Table_id, $time);
+        $create = createdBookTable($User_id,$Table_id, $time, $db);
 
         if ($create) {
-            header("Location: /controllers/admin/booktablecontroller.php");
+            header("Location: booktable");
             echo "created successfully";
         } else {
             echo "Failed to create book table";
@@ -42,7 +44,7 @@ function handleCreate() {
         echo "Missing data";
     }
 }
-function handleEdit() {
+function handleEdit($db) {
     // Xử lý sửa
     if (isset($_POST['Book_id']) && !empty($_POST['User_id']) && !empty($_POST['Table_id']) && !empty($_POST['time']) ) {
         $Book_id = $_POST['Book_id'];
@@ -50,10 +52,10 @@ function handleEdit() {
         $Table_id = $_POST['Table_id'];
         $time = $_POST['time'];
 
-        $edit = updateBookTable($Book_id,$User_id,$Table_id, $time );
+        $edit = updateBookTable($Book_id,$User_id,$Table_id, $time, $db);
 
         if ($edit) {
-            header("Location: /controllers/admin/booktablecontroller.php");
+            header("Location: booktable");
             echo " edited successfully";
         } else {
             echo "Failed to edit book table";
@@ -64,15 +66,15 @@ function handleEdit() {
 }
 
 
-function handleDelete() {
+function handleDelete($db) {
     // Xử lý xóa
     if (isset($_POST['Book_id'])) {
         $Book_id = $_POST['Book_id'];
 
-        $delete =  deleteBookTable($Book_id);
+        $delete =  deleteBookTable($Book_id, $db);
 
         if ($delete) {
-            header("Location: /controllers/admin/booktablecontroller.php");
+            header("Location: booktable");
             echo "deleted successfully";
         } else {
             echo "Failed to delete book table";
@@ -83,5 +85,5 @@ function handleDelete() {
 }
 
 
-require "views/admin/booktableview.php";
+require_once "views/admin/booktableview.php";
 ?>

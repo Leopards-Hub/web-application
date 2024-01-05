@@ -35,12 +35,14 @@ class App {
             '/contact' => 'contactcontroller.php',
             '/admin' => 'admincontroller.php',
             '/login' => 'logincontroller.php',
+            '/logout' => 'logoutcontroller.php',
             '/register' => 'registercontroller.php',
             '/admin/order' => 'admin/ordercontroller.php',
             '/admin/table' => 'admin/tablecontroller.php',
             '/admin/booktable' => 'admin/booktablecontroller.php',
             '/admin/dish' => 'admin/dishcontroller.php',
             '/admin/orderdetail' => 'admin/orderdetailcontroller.php',
+            '/admin/user' => 'admin/usercontroller.php',
         ];
     
         foreach ($routes as $route => $controllerFile) {

@@ -1,10 +1,10 @@
 <?php
 require_once "database/database.php";
 
-function createTable($Tablename, $numberchair, $status): bool
+function createTable($Tablename, $numberchair, $status, $db)
 {
-    global $db;
-    $statement = $db->prepare("INSERT INTO `Table` (`Tablename`, `numberchair`, `status`) VALUES (?, ?, ?)");
+
+    $statement = $db->prepare("INSERT INTO `table` (`Tablename`, `numberchair`, `status`) VALUES (?, ?, ?)");
     $createTable=  $statement->execute([$Tablename, $numberchair, $status]);
 
     return  $createTable;
@@ -26,18 +26,18 @@ function getTables(): array
     return $statement->fetchAll();
 }
 
-function updateTable($Tablename, $numberchair, $status, $table_id): bool
+function updateTable($Tablename, $numberchair, $status, $table_id, $db): bool
 {
-    global $db;
+    // global $db;
     $statement = $db->prepare("UPDATE `Table` SET `Tablename` = ?, `numberchair` = ?, `status` = ? WHERE table_id = ?");
     $statement->execute([$Tablename, $numberchair, $status, $table_id]);
 
     return $statement->rowCount() > 0; // Trả về true nếu có ít nhất một dòng được ảnh hưởng
 }
 
-function deleteTable($table_id): bool
+function deleteTable($table_id, $db): bool
 {
-    global $db;
+    // global $db;
     
     try {
         $statement = $db->prepare("DELETE FROM `Table` WHERE table_id = :table_id;");
