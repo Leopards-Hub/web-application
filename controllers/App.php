@@ -32,6 +32,7 @@ class App {
             '/menu' => 'menucontroller.php',
             '/booktable' => 'booktablecontroller.php',
             '/blog' => 'blogcontroller.php',
+            '/shopping' => 'shoppingcartcontroller.php',
             '/order' => 'ordercontroller.php',
             '/contact' => 'contactcontroller.php',
             '/admin' => 'admincontroller.php',
