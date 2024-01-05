@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS `Table` (
 -- Create the Dish table
 CREATE TABLE IF NOT EXISTS Dish (
     dish_id INT AUTO_INCREMENT PRIMARY KEY,
-    Image_dish VARCHAR(50) NOT NULL,
     Dish_name VARCHAR(255) NOT NULL,
+    Image_dish VARCHAR(50) NOT NULL,
     Detail TEXT,
     Price DECIMAL(10, 2) NOT NULL default 0,
 );
