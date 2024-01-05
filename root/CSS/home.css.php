@@ -27,8 +27,11 @@
     }
     #hero-button{
         display: flex;
-        flex-direction: row;
+        flex-direction: row; 
         gap: 20px;
+    }
+    #btn-book-tb:active{
+        background-color: #AD343E;
     }
    
     .bg-1{

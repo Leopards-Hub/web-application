@@ -1,5 +1,5 @@
 <?php
-require_once "../../models/admin/usermodel.php";
+require_once "models/admin/usermodel.php";
 
 $heading = "Post Page";
 
@@ -37,7 +37,7 @@ function handleCreate($db) {
         $create = createUser($Username, $password, $Name, $Phone, $Email, $Role,$db);
 
         if ($create) {
-            header("Location: /controllers/admin/usercontroller.php");
+            header("Location: user");
             echo " created successfully";
         } else {
             echo "Failed to create table";
@@ -61,7 +61,7 @@ function handleEdit($db) {
         $edit = updateUser($username, $password, $name, $phone, $email,$role, $user_id,$db);
 
         if ($edit) {
-            header("Location: /controllers/admin/usercontroller.php");
+            header("Location: user");
             echo "edited successfully";
         } else {
             echo "Failed to edit user";
@@ -80,7 +80,7 @@ function handleDelete($db) {
         $delete = deleteUser($user_id,$db);
 
         if ($delete) {
-            header("Location: /controllers/admin/usercontroller.php");
+            header("Location: user");
             echo "deleted successfully";
         } else {
             echo "Failed to delete user";
@@ -90,5 +90,5 @@ function handleDelete($db) {
     }
 }
 
-require "../../views/admin/userview.php";
+require "views/admin/userview.php";
 ?>

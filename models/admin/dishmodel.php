@@ -1,47 +1,47 @@
 <?php
 require_once "database/database.php";
 
-function createTable($Tablename, $numberchair, $status, $db)
+function createDish($Dishname, $DishImage, $Details, $Price, $db)
 {
 
-    $statement = $db->prepare("INSERT INTO `table` (`Tablename`, `numberchair`, `status`) VALUES (?, ?, ?)");
-    $createTable=  $statement->execute([$Tablename, $numberchair, $status]);
+    $statement = $db->prepare("INSERT INTO `Dish` (`Dish_name`, `Image_dish`, `Detail`, `Price`) VALUES (?, ?, ?, ?)");
+    $createTable=  $statement->execute([$Dishname, $DishImage, $Details, $Price]);
 
     return  $createTable;
 }
 
-function getTable(int $id): array
+function getDish(int $id): array
 {
     global $db;
-    $statement = $db->prepare("SELECT * FROM `Table` WHERE table_id = ?");
+    $statement = $db->prepare("SELECT * FROM `Dish` WHERE dish_id = ?");
     $statement->execute([$id]);
     return $statement->fetch();
 }
 
-function getTables(): array
+function getDishes(): array
 {
     global $db;
-    $statement = $db->prepare("SELECT * FROM `Table`");
+    $statement = $db->prepare("SELECT * FROM `Dish`");
     $statement->execute();
     return $statement->fetchAll();
 }
 
-function updateTable($Tablename, $numberchair, $status, $table_id, $db): bool
+function updateDish($Dishname, $DishImage,  $Details, $Price, $DishId, $db): bool
 {
     // global $db;
-    $statement = $db->prepare("UPDATE `Table` SET `Tablename` = ?, `numberchair` = ?, `status` = ? WHERE table_id = ?");
-    $statement->execute([$Tablename, $numberchair, $status, $table_id]);
+    $statement = $db->prepare("UPDATE `Dish` SET `Dish_name` = ?, `Image_dish` = ?,  `Detail` = ?, `Price` = ? WHERE dish_id = ?");
+    $statement->execute([$Dishname, $DishImage,  $Details, $Price, $DishId]);
 
     return $statement->rowCount() > 0; // Trả về true nếu có ít nhất một dòng được ảnh hưởng
 }
 
-function deleteTable($table_id, $db): bool
+function deleteDish($dish_id, $db): bool
 {
     // global $db;
     
     try {
-        $statement = $db->prepare("DELETE FROM `Table` WHERE table_id = :table_id;");
-        $statement->bindParam(":table_id", $table_id);
+        $statement = $db->prepare("DELETE FROM `Dish` WHERE dish_id = :dish_id;");
+        $statement->bindParam(":dish_id", $dish_id);
         $result = $statement->execute();
 
         // Kiểm tra xem có bản ghi nào bị xóa hay không

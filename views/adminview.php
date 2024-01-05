@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>YummyFood Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <?php include "../components/linkbootstrap5.php"; ?>
-    <link rel="stylesheet" href="../root/CSS/admin/style.css">
+    <?php include "components/linkbootstrap5.php"; ?>
+    <link rel="stylesheet" href="./root/CSS/admin/style.css">
+    <link rel="stylesheet" href="./root/CSS/admin/order.css">
 
 </head>
 
@@ -174,17 +175,17 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" 
-                                        href="">Table</a></li>
+                                        href="admin/table">Table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="">Orders</a></li>
+                                        href="admin/order">Orders</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="">Dish</a></li>
+                                        href="admin/dish">Dish</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="">Book table</a></li>
+                                        href="admin/booktable">Book table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="">User</a></li>
+                                        href="admin/user">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="">Order detail</a></li>
+                                        href="admin/orderdetail">Order detail</a></li>
                             </ul>
                         </div>
                     </li>
@@ -264,7 +265,6 @@
                         <div class="col-md-4 stretch-card grid-margin">
                             <div class="card bg-gradient-info card-img-holder text-white">
                                 <div class="card-body">
-                                    
                                     <h4 class="font-weight-normal mb-3">Weekly Orders <i
                                             class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                                     </h4>
@@ -310,7 +310,6 @@
                             </div>
                         </div>
                     </div>
-                   
                 </div>
                 <footer class="footer">
                     <div class="container-fluid d-flex justify-content-center">
@@ -321,7 +320,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
