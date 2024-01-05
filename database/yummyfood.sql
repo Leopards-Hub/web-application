@@ -1,7 +1,7 @@
-
+-- create database yummyfood;
+-- go
 use yummyfood;
-
-
+-- go
 
 -- Create the User table
 CREATE TABLE IF NOT EXISTS Users (
@@ -24,10 +24,11 @@ CREATE TABLE IF NOT EXISTS `Table` (
 
 -- Create the Dish table
 CREATE TABLE IF NOT EXISTS Dish (
-    Dish_id INT AUTO_INCREMENT PRIMARY KEY,
-    Disk_name VARCHAR(255) NOT NULL,
+    dish_id INT AUTO_INCREMENT PRIMARY KEY,
+    Dish_name VARCHAR(255) NOT NULL,
+    Image_dish VARCHAR(50) NOT NULL,
     Detail TEXT,
-    price DECIMAL(10, 2)
+    Price DECIMAL(10, 2) NOT NULL default 0,
 );
 -- Create the Booktable table
 CREATE TABLE IF NOT EXISTS Booktable (

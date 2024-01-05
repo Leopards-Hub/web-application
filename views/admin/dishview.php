@@ -177,11 +177,11 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" 
-                                        href="#">Table</a></li>
+                                        href="table">Table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="order">Orders</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="dish">Dish</a></li>
+                                        href="#">Dish</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="booktable">Book table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
@@ -243,22 +243,23 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>NAME</th>
-        <th>NUMBER OF CHAIR</th>
-        <th>STATUS</th>
-        <th>ACTIONS</th>
+        <th>DISH NAME</th>
+        <th style="text-align: center;">IMAGE</th>
+        <th>DETAIL</th>
+        <th>PRICE</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach ($posts as $post): ?>
         <tr>
-          <td><?php echo $post['table_id']; ?></td>
-          <td><?php echo $post['Tablename']; ?></td>
-          <td><?php echo $post['numberchair']; ?></td>
-          <td><?php echo $post['status']; ?></td>
+          <td><?php echo $post['dish_id']; ?></td>
+          <td><?php echo $post['Dish_name']; ?></td>
+          <td style="text-align: center;"><img style="border-radius: 15px !important; width: 40%; height: auto;" src="<?php echo $post['Image_dish']; ?>" alt="image"></td>
+          <td><?php echo $post['Detail']; ?></td>
+          <td style="font-weight: bold; color:crimson"><?php echo '$ '.$post['Price']; ?></td>
           <td>
-            <a class='btn btn-danger' onclick="openDeleteModal(<?php echo $post['table_id']; ?>)">Delete</a> 
-            <a class='btn btn-success' onclick="openEditModal(<?php echo $post['table_id']; ?>, '<?php echo $post['Tablename']; ?>', <?php echo $post['numberchair']; ?>, '<?php echo $post['status']; ?>')">Edit</a>
+            <a class='btn btn-danger' onclick="openDeleteModal(<?php echo $post['dish_id']; ?>)">Delete</a> 
+            <a class='btn btn-success' onclick="openEditModal(<?php echo $post['dish_id']; ?>, '<?php echo $post['Image_dish']; ?>', '<?php echo $post['Dish_name']; ?>', '<?php echo $post['Detail']; ?>',<?php echo $post['Price']; ?>)">Edit</a>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -279,16 +280,20 @@
           <!-- Thêm trường ẩn để xác định hành động -->
           <input type="hidden" name="action" value="create">
           <div class="form-group">
-            <label for="Tablename">Table Name:</label>
-            <input type="text" class="form-control" id="Tablename" name="Tablename">
+            <label for="dishname">Dish name:</label>
+            <input type="text" class="form-control" id="dishname" name="dishname">
           </div>
           <div class="form-group">
-            <label for="numberchair">Number of Chairs:</label>
-            <input type="text" class="form-control" id="numberchair" name="numberchair">
+            <label for="imagedish">Image:</label>
+            <input type="text" class="form-control" id="imagedish" name="imagedish">
           </div>
           <div class="form-group">
-            <label for="status">Status:</label>
-            <input type="text" class="form-control" id="status" name="status">
+            <label for="details">Details:</label>
+            <input type="text" class="form-control" id="details" name="details">
+          </div>
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" class="form-control" id="price" name="price" step="0.01">
           </div>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddNewModal()">Close</button>
           <button type="submit" form="addNewForm" class="btn btn-primary">Save</button>
@@ -307,23 +312,27 @@
       </div>
       <div class="modal-body" id="editModalBody">
         <!-- Thêm action và method vào form -->
-        <form action="" method="POST">
+        <form action="" method="post">
           <input type="hidden" name="action" value="edit"> <!-- Thêm action để phân biệt hành động là edit -->
           <div class="form-group">
-          <label for="editTableId">ID:</label>
-          <input type="number"  class="form-control" name="table_id" id="editTableId" readonly value="">
+          <label for="editDishId">ID:</label>
+          <input type="number" class="form-control" id="editDishId" name="dish_id" readonly value="">
           </div>
           <div class="form-group">
-            <label for="editTableName">Table Name:</label>
-            <input type="text" class="form-control" id="editTableName" name="Tablename">
+            <label for="editDishName">Dish Name:</label>
+            <input type="text" class="form-control" id="editDishName" name="Dish_name">
           </div>
           <div class="form-group">
-            <label for="editNumberOfChairs">Number of Chairs:</label>
-            <input type="text" class="form-control" id="editNumberOfChairs" name="numberchair">
+            <label for="editImageDish">Image:</label>
+            <input type="text" class="form-control" id="editImageDish" name="Image_dish">
           </div>
           <div class="form-group">
-            <label for="editStatus">Status:</label>
-            <input type="text" class="form-control" id="editStatus" name="status">
+            <label for="editDetails">Details:</label>
+            <input type="text" class="form-control w-20 d-block" id="editDetails" name="Detail">
+          </div>
+          <div class="form-group">
+            <label for="editPrice">Price:</label>
+            <input type="number" class="form-control" id="editPrice" name="Price">
           </div>
           <!-- Add other fields as needed -->
           <div class="modal-footer">
@@ -349,7 +358,7 @@
         <form id="deleteForm" method="POST" action="">
           <!-- Thêm trường ẩn để xác định hành động -->
           <input type="hidden" name="action" value="delete">
-          <input type="hidden" name="table_id" id="deleteTableId" value="">
+          <input type="hidden" name="dish_id" id="deleteDishId" value="">
         </form>
       </div>
       <div class="modal-footer">
@@ -362,10 +371,13 @@
 
 <script>
  // Function to open the Edit Modal
- function openEditModal(tableId, tableName, numberOfChairs, status) {
-    $('#editTableName').val(tableName);
-    $('#editNumberOfChairs').val(numberOfChairs);
-    $('#editStatus').val(status);
+ function openEditModal(dishId, image, dishName, detail, price) {
+    $('#editDishId').val(dishId);
+    $('#editImageDish').val(image);
+    $('#editDishName').val(dishName);
+    $('#editDetails').val(detail);
+    $('#editPrice').val(price);
+
     $('#editModal').modal('show');
   }
 
@@ -374,17 +386,13 @@
     $('#editModal').modal('hide');
   }
 
-  function submitEditForm() {
-    $('#editForm').submit();
-  }
-
   // Function to open the Delete Modal
-  function openDeleteModal(tableId) {
+  function openDeleteModal(dishId) {
     // Đặt giá trị cho trường ẩn trong form
-    $('#deleteTableId').val(tableId);
+    $('#deleteDishId').val(dishId);
     $('#deleteModal').modal('show');
   }
- 
+
   // Function to close the Delete Modal
   function closeDeleteModal() {
     $('#deleteModal').modal('hide');
