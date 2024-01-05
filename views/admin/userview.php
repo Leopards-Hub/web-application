@@ -63,7 +63,7 @@
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="../root/assets/images-food/food1.png" alt="image">
+                                <img src="../../root/assets/images-food/food1.png" alt="image">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -177,7 +177,7 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" 
-                                        href="#">Table</a></li>
+                                        href="table">Table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="order">Orders</a></li>
                                 <li class="nav-item"> <a class="nav-link"
@@ -185,7 +185,7 @@
                                 <li class="nav-item"> <a class="nav-link"
                                         href="booktable">Book table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="user">User</a></li>
+                                        href="#">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="orderdetail">Order detail</a></li>
                             </ul>
@@ -237,28 +237,34 @@
             <!-- partial -->
             <div class="main-panel">
             <div class="content-wrapper">
-
-            <a class='btn btn-danger' id="addNewButton" href="#" data-toggle="modal" data-target="#addNewModal">Add new</a>
+  <a class='btn btn-danger' id="addNewButton" href="#" data-toggle="modal" data-target="#addNewModal">Add new</a>
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>NUMBER OF CHAIR</th>
-        <th>STATUS</th>
+        <th>User_id</th>
+        <th>User Name</th>
+        <th>Password</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Role</th>
         <th>ACTIONS</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach ($posts as $post): ?>
         <tr>
-          <td><?php echo $post['table_id']; ?></td>
-          <td><?php echo $post['Tablename']; ?></td>
-          <td><?php echo $post['numberchair']; ?></td>
-          <td><?php echo $post['status']; ?></td>
+          <td><?php echo $post['user_id']; ?></td>
+          <td><?php echo $post['Username']; ?></td>
+          <td><?php echo $post['Password']; ?></td>
+          <td><?php echo $post['Name']; ?></td>
+          <td><?php echo $post['Phone']; ?></td>
+          <td><?php echo $post['Email']; ?></td>
+          <td><?php echo $post['role']; ?></td>
           <td>
-            <a class='btn btn-danger' onclick="openDeleteModal(<?php echo $post['table_id']; ?>)">Delete</a> 
-            <a class='btn btn-success' onclick="openEditModal(<?php echo $post['table_id']; ?>, '<?php echo $post['Tablename']; ?>', <?php echo $post['numberchair']; ?>, '<?php echo $post['status']; ?>')">Edit</a>
+            <a class='btn btn-danger' onclick="openDeleteModal(<?php echo $post['user_id']; ?>)">Delete</a> 
+            <a class='btn btn-success' onclick="openEditModal(<?php echo $post['user_id']; ?>, '<?php echo $post['Username']; ?>', '<?php echo $post['Password']; ?>', '<?php echo $post['Name']; ?>', '<?php echo $post['Phone'] ;?>', '<?php echo $post['Email'] ;?>', '<?php echo $post['role'] ;?>')">Edit</a>
+
           </td>
         </tr>
       <?php endforeach; ?>
@@ -276,19 +282,33 @@
       </div>
       <div class="modal-body">
         <form id="addNewForm" method="post" action="">
-          <!-- Thêm trường ẩn để xác định hành động -->
           <input type="hidden" name="action" value="create">
           <div class="form-group">
-            <label for="Tablename">Table Name:</label>
-            <input type="text" class="form-control" id="Tablename" name="Tablename">
+            <label for="username">User Name:</label>
+            <input type="text" class="form-control" id="username" name="username">
           </div>
           <div class="form-group">
-            <label for="numberchair">Number of Chairs:</label>
-            <input type="text" class="form-control" id="numberchair" name="numberchair">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password">
           </div>
           <div class="form-group">
-            <label for="status">Status:</label>
-            <input type="text" class="form-control" id="status" name="status">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" class="form-control" id="phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="role">Role:</label>
+            <select class="form-control" id="role" name="role">
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
+            </select>
           </div>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddNewModal()">Close</button>
           <button type="submit" form="addNewForm" class="btn btn-primary">Save</button>
@@ -306,29 +326,39 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeEditModal()">&times;</button>
       </div>
       <div class="modal-body" id="editModalBody">
-        <!-- Thêm action và method vào form -->
-        <form action="" method="POST">
-          <input type="hidden" name="action" value="edit"> <!-- Thêm action để phân biệt hành động là edit -->
+        <form id="editForm" action="" method="post">
+          <input type="hidden" name="action" value="edit">
           <div class="form-group">
-          <label for="editTableId">ID:</label>
-          <input type="number"  class="form-control" name="table_id" id="editTableId" readonly value="">
+            <label for="editUserId">User ID:</label>
+            <input type="text" class="form-control" id="editUserId" name="user_id" readonly>
           </div>
           <div class="form-group">
-            <label for="editTableName">Table Name:</label>
-            <input type="text" class="form-control" id="editTableName" name="Tablename">
+            <label for="editUserName">User Name:</label>
+            <input type="text" class="form-control" id="editUserName" name="Username">
           </div>
           <div class="form-group">
-            <label for="editNumberOfChairs">Number of Chairs:</label>
-            <input type="text" class="form-control" id="editNumberOfChairs" name="numberchair">
+            <label for="editPassWord">Pass Word:</label>
+            <input type="Password" class="form-control" id="editPassWord" name="Password">
           </div>
           <div class="form-group">
-            <label for="editStatus">Status:</label>
-            <input type="text" class="form-control" id="editStatus" name="status">
+            <label for="editName">Name:</label>
+            <input type="text" class="form-control" id="editName" name="Name">
           </div>
-          <!-- Add other fields as needed -->
+          <div class="form-group">
+            <label for="editPhone">Phone:</label>
+            <input type="text" class="form-control" id="editPhone" name="Phone">
+          </div>
+          <div class="form-group">
+            <label for="editEmail">Email:</label>
+            <input type="text" class="form-control" id="editEmail" name="Email">
+          </div>
+          <div class="form-group">
+            <label for="editRole">Role:</label>
+            <input type="text" class="form-control" id="editRole" name="role" readonly>
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeEditModal()">Close</button>
-            <button type="submit" class="btn btn-success">Save Changes</button>
+            <button type="button" class="btn btn-success" onclick="submitEditForm()">Save Changes</button>
           </div>
         </form>
       </div>
@@ -347,9 +377,8 @@
       <div class="modal-body" id="deleteModalBody">
         <p>Are you sure you want to delete this item?</p>
         <form id="deleteForm" method="POST" action="">
-          <!-- Thêm trường ẩn để xác định hành động -->
           <input type="hidden" name="action" value="delete">
-          <input type="hidden" name="table_id" id="deleteTableId" value="">
+          <input type="hidden" name="user_id" id="deleteUserId" value="">
         </form>
       </div>
       <div class="modal-footer">
@@ -361,52 +390,49 @@
 </div>
 
 <script>
- // Function to open the Edit Modal
- function openEditModal(tableId, tableName, numberOfChairs, status) {
-    $('#editTableName').val(tableName);
-    $('#editNumberOfChairs').val(numberOfChairs);
-    $('#editStatus').val(status);
+  function openEditModal(user_id, username, password, name, phone, email,role) {
+    $('#editUserId').val(user_id);
+    $('#editUserName').val(username);
+    $('#editPassWord').val(password);
+    $('#editName').val(name);
+    $('#editPhone').val(phone);
+    $('#editEmail').val(email);
+    $('#editRole').val(role);
     $('#editModal').modal('show');
   }
 
-  // Function to close the Edit Modal
   function closeEditModal() {
     $('#editModal').modal('hide');
   }
+
+  
 
   function submitEditForm() {
     $('#editForm').submit();
   }
 
-  // Function to open the Delete Modal
-  function openDeleteModal(tableId) {
-    // Đặt giá trị cho trường ẩn trong form
-    $('#deleteTableId').val(tableId);
+  function openDeleteModal(User_id) {
+    $('#deleteUserId').val(User_id);
     $('#deleteModal').modal('show');
   }
- 
-  // Function to close the Delete Modal
+
   function closeDeleteModal() {
     $('#deleteModal').modal('hide');
   }
 
-  // Function to handle the form submission for deleting an item
   function deleteItem() {
-    // Submit form
     $('#deleteForm').submit();
   }
- // Function to open the Add New Modal
- function openAddNewModal() {
+
+  function openAddNewModal() {
     $('#addNewModal').modal('show');
   }
 
-  // Function to close the Add New Modal
   function closeAddNewModal() {
     $('#addNewModal').modal('hide');
   }
-
-
 </script>
+
 
                 <footer class="footer">
                     <div class="container-fluid d-flex justify-content-center">
