@@ -237,7 +237,7 @@
             <!-- partial -->
             <div class="main-panel">
             <div class="content-wrapper">
-  <a class='btn btn-danger' id="addNewButton" href="#" data-toggle="modal" data-target="#addNewModal">Add new</a>
+            <a class='btn btn-danger' id="addNewButton" href="#" onclick="openAddNewModal()" data-toggle="modal" data-target="#addNewModal">Add new</a>
   <table class="table">
     <thead>
       <tr>
@@ -274,12 +274,12 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeAddNewModal()">&times;</button>
       </div>
       <div class="modal-body">
-        <form id="addNewForm" method="POST" action="../../controllers/admin/booktablecontroller.php">
+        <form id="addNewForm" method="POST" action="">
           <input type="hidden" name="action" value="create">
           <div class="form-group">
             <label for="User_id">User ID:</label>
             <select type="" class="form-control" id="User_id" name="User_id">
-            <?php $arr = getAllIds('User','user_id') ?>
+            <?php $arr = getAllIds('Users','user_id',$db) ?>
             <?php foreach($arr as $ar) {
               echo '<option  value="'.$ar.'">'.$ar.'</option>';
             }
@@ -289,7 +289,7 @@
           <div class="form-group">
             <label for="Table_id">Table ID:</label>
             <select type="" class="form-control" id="Table_id" name="Table_id">
-            <?php $arr = getAllIds('Table','table_id') ?>
+            <?php $arr = getAllIds('Table','table_id',$db) ?>
             <?php foreach($arr as $ar) {
               echo '<option  value="'.$ar.'">'.$ar.'</option>';
             }
@@ -316,7 +316,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeEditModal()">&times;</button>
       </div>
       <div class="modal-body" id="editModalBody">
-        <form id="editForm" action="../../controllers/admin/booktablecontroller.php" method="POST">
+        <form id="editForm" action="" method="POST">
           <input type="hidden" name="action" value="edit">
          
           <div class="form-group">
@@ -326,7 +326,7 @@
           <div class="form-group">
             <label for="editUserId">User ID:</label>
             <select type="" class="form-control" id="editUserId" name="User_id">
-            <?php $arr = getAllIds('User','user_id') ?>
+            <?php $arr = getAllIds('Users','user_id', $db) ?>
             <?php foreach($arr as $ar) {
               echo '<option  value="'.$ar.'">'.$ar.'</option>';
             }
@@ -336,7 +336,7 @@
           <div class="form-group">
             <label for="editTableId">Table ID:</label>
             <select type="" class="form-control" id="editTableId" name="Table_id">
-            <?php $arr = getAllIds('Table','table_id') ?>
+            <?php $arr = getAllIds('Table','table_id', $db) ?>
             <?php foreach($arr as $ar) {
               echo '<option  value="'.$ar.'">'.$ar.'</option>';
             }
@@ -367,7 +367,7 @@
       </div>
       <div class="modal-body" id="deleteModalBody">
         <p>Are you sure you want to delete this item?</p>
-        <form id="deleteForm" method="POST" action="../../controllers/admin/booktablecontroller.php">
+        <form id="deleteForm" method="POST" action="">
           <input type="hidden" name="action" value="delete">
           <input type="hidden" name="Book_id" id="deleteBookId" value="">
         </form>
