@@ -288,7 +288,10 @@
           </div>
           <div class="form-group">
             <label for="status">Status:</label>
-            <input type="text" class="form-control" id="status" name="status">
+            <select class="form-control" id="status" name="status">
+              <option value="available">Available</option>
+              <option value="occupied">Occupied</option>
+            </select>
           </div>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddNewModal()">Close</button>
           <button type="submit" form="addNewForm" class="btn btn-primary">Save</button>
@@ -310,9 +313,11 @@
         <form action="" method="POST">
           <input type="hidden" name="action" value="edit"> <!-- Thêm action để phân biệt hành động là edit -->
           <div class="form-group">
+
           <label for="editTableId">ID:</label>
           <input type="number"  class="form-control" name="table_id" id="editTableId" readonly value="">
           </div>
+
           <div class="form-group">
             <label for="editTableName">Table Name:</label>
             <input type="text" class="form-control" id="editTableName" name="Tablename">
@@ -323,7 +328,10 @@
           </div>
           <div class="form-group">
             <label for="editStatus">Status:</label>
-            <input type="text" class="form-control" id="editStatus" name="status">
+            <select class="form-control" id="editStatus" name="status">
+              <option value="available">Available</option>
+              <option value="occupied">Occupied</option>
+            </select>
           </div>
           <!-- Add other fields as needed -->
           <div class="modal-footer">
@@ -363,6 +371,7 @@
 <script>
  // Function to open the Edit Modal
  function openEditModal(tableId, tableName, numberOfChairs, status) {
+    $('#editTableId').val(tableId);
     $('#editTableName').val(tableName);
     $('#editNumberOfChairs').val(numberOfChairs);
     $('#editStatus').val(status);
