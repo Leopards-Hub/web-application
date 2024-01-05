@@ -1,18 +1,31 @@
 <?php
-class UserModal {
+
+class LoginModel {
     private $db;
 
     public function __construct($db) {
         $this->db = $db;
     }
 
-    public function getUser($username, $password) {
-        $query = "SELECT * FROM User WHERE Username = :username AND Password = :password";
-        $statement = $this->db->prepare($query);
-        $statement->bindValue(':username', $username);
-        $statement->bindValue(':password', $password);
-        $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC);
+    public function loginUser($Username, $Password) {
+        try {
+            $query = "SELECT * FROM Users WHERE Username = :Username";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':Username', $Username);
+            $stmt->execute();
+
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($user && $Password === $user['Password']) {
+                return $user;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return false;
+        }
     }
+
 }
 ?>

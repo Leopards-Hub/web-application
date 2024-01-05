@@ -1,30 +1,34 @@
-<?php 
+<?php
+
+require_once 'database/database.php';
 require_once 'models/loginmodel.php';
-require_once './database/database.php';
-require_once 'views/loginview.php';
 
-$userModal = new UserModal($db);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['Username']) && isset($_POST['Password'])) {
+        $Username = $_POST['Username'];
+        $Password = $_POST['Password'];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+        $loginModel = new LoginModel($db);
+        $User = $loginModel->loginUser($Username, $Password);
 
-    $user = $userModal->getUser($username, $password);
+        if ($User) {
+            $_SESSION['user'] = $User;
 
-    if ($user) {
-        session_start();
-        $_SESSION['user_id'] = $user['user_id'];
-        $_SESSION['username'] = $user['Username'];
-        $_SESSION['name'] = $user['Name'];
-        $_SESSION['role'] = $user['role'];
-
-        header('Location: /');
-        exit();
-    } else {
-        echo "Invalid username or password";
+            // Redirect based on user role
+            switch ($User['role']) {
+                case 'admin':
+                    header('Location: /web-application/admin');
+                    exit();
+                case 'customer':
+                    header('Location: /web-application/home');
+                    exit();
+            }
+        } else {
+            $_SESSION['error_message'] = "Invalid username or password";
+            $_SESSION['username_input'] = ''; // Xóa giá trị của biến $_SESSION['username_input']
+        }
     }
 }
+
+require_once 'views/loginview.php';
 ?>
-
-    
-

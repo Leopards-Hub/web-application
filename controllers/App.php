@@ -35,6 +35,7 @@ class App {
             '/contact' => 'contactcontroller.php',
             '/admin' => 'admincontroller.php',
             '/login' => 'logincontroller.php',
+            '/logout' => 'logoutcontroller.php',
             '/register' => 'registercontroller.php',
             '/admin/order' => 'admin/ordercontroller.php',
             '/admin/table' => 'admin/tablecontroller.php',
