@@ -281,7 +281,7 @@ class OrderModel
     // get id and price from dish_name
     public function getDetailDish($name)
     {
-        $query = "SELECT Dish_id, price FROM dish WHERE Dish_name = :dishname";
+        $query = "SELECT dish_id, Price FROM dish WHERE Dish_name = :dishname";
 
         try {
             $stmt = $this->db->prepare($query);
@@ -313,8 +313,6 @@ class OrderModel
         // Perform the calculation only if all values are numeric
         return ($price * $quantity) - $discount;
     }
-
-
     function getCurrentDateTime()
     {
         // Đặt múi giờ

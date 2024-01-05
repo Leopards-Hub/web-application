@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         // Calculate total price
-        $totalprice = $od->getTotalPrice((int)$dish['price'], (int)$_POST['quantity'], (int)$_POST['discount']);
+        $totalprice = $od->getTotalPrice((float)$dish['Price'], (float)$_POST['quantity'], (float)$_POST['discount']);
         
         // Prepare data for orders table
         $order = [
@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // Prepare data for order_detail table
         $orderdetail = [
-            "dish_id" => $dish['Dish_id'],
+            "dish_id" => $dish['dish_id'],
             "dish_name" => $_POST['dish_name'],
-            "price" => $dish['price'],
+            "price" => $dish['Price'],
             "quantity" => $_POST['quantity'],
             "total_price" => $totalprice,
         ];
@@ -75,9 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 }
-$data = $od->fetchOne(1);
+$dataone = $od->fetchOne($id);
 echo '<pre>';
-print_r($data);
+print_r($dataone);
 echo '</pre>';
 
 
