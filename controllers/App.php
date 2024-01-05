@@ -43,6 +43,7 @@ class App {
             '/admin/table' => 'admin/tablecontroller.php',
             '/admin/booktable' => 'admin/booktablecontroller.php',
             '/admin/dish' => 'admin/dishcontroller.php',
+            '/admin/orderdetail' => 'admin/orderdetailcontroller.php',
             '/admin/user' => 'admin/usercontroller.php',
         ];
     

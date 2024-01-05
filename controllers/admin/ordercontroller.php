@@ -11,23 +11,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($formType === 'create') {
         $id = $od->getId($_POST['username']);
-
-        $value = [
+        $dish = $od->getDetailDish($_POST['dish_name']);
+        
+        // Check if $id and $dish are valid before proceeding
+        if (!$id || !$dish) {
+            // Handle the case where data retrieval fails
+            echo "Error retrieving user or dish data.";
+            exit();
+        }
+        
+        // Calculate total price
+        $totalprice = $od->getTotalPrice((float)$dish['Price'], (float)$_POST['quantity'], (float)$_POST['discount']);
+        
+        // Prepare data for orders table
+        $order = [
             "user_id" => $id[0]['user_id'],
-            "order_date" => $_POST['orderdate'],
+            "order_date" => $od->getCurrentDateTime(),
             "status" => $_POST['status'],
             "delivery_date" => $_POST['deliverydate'],
-            // "user_id" => $_POST['user_id'],
             "discount" => $_POST['discount'],
         ];
-        $od->createOrder($value);
+        
+        // Prepare data for order_detail table
+        $orderdetail = [
+            "dish_id" => $dish['dish_id'],
+            "dish_name" => $_POST['dish_name'],
+            "price" => $dish['Price'],
+            "quantity" => $_POST['quantity'],
+            "total_price" => $totalprice,
+        ];
+        
+        // Call the createOrder function
+        $od->createOrder($order, $orderdetail);
+        
     } elseif ($formType === 'delete') {
         $id = $_POST['order_id'];
         $od->deleteOrder($id);
-    } elseif ($formType === 'update') {
+    } 
+    
+    elseif ($formType === 'update') {
         $id = $_POST['id'];
         $user_id = $od->getId($_POST['username']);
-        $value = [
+
+        $totalprice = $od->getTotalPrice($_POST['price'],$_POST['quantity'],$_POST['discount']);
+        $order = [
             "user_id" => $user_id[0]['user_id'],
             "order_date" => $_POST['orderdate'],
             "status" => $_POST['status'],
@@ -35,9 +62,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // "user_id" => $_POST['user_id'],
             "discount" => $_POST['discount'],
         ];
-        $od->updateOrder($id, $value);
+        $orderdetail=[
+            "dish_id"=>$_POST['dish_id'],
+            "dish_name"=>$_POST['dish_name'],
+            "price"=>$_POST['price'],
+            "quantity"=>$_POST['quantity'],
+            "total_price"=>$totalprice,
+        ];
+        $od->updateOrder($id, $order,$orderdetail);
         
     }
+
+
 }
+$dataone = $od->fetchOne($id);
+echo '<pre>';
+print_r($dataone);
+echo '</pre>';
+
 
 
