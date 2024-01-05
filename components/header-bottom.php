@@ -91,7 +91,7 @@ $isLoggedIn = isset($_SESSION['user']);
         if (isLoggedIn) {
             dropdownMenu.classList.toggle("show");
         } else {
-            window.location.href = "/login";
+            window.location.href = "login";
         }
     }
 
@@ -104,7 +104,7 @@ $isLoggedIn = isset($_SESSION['user']);
                     const response = JSON.parse(xhr.responseText);
                     if (response.status === 'success') {
                         // Redirect or perform any other action after successful logout
-                        window.location.href = "/login";
+                        window.location.href = "login";
                     }
                 }
             };
@@ -114,7 +114,7 @@ $isLoggedIn = isset($_SESSION['user']);
         });
     } else {
         btn_login.addEventListener('click', () => {
-            window.location.href = "/login";
+            window.location.href = "login";
         });
     }
 </script>

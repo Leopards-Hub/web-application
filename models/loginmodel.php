@@ -27,12 +27,5 @@ class LoginModel {
         }
     }
 
-    public function logoutUser() {
-        // Perform logout actions if needed
-        // You can unset or destroy the session here
-        session_start(); // Make sure to start the session
-        session_unset();
-        session_destroy();
-    }
 }
 ?>
