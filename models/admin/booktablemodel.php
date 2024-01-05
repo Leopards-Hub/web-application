@@ -1,8 +1,8 @@
 <?php
 require_once "database/database.php";
-function createdBookTable($User_id,$Table_id, $time,$db): bool
+function createdBookTable($User_id,$Table_id, $time, $db): bool
 {
-    // global $db;
+  
     $statement = $db->prepare("INSERT INTO Booktable (`User_id`, `Table_id`, `time`) VALUES (?, ?, ?)");
     $createBookTable=  $statement->execute([$User_id, $Table_id, $time]);
 
@@ -29,7 +29,7 @@ function getBookTables(): array
 
 function updateBookTable($Book_id, $User_id, $Table_id, $time, $db): bool
 {
-    // global $db;
+    //global $db;
 
     // Convert the input datetime to MySQL datetime format
     $formattedTime = date('Y-m-d H:i:s', strtotime($time));
@@ -41,9 +41,9 @@ function updateBookTable($Book_id, $User_id, $Table_id, $time, $db): bool
 }
 
 
-function deleteBookTable($Book_id,$db): bool
+function deleteBookTable($Book_id, $db): bool
 {
-    // global $db;
+    //global $db;
     
     try {
         $statement = $db->prepare("DELETE FROM Booktable WHERE Book_id = :Book_id;");
@@ -65,9 +65,9 @@ function deleteBookTable($Book_id,$db): bool
     }
 }
 
-function getAllIds($table, $id): array
+function getAllIds($table, $id,$db): array
 {
-    global $db;
+    //global $db;
     $statement = $db->prepare("SELECT $id FROM  `$table`");
     $statement->execute();
     $result = $statement->fetchAll(PDO::FETCH_COLUMN);

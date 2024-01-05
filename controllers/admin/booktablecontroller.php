@@ -7,6 +7,8 @@ $statement = $db->prepare("SELECT * FROM Booktable ");
 $statement->execute();
 $posts = $statement->fetchAll();
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $action = $_POST['action']; // Thêm dòng này để lấy hành động từ form
 
@@ -83,5 +85,5 @@ function handleDelete($db) {
 }
 
 
-require "views/admin/booktableview.php";
+require_once "views/admin/booktableview.php";
 ?>
