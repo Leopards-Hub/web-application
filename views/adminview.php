@@ -311,6 +311,50 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="container-fluid p-5 ">
+                <table class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>STT</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                            $id = 1; 
+                            
+                            foreach ($data as $row): ?>
+                                <tr>
+                                    <td>
+                                        <?= $id ?>
+                                    </td>
+                                    <td>
+                                        <?= $row['name'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $row['email'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $row['subject'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $row['message'] ?>
+                                    </td>
+                                </tr>
+
+                                <?php $id++; // Tăng giá trị ID sau mỗi hàng
+                            endforeach; ?>
+
+                        </tbody>
+                    </table>
+                </div>
+
                 <footer class="footer">
                     <div class="container-fluid d-flex justify-content-center">
                         <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©
