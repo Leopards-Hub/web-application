@@ -64,4 +64,22 @@ CREATE TABLE IF NOT EXISTS Order_detail (
     FOREIGN KEY (dish_id) REFERENCES Dish(Dish_id)
 );
 
+CREATE TABLE IF NOT EXISTS contacts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    subject VARCHAR(255),
+    message TEXT
+);
+
+
+-- Thêm dữ liệu mẫu vào bảng contacts
+INSERT INTO contacts (name, email, subject, message) VALUES
+('Nguyen Van A', 'nguyenvana@example.com', 'Question 1', 'This is the first message.'),
+('Tran Thi B', 'tranthib@example.com', 'Feedback', 'Thank you for your service.'),
+('Le Van C', 'levanc@example.com', 'Inquiry', 'I would like to inquire about your products.');
+
+-- Bạn có thể thêm nhiều bản ghi khác nếu cần thiết.
+
+
 

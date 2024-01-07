@@ -3,7 +3,7 @@
 include_once 'models/admin/ordermodel.php';
 $od = new OrderModel($db);
 $data = $od->fetchAll();
-
+$dataone = $od->fetchOne($id);
 require_once 'views/admin/orderview.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -72,13 +72,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $od->updateOrder($id, $order,$orderdetail);
         
     }
-
-
 }
-$dataone = $od->fetchOne($id);
-echo '<pre>';
-print_r($dataone);
-echo '</pre>';
-
-
 
