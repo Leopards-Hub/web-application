@@ -306,8 +306,8 @@
           <div class="form-group">
             <label for="role">Role:</label>
             <select class="form-control" id="role" name="role">
-                <option value="User">User</option>
-                <option value="Admin">Admin</option>
+                <option value="customer">customer</option>
+                <option value="admin">admin</option>
             </select>
           </div>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddNewModal()">Close</button>
