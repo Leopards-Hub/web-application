@@ -36,7 +36,7 @@
                         <p class="text-danger"><?php echo $_SESSION['error_message']; ?></p>
                         <?php unset($_SESSION['error_message']); ?>
                     <?php endif; ?>
-                    <p class="">You don't have an account?<a href="#">Register now</a></p>
+                    <p class="">You don't have an account?<a href="register">Register now</a></p>
                     <button type="submit" class="btn btn-primary">Login</button>
                 </div>
             </form>
