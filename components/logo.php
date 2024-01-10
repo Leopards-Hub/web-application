@@ -1,6 +1,5 @@
 <?php include 'root/CSS/component/logo.css.php'; ?>
 
-
 <?php
 function createLogo($fill1, $fill2)
 {
