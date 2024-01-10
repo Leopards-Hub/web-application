@@ -200,7 +200,6 @@ class OrderModel
         }
     }
     
-
     function deleteOrder($id)
     {
         global $db;
@@ -276,13 +275,11 @@ class OrderModel
             echo "Error querying: " . $e->getMessage();
             return false;
         }
-
     }
     // get id and price from dish_name
     public function getDetailDish($name)
     {
         $query = "SELECT dish_id, Price FROM dish WHERE Dish_name = :dishname";
-
         try {
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(':dishname', $name, PDO::PARAM_STR);
@@ -296,9 +293,6 @@ class OrderModel
             return null;
         }
     }
-
-
-
 
     // hàm tính total_price
     public function getTotalPrice($price, $quantity, $discount)
