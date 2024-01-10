@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,24 +7,24 @@
     <title>Giỏ hàng</title>
     <!-- Bao gồm Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <?php include 'root/CSS/shoppingcart.css.php'; ?>
-    <?php include 'root/CSS/htmlfont.css.php'; ?>
+    <?php include '../root/CSS/shoppingcart.css.php'; ?>
+    <?php include '../root/CSS/htmlfont.css.php'; ?>
 </head>
 <body>
         <div>
-                <?php
-                    include_once 'components/header.php';
-                ?>
-            </div>
-    <div class="container cart-container">
+            <?php
+                include_once 'components/header.php';
+            ?>
+        </div>
+        <div class="container cart-container">
         
-    <div class="cart-total">
-            <h5>Total: $69.97</h5>
-            <button class="btn btn-checkout">Checkout</button>
+        <div class="cart-total">
+                <h5>Total: $69.97</h5>
+                <button class="btn btn-checkout">Checkout</button>
         </div>
         <div class="cart-item">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 pl-5">
                     <img src="https://images.squarespace-cdn.com/content/v1/53883795e4b016c956b8d243/1551783604684-AE2UE7DYUGV96DUT4G80/chup-anh-thuc-an-1.jpg" alt="Product Image">
                 </div>
                 <div class="col-md-8">
