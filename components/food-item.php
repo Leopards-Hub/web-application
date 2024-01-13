@@ -5,8 +5,7 @@
 
     function createFood($Foods, $class) {
         // Extract parameters from the array or set default values
-        // $id = isset($_GET['id']) ? 'name'.($_GET['id']) :'';
-
+        $dish_id = isset($Foods['dish_id']) ? $Foods['dish_id'] : '';
         $src = isset($Foods['Image_dish']) ? $Foods['Image_dish'] : '';
         $h1Cost = isset($Foods['Price']) ? $Foods['Price'] : '';
         $h1Title = isset($Foods['Dish_name']) ? $Foods['Dish_name'] : '';
@@ -22,6 +21,7 @@
         $html .= '<p class="card-text">' . $infor . '</p>';
         $html .= '</div>';
         $html .= '<form action = "shopping" method = "post">';
+        $html .= '<input type = "hidden" name = "dish_id" value = "'. $dish_id .'">';
         $html .= '<input type = "hidden" name = "images" value = "'. $src .'">';
         $html .= '<input type = "hidden" name = "prices" value = "'. $h1Cost .'">';
         $html .= '<input type = "hidden" name = "name" value = "'. $h1Title .'">';
