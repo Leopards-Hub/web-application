@@ -13,6 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $od->getId($_POST['username']);
         $dish = $od->getDetailDish($_POST['dish_name']);
         
+        $detailUser = $od->getDetailUser($id);
+        echo '<pre>'; print_r($detailUser); echo '</pre>';
         // Check if $id and $dish are valid before proceeding
         if (!$id || !$dish) {
             // Handle the case where data retrieval fails
@@ -39,6 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "price" => $dish['Price'],
             "quantity" => $_POST['quantity'],
             "total_price" => $totalprice,
+            "address" => $_POST['address'],
+            "phone" => $detailUser[0]['Phone'],
+            "payment"=>"COD",
         ];
         
         // Call the createOrder function

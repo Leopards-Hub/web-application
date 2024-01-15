@@ -1,6 +1,8 @@
 <?php
     require_once 'models/shoppingmodel.php';
     
+    $listOrder = new Shopping($db);
+    $lists = $listOrder->getOrdersList($_SESSION['user']['user_id']);
 
     if (!isset($_SESSION["cart"])){
         $_SESSION['cart'] = array();

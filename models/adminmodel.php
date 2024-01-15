@@ -31,5 +31,15 @@ class Admin{
             return false;
         }
     }
+    public function getCustomerVisitorsCount(){
+        $fp = 30000;
+        $fo = fopen($fp, 'r');
+        $count = fread($fo,filesize($fp));
+        $count++;
+        $fc = fclose($fo);
+        $fo = fopen($fp, 'w');
+        $fw = fwrite($fo,$count);
+        $fc = fclose($fo);
+    }
     
 }

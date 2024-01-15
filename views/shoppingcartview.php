@@ -45,8 +45,12 @@
                     }
                 }
             ?>
-            <h5 class= "price">Total: $<?php echo $total; ?> </h5>
-            <button class="btn btn-checkout">Checkout</button>
+            <form action="" method="" id="form" >
+                <label for="price">Total:</label>
+                <input type="number" name="price" id="price" value="<?php echo $total; ?>" readonly  style="border: none; pointer-events: none; "  >
+                <!-- <h5 class= "price" >Total: $</h5> -->
+                <button id="checkout" class="btn btn-checkout">Checkout</button>
+            </form>
         </div>
             <?php
                 // $bienSoLuongAddToCart = isset($_POST['quantity']) ? $_POST['quantity'] : 1;
@@ -107,6 +111,36 @@
             </div>
         </div> -->
         <a href="menu">ADD MORE</a>
+        </div>
+    </div>
+    <div class="container bg-white p-5" id="renderOrder">
+        <h3>Giỏ hàng của bạn</h3>
+        <div class="container-fluid">
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+            <tr class="text-center">
+                <th>Dish name</th>
+                <th>Quantity</th>
+                <th>Status</th>
+                <th>Price</th>
+                <th>Payment method</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your table content goes here -->
+            <?php foreach($lists as $list){ ?>
+                <tr>
+                    <td><?php echo $list['dish_name'];?></td>
+                    <td><?php echo $list['quantity'];?></td>
+                    <td><?php echo $list['status'];?></td>
+                    <td>$<?php echo $list['total_price'];?></td>
+                    <td><?php echo $list['payment'];?></td>
+                </tr>
+
+            <?php }?>
+        </tbody>
+    </table>
+</div>
     </div>
     <div>
         <?php
@@ -124,7 +158,6 @@
             var value = parseInt(input.value, 10);
             input.value = value + 1;
         }
-
         function decreaseQuantity(button) {
             var input = button.parentNode.querySelector('input');
             var value = parseInt(input.value, 10);
@@ -132,11 +165,27 @@
                 input.value = value - 1;
             }
         }
-
         function removeItem(button) {
             var cartItem = button.closest('.cart-item');
             cartItem.remove();
         }
+        let checkout = document.getElementById('checkout');
+    checkout.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const price = document.getElementById('price').value;
+
+        if (parseInt(price) > 0) {
+            console.log(price);
+            const form = document.getElementById('form');
+            form.action = 'order'; // Replace 'your_processing_script.php' with your actual processing script
+            form.method = 'post'; // Set the method to 'post' if needed
+            form.submit(); // Submit the form
+        } else {
+            alert('Please choose a product to purchase');
+        }
+    });
+
     </script>
 </body>
 
