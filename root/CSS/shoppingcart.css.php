@@ -46,7 +46,9 @@
             text-align: right;
             margin-top: 20px;
         }
-
+        .price{
+            color:#AD343E;
+        }
         .btn-checkout {
             background-color:darkgoldenrod;
             color: #fff;
@@ -62,6 +64,10 @@
         }
         .checkbox-label{
             margin-right: 30px;
+        }
+
+        .btn-minus, .btn-plus{
+            border:none
         }
 
 
