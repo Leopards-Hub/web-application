@@ -28,7 +28,7 @@ The environment for this web development is [Visual Studio Code](https://code.vi
 
 #### Run server
 
-Open on web: [http://localhost/](http://localhost/) (this is by default, you can custom it)
+Open on web: [http://localhost/web-application/](http://localhost/web-application/) (this is by default, you can custom it)
 
 ### Mac, Linux
 - Coming soon
