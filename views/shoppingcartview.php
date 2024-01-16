@@ -10,6 +10,7 @@
 //     $user_id = $_SESSION["user"]["user_id"];
 //     echo $user_id;
 // }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +40,7 @@
                 if(isset($_SESSION['cart']) && (count($_SESSION['cart']))>0){
                     // var_dump($_SESSION['cart'][0]);
                     foreach($_SESSION['cart'] as $item){
-                        $total += $item[4] * $item[5];
+                        $total += $item['quantity'] * $item['price'];
                         $i++;
                         
                     }
@@ -71,7 +72,7 @@
                 if(isset($_SESSION['cart']) && (count($_SESSION['cart']))>0){
                     // var_dump($_SESSION['cart'][0]);
                     foreach($_SESSION['cart'] as $item){
-                        $total += $item[4] * $item[5];
+                        $total += $item['quantity'] * $item['price'];
                         showcart($item,$i);
                         $i++;
                         
