@@ -5,15 +5,45 @@
 
 <?php
 
+// URL của API bạn muốn fetch
+$apiUrl = 'https://free-api.cunguyen.com/api/food-blogs';
+
+// Lấy nội dung từ API
+$response = file_get_contents($apiUrl);
+
+// Kiểm tra nếu có lỗi khi lấy dữ liệu từ API
+if ($response === FALSE) {
+    die('Error fetching data from the API');
+}
+
+// Chuyển đổi dữ liệu JSON thành mảng PHP
+$data = json_decode($response, true);
+
+// Kiểm tra nếu chuyển đổi không thành công
+if ($data === NULL) {
+    die('Error decoding JSON data');
+}
+
+// Dữ liệu từ API sẽ ở trong biến $data, bạn có thể xử lý dữ liệu dựa trên nhu cầu của mình
+// var_dump($data);
+// echo '<pre>'; print_r($data); print '</pre>';
+?>
+
+<?php
+
+
+
 function createBlogger($params, $class) {
     // Extract parameters from the array or set default values
-    $src = isset($params['src']) ? $params['src'] : '';
+    $src = isset($params['image']) ? $params['image'] : '';
     $label = isset($params['label']) ? $params['label'] : '';
-    $p = isset($params['p']) ? $params['p'] : '';
-    $infor = isset($params['infor']) ? $params['infor'] : '';
-    
+    $p = isset($params['title']) ? $params['title'] : '';
+    $infor = isset($params['summary']) ? $params['summary'] : '';
+    $link = isset($params['externalLink']) ? $params['externalLink'] : '';
+
     // Generate HTML code for the card
     $html = '<div class="card '.$class.'">';
+    $html .= '<a href="'.$link.'" alt="">';
     $html .= '<img src="' . $src . '" class="card-img-top" alt="images">';
     $html .= '<div class="card-body">';
     $html .= '<label class="card-title fs-6">' . $label . '</label>';
@@ -22,8 +52,8 @@ function createBlogger($params, $class) {
         $html .= '<p class="card-text">' . $infor . '</p>';
     }
     $html .= '</div>';
+    $html .= '</a>';
     $html .= '</div>';
-
     // Display the result using echo
     echo $html;
 }
@@ -58,10 +88,10 @@ $params = array(
 // Call the function, and it will automatically echo the result
 // createBlogger($params[4],$class);
 
-function createBlog( $params ) {
+function createBlog( $data ) {
     $i =0;
-    while($i <count($params)-1) {
-        createBlogger($params[$i],"card-blog");
+    while($i <count($data)-1) {
+        createBlogger($data[$i],"card-blog");
         $i ++;
     }
 }

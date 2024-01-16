@@ -1,8 +1,8 @@
 <style>
-    .card-img, .card-img-bottom, .card-img-top {
+    /* .card-img, .card-img-bottom, .card-img-top {
     
     height: auto;
-}
+} */
     
     .card-img-top{
         width: 100%;
@@ -23,5 +23,10 @@
         width: 100%;
         height: 99%;
     }  
+    .card-blog img{
+        width: 100% !important;
+        height: 400px !important;
+        object-fit: fill;
+    }
     
 </style>
