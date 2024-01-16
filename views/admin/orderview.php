@@ -502,7 +502,12 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="address">Address</label>
+                                                <input type="text" id="address" name="address" >
+                                            </div>
+                                        </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"

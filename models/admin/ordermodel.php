@@ -132,74 +132,73 @@ class OrderModel
     {
         // Ensure that arrays $orderValues and $orderDetails have required fields
         $orderRequiredFields = ['order_date', 'status', 'user_id', 'discount'];
-        $orderDetailRequiredFields = ['dish_id', 'dish_name', 'price', 'quantity', 'total_price'];
-    
+        $orderDetailRequiredFields = ['dish_id', 'dish_name', 'price', 'quantity', 'total_price', 'address', 'phone', 'payment'];
+
         try {
             $this->db->beginTransaction();
-    
+
             // Prepare the SQL query for orders table
             $orderQuery = "INSERT INTO orders (order_date, status, user_id, discount) 
                            VALUES (:order_date, :status, :user_id, :discount)";
-    
+
             $orderStmt = $this->db->prepare($orderQuery);
             $orderStmt->bindParam(':order_date', $orderValues['order_date']);
             $orderStmt->bindParam(':status', $orderValues['status']);
             $orderStmt->bindParam(':user_id', $orderValues['user_id']);
             $orderStmt->bindParam(':discount', $orderValues['discount']);
             $orderStmt->execute();
-    
+
             // Get the last inserted order_id
             $orderId = $this->db->lastInsertId();
-    
+
             // Insert into order_detail table
-            $orderDetailQuery = "INSERT INTO order_detail (order_id, dish_id, dish_name, price, quantity, total_price) 
-                                 VALUES (:order_id, :dish_id, :dish_name, :price, :quantity, :total_price)";
-    
+            // Insert into order_detail table
+            $orderDetailQuery = "INSERT INTO order_detail (order_id, dish_id, dish_name, price, quantity, total_price, address, phone, payment) 
+VALUES (:order_id, :dish_id, :dish_name, :price, :quantity, :total_price, :address, :phone, :payment)";
+
             $orderDetailStmt = $this->db->prepare($orderDetailQuery);
-    
-            // Check if $orderDetails is an array
-            if (is_array($orderDetails)) {
-                // Output the data for debugging
-                echo '<pre>';
-                print_r($orderDetails);
-                echo '</pre>';
-    
-                // Bind parameters for order_detail statement
-                $orderDetailStmt->bindParam(':order_id', $orderId);
-                $orderDetailStmt->bindParam(':dish_id', $orderDetails['dish_id']);
-                $orderDetailStmt->bindParam(':dish_name', $orderDetails['dish_name']);
-                $orderDetailStmt->bindParam(':price', $orderDetails['price']);
-                $orderDetailStmt->bindParam(':quantity', $orderDetails['quantity']);
-                $orderDetailStmt->bindParam(':total_price', $orderDetails['total_price']);
-    
-                // Execute the statement
-                if (!$orderDetailStmt->execute()) {
-                    throw new Exception("Error inserting into order_detail: " . implode(", ", $orderDetailStmt->errorInfo()));
-                }
-            } else {
-                // Handle the case where $orderDetails is not an array
-                // You might want to log an error or handle it accordingly
+
+            // Bind parameters for order_detail statement
+            $orderDetailStmt->bindParam(':order_id', $orderId);
+            $orderDetailStmt->bindParam(':dish_id', $orderDetails['dish_id']);
+            $orderDetailStmt->bindParam(':dish_name', $orderDetails['dish_name']);
+            $orderDetailStmt->bindParam(':price', $orderDetails['price']);
+            $orderDetailStmt->bindParam(':quantity', $orderDetails['quantity']);
+            $orderDetailStmt->bindParam(':total_price', $orderDetails['total_price']);
+            $orderDetailStmt->bindParam(':address', $orderDetails['address']);
+            $orderDetailStmt->bindParam(':phone', $orderDetails['phone']);
+            $orderDetailStmt->bindParam(':payment', $orderDetails['payment']);
+
+            // Execute the statement
+            if (!$orderDetailStmt->execute()) {
+                throw new Exception("Error inserting into order_detail: " . implode(", ", $orderDetailStmt->errorInfo()));
             }
-    
+
+
             // Commit the transaction
             $this->db->commit();
-    
-            // Redirect after successful operation
-            echo '<script>window.location.href = "order";</script>';
+
+            $redirectUrl = "order";
+            if (strpos($_SERVER['REQUEST_URI'], 'admin') === false) {
+                // If "admin" is not present in the URL, redirect to a different page
+                $redirectUrl = "home";
+            }
+            
+            echo '<script>window.location.href = "' . $redirectUrl . '";</script>';
             return true;
         } catch (Exception $e) {
             // Log the error
             error_log("Error creating order: " . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
-    
+
             // Rollback the transaction on error
             $this->db->rollBack();
-    
+
             // Output an error message
             echo "An error occurred while processing your order. Please try again later.";
             return false;
         }
     }
-    
+
     function deleteOrder($id)
     {
         global $db;
@@ -263,6 +262,19 @@ class OrderModel
         }
     }
 
+    public function getDetailUser($id)
+    {
+        $query = "SELECT * FROM users WHERE user_id = :user_id";
+        try {
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':user_id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error querying: ", $e->getMessage();
+            return false;
+        }
+    }
     // getall dish
     public function getAllDish()
     {
@@ -293,7 +305,6 @@ class OrderModel
             return null;
         }
     }
-
     // hàm tính total_price
     public function getTotalPrice($price, $quantity, $discount)
     {
