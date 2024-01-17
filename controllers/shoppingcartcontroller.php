@@ -2,6 +2,8 @@
     require_once 'models/shoppingmodel.php';
     
    
+    $listOrder = new Shopping($db);
+    $lists = $listOrder->getOrdersList($_SESSION['user']['user_id']);
 
     if (!isset($_SESSION["cart"])){
         $_SESSION['cart'] = array();
@@ -21,7 +23,7 @@
             if($item[0] == $id){                
                 if (isset($_SESSION["user"]) && isset($_SESSION["user"]["user_id"])) {
                     $sp = array($id, $img, $name, $details, $price, $soluong);
-                    addToCart($sp);
+                    $listOrder->addToCart($sp);
                 }
                 
                 else{
@@ -36,12 +38,12 @@
             $sp = array($id, $img, $name, $details, $price, $soluong);
             // array_push($_SESSION['cart'], $sp);    
             if (isset($_SESSION["user"]) && isset($_SESSION["user"]["user_id"])) {
-                addToCart($sp);
+                $listOrder->addToCart($sp);
             }
         }
         
-        if (!empty(getCart())){            
-            $_SESSION['cart'] = getCart();
+        if (!empty($listOrder->getCart())){            
+            $_SESSION['cart'] = $listOrder->getCart();
         }
         
         
@@ -85,6 +87,6 @@
     // }
     // if()
     // unset($_SESSION['cart']); 
-    session_destroy();
+    // session_destroy();
 
 ?>
