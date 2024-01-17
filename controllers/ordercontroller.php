@@ -16,9 +16,9 @@ if (isset($_POST['payUrl'])){
  $cartQuantity=0;
  $totalPrice = 0;
  foreach(($_SESSION['cart']) as $carts){
-    $cartName = $carts[2];
-    $cartPrice = intval($carts[4]);
-    $cartQuantity = intval($carts[5]);
+    $cartName = $carts['dish_name'];
+    $cartPrice = intval($carts['price']);
+    $cartQuantity = intval($carts['quantity']);
     $totalPrice += intval($cartPrice)*intval($cartQuantity);
 }
 $_SESSION['orderInform']['price'] = $totalPrice;
