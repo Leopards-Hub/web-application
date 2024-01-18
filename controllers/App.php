@@ -34,6 +34,7 @@ class App {
             '/blog' => 'blogcontroller.php',
             '/shopping' => 'shoppingcartcontroller.php',
             '/order' => 'ordercontroller.php',
+            '/thankyou' => 'thankyoucontroller.php',
             '/contact' => 'contactcontroller.php',
             '/admin' => 'admincontroller.php',
             '/login' => 'logincontroller.php',
@@ -45,6 +46,7 @@ class App {
             '/admin/dish' => 'admin/dishcontroller.php',
             '/admin/orderdetail' => 'admin/orderdetailcontroller.php',
             '/admin/user' => 'admin/usercontroller.php',
+            '/viewcart'=> '',
         ];
     
         foreach ($routes as $route => $controllerFile) {

@@ -27,8 +27,7 @@
         <div class="row" style="gap: 2em;">
             <?php
                 include 'components/blogger-items.php';
-                createBlog($params);
-                createBlog($params);
+                createBlog($data);
             ?>
         </div>
     </div>

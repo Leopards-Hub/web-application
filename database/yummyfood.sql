@@ -72,6 +72,15 @@ CREATE TABLE IF NOT EXISTS contacts (
     message TEXT
 );
 
+CREATE TABLE if not EXISTS `cart` (
+  cart_id INT AUTO_INCREMENT PRIMARY KEY NOT Null,
+  dish_id INT NOT null ,
+  user_id INT not null,
+  dish_name VARCHAR(255) not null ,
+  image VARCHAR(255) not null,
+  quantity INT not null DEFAULT 1,
+  price DECIMAL(10, 2) not null
+);
 
 -- Thêm dữ liệu mẫu vào bảng contacts
 INSERT INTO contacts (name, email, subject, message) VALUES
@@ -83,3 +92,4 @@ INSERT INTO contacts (name, email, subject, message) VALUES
 
 
 
+ALTER TABLE `order_detail` ADD `address` VARCHAR(250) NOT NULL AFTER `total_price`, ADD `phone` VARCHAR(50) NOT NULL AFTER `address`, ADD `payment` VARCHAR(250) NOT NULL AFTER `phone`;

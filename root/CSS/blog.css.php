@@ -10,4 +10,9 @@
     .blog-items{
         margin: 4em 0;
     }
+    .card:hover {
+    transform: translate(10px, 10px);
+    transition: transform 0.3s ease-in-out;
+}
+
 </style>
