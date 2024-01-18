@@ -7,6 +7,16 @@
         $class = "btn $additionalClass";
         echo "<button class='$class' id='btn-$index'>$label</button>";
     }
+
+    function createbtnmenu($name, $class, $active){
+        $active = ($name == 'All')? 'active' : '';
+
+        $html = '<input type="hidden" name = "'.$name.'" value="'. $name . '">';
+        $html .= '<button type="submit" class="btn '. $class .' '. $active .'" id="btn-'.$name.'">'. $name .'</button>';
+
+        echo $html;
+        // echo $_POST[$name];
+    }
     
 ?>
 
