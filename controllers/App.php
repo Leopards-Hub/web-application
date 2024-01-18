@@ -46,11 +46,8 @@ class App {
             '/admin/dish' => 'admin/dishcontroller.php',
             '/admin/orderdetail' => 'admin/orderdetailcontroller.php',
             '/admin/user' => 'admin/usercontroller.php',
-<<<<<<< HEAD
             '/viewcart'=> '',
-=======
             '/admin/bookings' => 'admin/bookingscontroller.php',
->>>>>>> feature/booktable
         ];
     
         foreach ($routes as $route => $controllerFile) {
