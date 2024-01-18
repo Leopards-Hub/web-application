@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <?php include "components/linkbootstrap5.php"; ?>
     <link rel="stylesheet" href="../root/CSS/admin/style.css">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
     <div class="container-scroller">
+
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -34,7 +38,9 @@
                             </clipPath>
                         </defs>
                     </svg>
+
                     YUMMY FOOD</a>
+
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -44,7 +50,7 @@
                     <form class="d-flex align-items-center h-100" action="#">
                         <div class="input-group">
                             <div class="input-group-prepend bg-transparent">
-                                <i class="fa fa-search" aria-hidden="true"></i>
+                            <i class="fa fa-search" aria-hidden="true"></i>
                             </div>
                             <input type="text" class="form-control bg-transparent border-0"
                                 placeholder="Search projects">
@@ -65,7 +71,7 @@
                         </a>
                     </li>
                     <li class="nav-item d-none d-lg-block full-screen-link">
-                        <a class="nav-link" href="../home">
+                        <a class="nav-link" href="">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -147,7 +153,7 @@
                 <ul class="nav">
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
-
+                           
                             <div class="nav-profile-text d-flex flex-column">
                                 <span class="font-weight-bold mb-2">Admin</span>
                                 <span class="text-secondary text-small">PHP Project Manage</span>
@@ -169,13 +175,20 @@
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="table">Table</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="order" id="taget_self">Orders</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="dish">Dish</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="booktable">Book table</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="user">User</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="orderdetail">Order detail</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="bookings">Bookings</a></li>
+                                <li class="nav-item"> <a class="nav-link" 
+                                        href="table">Table</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="order">Orders</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="dish">Dish</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="booktable">Book table</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="user">User</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="orderdetail">Order detail</a></li>
+                                 <li class="nav-item"> <a class="nav-link"
+                                        href="#">Bookings</a></li>
                             </ul>
                         </div>
                     </li>
@@ -219,162 +232,66 @@
                             </ul>
                         </div>
                     </li>
+                 
                 </ul>
             </nav>
-            <!-- partial -->
-            <div class="main-panel">
+        <!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+    <h1 class='btn btn-warning text-white'>Customers are waiting for you to approve their table reservations</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Booking_id</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Fullname</th>
+            <th>Phone</th>
+            <th>number people</th>
+            <th>User_id</th>
+            <th>ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($bookings as $booking): ?>
+            <tr>
+                <td><?php echo $booking['id']; ?></td>
+                <td><?php echo $booking['date']; ?></td>
+                <td><?php echo $booking['time']; ?></td>
+                <td><?php echo $booking['fullName']; ?></td>
+                <td><?php echo $booking['phone']; ?></td>
+                <td><?php echo $booking['numGuests']; ?></td>
+                <td><?php echo $booking['User_id']; ?></td>
 
-                <div class="container mt-5">
-                    <table class="table">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>STT</th>
-                                <th>Dish Name</th>
-                                <th>Quantity</th>
-                                <th>Total Price</th>
-                                <th>Username</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <td>
+                <form method="post" action="">
+                <input type="hidden" name="booking_id" value="<?php echo $booking['id']; ?>">
+                <button class="btn btn-warning text-white" type="submit" name="accept">Accept</button>
+                <button class="btn btn-danger" type="submit" name="reject">Reject</button>
+                </form>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 
-                            <?php
-                            $id = 1; // Biến để lưu trữ giá trị ID tăng dần
-                            
-                            foreach ($data as $row): ?>
-                                <tr>
-                                    <td>
-                                        <?= $id ?>
-                                    </td>
-                                    <td>
-                                        <?= $row['dish_name'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $row['Quantity'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $row['total_price'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $row['Username'] ?>
-                                    </td>
-                                    <td>
-                                        <a href="orderdetail?id=<?= $row['Order_id']; ?>" class="btn btn-primary"
-                                            onclick="showDetail(<?= $id ?>)">Detail</a>
-                                    </td>
-                                </tr>
+</div>
+</div>
 
-                                <?php $id++; // Tăng giá trị ID sau mỗi hàng
-                            endforeach; ?>
 
-                        </tbody>
-                    </table>
-                </div>
 
+</div>
+                <footer class="footer">
+                    <div class="container-fluid d-flex justify-content-center">
+                        <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©
+                            bootstrapdash.com 2021</span>
+                    </div>
+                </footer>
             </div>
         </div>
+    </div>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
-                        <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <ul>
-                            <li><strong>Username:</strong>
-                                <?php echo $array['Username']; ?>
-                            </li>
-                            <li><strong>Dish Name:</strong>
-                                <?php echo $array['dish_name']; ?>
-                            </li>
-                            <li><strong>Order Date:</strong>
-                                <?php echo $array['order_date']; ?>
-                            </li>
-                            <li><strong>Quantity:</strong>
-                                <?php echo $array['quantity']; ?>
-                            </li>
-                            <li><strong>Status:</strong>
-                                <?php echo $array['status']; ?>
-                            </li>
-                            <li><strong>Delivery Date:</strong>
-                                <?php echo $array['delivery_date']; ?>
-                            </li>
-                            <li><strong>Price:</strong>
-                                <?php echo $array['price']; ?>
-                            </li>
-                            <li><strong>Discount:</strong>
-                                <?php echo $array['discount']; ?>
-                            </li>
-                            <li><strong>Total Price:</strong>
-                                <?php echo $array['total_price']; ?>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="btn-close" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- JavaScript to handle the confirmation -->
-        <footer class="footer">
-            <div class="container-fluid d-flex justify-content-center">
-                <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©
-                    bootstrapdash.com 2021</span>
-            </div>
-        </footer>
-    </div>
-    </div>
-    </div>
 </body>
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Check if the URL contains the 'id' parameter
-        var urlParams = new URLSearchParams(window.location.search);
-        var modalId = urlParams.get('id');
-
-        // If 'id' is present, trigger the modal to open
-        if (modalId) {
-            // Use Bootstrap's modal method to show the modal
-            $('#exampleModal').modal('show');
-        }
-
-        // Listen for the modal hidden event
-        $('#exampleModal').on('hidden.bs.modal', function (e) {
-            // Modify the browser's history to remove the 'id' parameter
-            history.pushState({}, document.title, window.location.pathname);
-        });
-        $('#close').on('click', function (e) {
-            e.preventDefault();
-
-            // Hide the modal
-            $('#exampleModal').modal('hide');
-
-            // Modify the browser's history to remove the 'id' parameter
-            history.pushState({}, document.title, window.location.pathname);
-        });
-        $('#btn-close').on('click', function (e) {
-            e.preventDefault();
-
-            // Hide the modal
-            $('#exampleModal').modal('hide');
-
-            // Modify the browser's history to remove the 'id' parameter
-            history.pushState({}, document.title, window.location.pathname);
-        });
-    });
-</script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-
+  
 </html>
+

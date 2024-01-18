@@ -1,6 +1,7 @@
 <?php
     require_once 'models/shoppingmodel.php';
     
+   
     $listOrder = new Shopping($db);
     $lists = $listOrder->getOrdersList($_SESSION['user']['user_id']);
 
@@ -17,18 +18,35 @@
         $flag =0;
 
         $j=0;
+        
         foreach($_SESSION['cart'] as $item){
-            if($item[0] == $id){
-                $soluong += $item[5];
-                $_SESSION['cart'][$j][5] = $soluong;                
-                $flag = 1;
+            if($item[0] == $id){                
+                if (isset($_SESSION["user"]) && isset($_SESSION["user"]["user_id"])) {
+                    $sp = array($id, $img, $name, $details, $price, $soluong);
+                    $listOrder->addToCart($sp);
+                }
+                
+                else{
+                    $newsl = $soluong + $item[5];
+                    $_SESSION['cart'][$j][5] = $newsl;                
+                    $flag = 1;
+                }
             }
             $j++;
         }
         if($flag == 0){
             $sp = array($id, $img, $name, $details, $price, $soluong);
-            array_push($_SESSION['cart'], $sp);    
+            // array_push($_SESSION['cart'], $sp);    
+            if (isset($_SESSION["user"]) && isset($_SESSION["user"]["user_id"])) {
+                $listOrder->addToCart($sp);
+            }
         }
+        
+        if (!empty($listOrder->getCart())){            
+            $_SESSION['cart'] = $listOrder->getCart();
+        }
+        
+        
         header('location: menu');
         exit;
     }
@@ -67,6 +85,8 @@
         
     //     // require_once 'views/shoppingcartview.php';
     // }
-    // unset($_SESSION['cart']);   
+    // if()
+    // unset($_SESSION['cart']); 
+    // session_destroy();
 
 ?>

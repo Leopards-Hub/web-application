@@ -47,6 +47,7 @@ class App {
             '/admin/orderdetail' => 'admin/orderdetailcontroller.php',
             '/admin/user' => 'admin/usercontroller.php',
             '/viewcart'=> '',
+            '/admin/bookings' => 'admin/bookingscontroller.php',
         ];
     
         foreach ($routes as $route => $controllerFile) {
