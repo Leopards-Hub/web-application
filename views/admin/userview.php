@@ -188,6 +188,8 @@
                                         href="#">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="orderdetail">Order detail</a></li>
+                                        <li class="nav-item"> <a class="nav-link"
+                                        href="bookings">Bookings</a></li>
                             </ul>
                         </div>
                     </li>
