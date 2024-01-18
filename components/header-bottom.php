@@ -81,9 +81,9 @@ $isLoggedIn = isset($_SESSION['user']);
         <?php 
         if (isset($_SESSION['user'])){ echo '<a href = "shopping">';}
         else {
-            echo '<a href = "login">';
             
-            echo '<script>alert("You need to login!");</script>';
+            // echo '<script>alert("You need to login!");</script>';
+            echo '<a href = "login">';
         }?>
         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="54" viewBox="0 0 60 54" fill="none">
   <path d="M9.18335 22.4807H6.73438V12.6117C6.73438 10.7157 8.01397 7.12891 12.8568 7.12891H47.1425C49.2597 7.12891 53.265 8.50399 53.265 13.7083V22.4807H50.816V13.7083C50.816 9.37246 47.2932 9.32202 47.1425 9.32202H12.8568C9.40009 9.32202 9.1907 12.0678 9.18335 12.6183V22.4807Z" fill="#546E7A"/>

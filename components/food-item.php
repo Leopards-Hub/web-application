@@ -38,8 +38,11 @@
     }
 
     $class = '';
-
-    $Foods = FoodItem();
+    if((isset($_POST['search'])  || isset($_POST['All']) || isset($_POST['Breakfast']) || isset($_POST['Dishes']) || isset($_POST['Dessert'])) && !empty(search()) ){
+        $Foods = search();
+    }else{
+        $Foods = FoodItem();
+    }
     // Example usage
     // $Foods = array(
     //     ['src'   => './root/assets/images-food/food1.png',
