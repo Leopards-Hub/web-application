@@ -36,6 +36,8 @@ CREATE TABLE IF NOT EXISTS Booktable (
     User_id INT,
     Table_id INT,
     time DATETIME,
+    phone int,
+    num_guests int,
     FOREIGN KEY (User_id) REFERENCES Users(user_id),
     FOREIGN KEY (Table_id) REFERENCES `Table`(table_id)
 );
@@ -70,6 +72,16 @@ CREATE TABLE IF NOT EXISTS contacts (
     email VARCHAR(255),
     subject VARCHAR(255),
     message TEXT
+);
+CREATE TABLE bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date DATE,
+    time TIME,
+    fullName VARCHAR(255),
+    phone VARCHAR(15),
+    numGuests INT,
+    User_id int,
+    FOREIGN KEY (User_id) REFERENCES Users(user_id)
 );
 
 

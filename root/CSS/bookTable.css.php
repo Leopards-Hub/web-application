@@ -62,4 +62,20 @@
         color: var(--Neutral-07, #182226) !important;
         background: none !important;
     }
+    .success-message {
+    background-color:darkgoldenrod;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  
+}
+
+.failure-message {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
 </style>
