@@ -28,11 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 function handleCreate($db) {
-    if (!empty($_POST['User_id']) && !empty($_POST['Table_id']) && !empty($_POST['time']) ) {
+    if (!empty($_POST['User_id']) && !empty($_POST['Table_id']) && !empty($_POST['time']) && !empty($_POST['phone']) && !empty($_POST['num_guests']) ) {
         $User_id = $_POST['User_id'];
         $Table_id = $_POST['Table_id'];
         $time = $_POST['time'];
-        $create = createdBookTable($User_id,$Table_id, $time, $db);
+        $phone = $_POST['phone'];
+        $num_guests = $_POST['num_guests'];
+        $create = createdBookTable($User_id,$Table_id, $time, $phone, $num_guests, $db);
 
         if ($create) {
             header("Location: booktable");
@@ -46,13 +48,14 @@ function handleCreate($db) {
 }
 function handleEdit($db) {
     // Xử lý sửa
-    if (isset($_POST['Book_id']) && !empty($_POST['User_id']) && !empty($_POST['Table_id']) && !empty($_POST['time']) ) {
+    if (isset($_POST['Book_id']) && !empty($_POST['User_id']) && !empty($_POST['Table_id']) && !empty($_POST['time']) && !empty($_POST['phone']) && !empty($_POST['num_guests']) ) {
         $Book_id = $_POST['Book_id'];
         $User_id = $_POST['User_id'];
         $Table_id = $_POST['Table_id'];
         $time = $_POST['time'];
-
-        $edit = updateBookTable($Book_id,$User_id,$Table_id, $time, $db);
+        $phone = $_POST['phone'];
+        $num_guests = $_POST['num_guests'];
+        $edit = updateBookTable($Book_id, $User_id, $Table_id, $time, $phone, $num_guests, $db);
 
         if ($edit) {
             header("Location: booktable");

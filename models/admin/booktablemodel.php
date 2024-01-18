@@ -1,10 +1,10 @@
 <?php
 require_once "database/database.php";
-function createdBookTable($User_id,$Table_id, $time, $db): bool
+function createdBookTable($User_id,$Table_id, $time, $phone, $num_guests, $db): bool
 {
   
-    $statement = $db->prepare("INSERT INTO Booktable (`User_id`, `Table_id`, `time`) VALUES (?, ?, ?)");
-    $createBookTable=  $statement->execute([$User_id, $Table_id, $time]);
+    $statement = $db->prepare("INSERT INTO Booktable (`User_id`, `Table_id`, `time`, `phone`, `num_guests`) VALUES (?, ?, ?, ?, ?)");
+    $createBookTable=  $statement->execute([$User_id, $Table_id, $time, $phone, $num_guests]);
 
     return  $createBookTable;
 }
@@ -27,15 +27,15 @@ function getBookTables(): array
     return $statement->fetchAll();
 }
 
-function updateBookTable($Book_id, $User_id, $Table_id, $time, $db): bool
+function updateBookTable($Book_id, $User_id, $Table_id, $time, $phone, $num_guests, $db): bool
 {
     //global $db;
 
     // Convert the input datetime to MySQL datetime format
     $formattedTime = date('Y-m-d H:i:s', strtotime($time));
 
-    $statement = $db->prepare("UPDATE Booktable SET `User_id` = ?, `Table_id` = ?, `time` = ?  WHERE Book_id = ?");
-    $statement->execute([$User_id, $Table_id, $formattedTime, $Book_id]);
+    $statement = $db->prepare("UPDATE Booktable SET `User_id` = ?, `Table_id` = ?, `time` = ?, `phone` = ?, `num_guests` = ? WHERE Book_id = ?");
+    $statement->execute([$User_id, $Table_id, $formattedTime, $phone, $num_guests, $Book_id]);
 
     return $statement->rowCount() > 0;
 }

@@ -172,6 +172,8 @@
                                         href="admin/user">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="admin/orderdetail">Order detail</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="admin/bookings">Bookings</a></li>
                             </ul>
                         </div>
                     </li>

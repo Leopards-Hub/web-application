@@ -188,6 +188,8 @@
                                         href="user">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="orderdetail">Order detail</a></li>
+                                 <li class="nav-item"> <a class="nav-link"
+                                        href="bookings">Bookings</a></li>
                             </ul>
                         </div>
                     </li>
@@ -245,6 +247,8 @@
         <th>User_id</th>
         <th>Table_id</th>
         <th>Time</th>
+        <th>Phone</th>
+        <th>number people</th>
         <th>ACTIONS</th>
       </tr>
     </thead>
@@ -255,9 +259,12 @@
           <td><?php echo $post['User_id']; ?></td>
           <td><?php echo $post['Table_id']; ?></td>
           <td><?php echo $post['time']; ?></td>
+          <td><?php echo $post['phone']; ?></td>
+          <td><?php echo $post['num_guests']; ?></td>
+
           <td>
             <a class='btn btn-danger' onclick="openDeleteModal(<?php echo $post['Book_id']; ?>)">Delete</a> 
-            <a class='btn btn-success' onclick="openEditModal( <?php echo $post['Book_id']; ?>, <?php echo $post['User_id']; ?>, <?php echo $post['Table_id']; ?>, '<?php echo $post['time']; ?>')">Edit</a>
+            <a class="btn btn-success" onclick="openEditModal(<?php echo $post['Book_id']; ?>, <?php echo $post['User_id']; ?>, <?php echo $post['Table_id']; ?>, '<?php echo $post['time']; ?>', '<?php echo $post['phone']; ?>', '<?php echo $post['num_guests']; ?>')">Edit</a>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -299,6 +306,14 @@
           <div class="form-group">
             <label for="time">Time:</label>
             <input type="datetime-local" class="form-control" id="time" name="time">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="number" class="form-control" id="phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="num_guests">Number people:</label>
+            <input type="number" class="form-control" id="num_guests" name="num_guests">
           </div>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddNewModal()">Close</button>
           <button type="submit" form="addNewForm" class="btn btn-primary">Save</button>
@@ -347,6 +362,14 @@
             <label for="editTime">Time:</label>
             <input type="datetime-local" class="form-control" id="editTime" name="time">
           </div>
+          <div class="form-group">
+            <label for="editPhone">Phone:</label>
+            <input type="number" class="form-control" id="editPhone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="editNum_guests">Number people:</label>
+            <input type="number" class="form-control" id="editNum_guests" name="num_guests">
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeEditModal()">Close</button>
             <button type="button" class="btn btn-success" onclick="submitEditForm()">Save Changes</button>
@@ -381,11 +404,13 @@
 </div>
 
 <script>
-  function openEditModal(Book_id,userId, tableId, time) {
+  function openEditModal(Book_id,userId, tableId, time, phone, num_guests ) {
     $('#editBookId').val(Book_id);
     $('#editUserId').val(userId);
     $('#editTableId').val(tableId);
     $('#editTime').val(time);
+    $('#editPhone').val(phone);
+    $('#editNum_guests').val(num_guests);
     $('#editModal').modal('show');
   }
 
