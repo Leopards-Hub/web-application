@@ -32,8 +32,6 @@ function createEvent($image, $title, $description) {
     echo '</div>';
     echo '</div>';
 }
-
-
 for ($i = 0; $i < count($array_event['image-event']); $i++) {
     $image = $array_event['image-event'][$i];
     $title = $array_event['title-event'][$i];

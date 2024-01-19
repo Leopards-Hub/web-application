@@ -29,7 +29,7 @@
                             <input type="hidden" name="id" value="'.$session['dish_id'].'" >
                             <input type="hidden" name="cartid" value="'.$i.'" >
                             <input type="hidden" name="form-type" value="delete">
-                            <input type="hidden" name="user_id" value="'.$session['user_id'].'" >
+                            <input type="hidden" name="cart_id" value="'.$session['cart_id'].'" >
                             <button type="submit" class="btn btn-sm btn-remove" ">Remove</button>
                         </div>
                     </form>
@@ -107,8 +107,6 @@ function getCart(){
 }
 
 
-
-// Thêm các câu lệnh đóng kết nối cơ sở dữ liệu ở đây
 
     public function getOrdersList($id) {
         // Không cần sử dụng global $db ở đây, sử dụng $this->db thay thế

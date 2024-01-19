@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Invalid action";
     }
 }
-
 function handleCreate($db) {
     if (!empty($_POST['dishname']) && !empty($_POST['imagedish']) && !empty($_POST['details']) && !empty($_POST['price'])) {
         $Dishname = $_POST['dishname'];
@@ -65,8 +64,6 @@ function handleEdit($db) {
         echo "Missing data or ID";
     }
 }
-
-
 function handleDelete($db) {
     // Xử lý xóa
     if (isset($_POST['dish_id'])) {

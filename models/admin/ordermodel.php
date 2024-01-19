@@ -308,9 +308,9 @@ VALUES (:order_id, :dish_id, :dish_name, :price, :quantity, :total_price, :addre
     // function delete from cart
     public function deleteCartUser($id){
         try{
-            $query = "DELETE FROM cart WHERE user_id = :user_id;";
+            $query = "DELETE FROM cart WHERE cart_id = :cart_id;";
             $stmt = $this->db->prepare($query);
-            $stmt->bindParam(':user_id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':cart_id', $id, PDO::PARAM_INT);
             $stmt->execute();
         }catch (PDOException $e){
             echo "Error deleting order: " . $e->getMessage();

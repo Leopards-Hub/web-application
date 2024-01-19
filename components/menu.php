@@ -1,8 +1,5 @@
 <?php
 include 'root/CSS/component/menu.css.php';
-// include '../components/button.php';
-
-
 $array_menu = array(
     'icon' => array(
         '<svg id="path-svg" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
@@ -51,10 +48,8 @@ $array_menu = array(
         "In the new era of technology we look in the future with certainty and pride for our life.",
         "In the new era of technology we look in the future with certainty and pride for our life.",
         "In the new era of technology we look in the future with certainty and pride for our life."
-
     ),
 );
-
 function createMenuCard($icon, $name, $content)
 {
     echo '<div class="menu-card col-3">';
