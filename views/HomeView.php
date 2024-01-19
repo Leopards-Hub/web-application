@@ -136,23 +136,23 @@
                 <?php include 'components/blogger-items.php'; ?>
                 <div class="row">
                     <div class="col-md-6">
-                        <?php createBlogger($params[4], $class); ?>
+                        <?php createBlogger($data[4], $class); ?>
                     </div>
                     <div class="col-md-6 d-flex flex-column gap-1">
                         <div class="row">
                             <div class="col-sm-6 p-2">
-                                <?php createBlogger($params[0], ""); ?>
+                                <?php createBlogger($data[0], ""); ?>
                             </div>
                             <div class="col-sm-6 p-2">
-                                <?php createBlogger($params[1], ""); ?>
+                                <?php createBlogger($data[1], ""); ?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 p-2">
-                                <?php createBlogger($params[2], ""); ?>
+                                <?php createBlogger($data[2], ""); ?>
                             </div>
                             <div class="col-sm-6 p-2">
-                                <?php createBlogger($params[3], ""); ?>
+                                <?php createBlogger($data[3], ""); ?>
                             </div>
                         </div>
                     </div>

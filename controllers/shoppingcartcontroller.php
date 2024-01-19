@@ -1,6 +1,7 @@
 <?php
     require_once 'models/shoppingmodel.php';
-    
+    require_once 'models/admin/ordermodel.php';
+    $od = new OrderModel($db);
    
     $listOrder = new Shopping($db);
     $lists = $listOrder->getOrdersList($_SESSION['user']['user_id']);
@@ -49,6 +50,12 @@
         
         header('location: menu');
         exit;
+    }
+    if(isset($_POST['form-type']) && $_POST['form-type']=== 'delete'){
+
+        $od->deleteCartUser($_POST['user_id']);
+        unset($_SESSION['cart']); 
+        header('location: menu');
     }
     require_once 'views/shoppingcartview.php';
 

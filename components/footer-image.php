@@ -20,10 +20,10 @@ function createImgFooter($imageArray) {
 <!-- Sử dụng hàm trong mã HTML -->
 <?php
     $imageArray = [
-        ['src' => URL_ROOT . URL_SUBFLODER .'/root/assets/images-footer/photo1.png', 'alt' => 'Image'],
-        ['src' => URL_ROOT . URL_SUBFLODER .'/root/assets/images-footer/photo2.png', 'alt' => 'Image'],
-        ['src' => URL_ROOT . URL_SUBFLODER .'/root/assets/images-footer/photo3.png', 'alt' => 'Image'],
-        ['src' => URL_ROOT . URL_SUBFLODER .'/root/assets/images-footer/photo4.png', 'alt' => 'Image'],
+        ['src' => './root/assets/images-footer/photo1.png', 'alt' => 'Image'],
+        ['src' => './root/assets/images-footer/photo2.png', 'alt' => 'Image'],
+        ['src' => './root/assets/images-footer/photo3.png', 'alt' => 'Image'],
+        ['src' => './root/assets/images-footer/photo4.png', 'alt' => 'Image'],
     ];
 
     

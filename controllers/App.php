@@ -36,10 +36,10 @@ class App {
             '/order' => 'ordercontroller.php',
             '/thankyou' => 'thankyoucontroller.php',
             '/contact' => 'contactcontroller.php',
-            '/admin' => 'admincontroller.php',
             '/login' => 'logincontroller.php',
             '/logout' => 'logoutcontroller.php',
             '/register' => 'registercontroller.php',
+            '/admin' => 'admincontroller.php',
             '/admin/order' => 'admin/ordercontroller.php',
             '/admin/table' => 'admin/tablecontroller.php',
             '/admin/booktable' => 'admin/booktablecontroller.php',
@@ -53,8 +53,6 @@ class App {
         foreach ($routes as $route => $controllerFile) {
             if ($route == $url) {
                 require_once 'controllers/' . $controllerFile;
-                // $controllerClass =(str_replace('controller.php', '', basename($controllerFile))) . 'controller';
-                // $controller = new $controllerClass();
                 break;
             }
         }

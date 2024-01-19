@@ -43,7 +43,7 @@ function createBlogger($params, $class) {
 
     // Generate HTML code for the card
     $html = '<div class="card '.$class.'">';
-    $html .= '<a href="'.$link.'" alt="">';
+    $html .= '<a target="_blank"  href="'.$link.'"   alt="">';
     $html .= '<img src="' . $src . '" class="card-img-top" alt="images">';
     $html .= '<div class="card-body">';
     $html .= '<label class="card-title fs-6">' . $label . '</label>';
