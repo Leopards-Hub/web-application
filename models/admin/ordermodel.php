@@ -305,6 +305,21 @@ VALUES (:order_id, :dish_id, :dish_name, :price, :quantity, :total_price, :addre
             return null;
         }
     }
+    // function delete from cart
+    public function deleteCartUser($id){
+        try{
+            $query = "DELETE FROM cart WHERE cart_id = :cart_id;";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':cart_id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+        }catch (PDOException $e){
+            echo "Error deleting order: " . $e->getMessage();
+            return false;
+        }
+
+    }
+
+
     // hàm tính total_price
     public function getTotalPrice($price, $quantity, $discount)
     {
@@ -328,6 +343,10 @@ VALUES (:order_id, :dish_id, :dish_name, :price, :quantity, :total_price, :addre
 
         return $currentDateTime;
     }
+
+
+
+
 }
 
 ?>

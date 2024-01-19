@@ -21,11 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Error retrieving user or dish data.";
             exit();
         }
-        
-        // Calculate total price
         $totalprice = $od->getTotalPrice((float)$dish['Price'], (float)$_POST['quantity'], (float)$_POST['discount']);
-        
-        // Prepare data for orders table
         $order = [
             "user_id" => $id[0]['user_id'],
             "order_date" => $od->getCurrentDateTime(),

@@ -17,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Redirect based on user role
             switch ($User['role']) {
                 case 'admin':
-                    header('Location: /web-application/admin');
+                    header('Location: ./admin');
                     exit();
                 case 'customer':
-                    header('Location: /web-application/home');
+                    header('Location: ./home');
                     exit();
             }
         } else {

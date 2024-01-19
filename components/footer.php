@@ -1,9 +1,5 @@
 <?php 
-    // include './linkbootstrap5.php';
     include 'root/CSS/component/footer.css.php';
-    // include 'logo.php';
-    // include 'header-navbar.php';
-    // include 'header-top-social.php';
     include 'root/CSS/component/header-top-social.css.php';
     include 'footer-image.php';
 ?>
@@ -12,14 +8,10 @@
     <div class="footer">
         <div class="footer-content">
             <div class="row">
-                <div class="col-4 footer-logo">
-                    
+                <div class="col-4 footer-logo">                   
                     <?php createLogo("white","white"); ?>
-                    
                     <p style="color: #ffffff !important;">In the new era of technology we look a in the future with certainty and pride to for our company and.</p>
-                    
-                    <?php generateSocial("bg-danger");?>
-                    
+                    <?php generateSocial("bg-danger");?>  
                 </div>
                 <div class="col-3">
                     <div class="row footer-pages">

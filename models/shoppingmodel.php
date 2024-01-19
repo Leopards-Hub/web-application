@@ -19,7 +19,7 @@
                     <h4>'.$session['dish_name'].'</h4>
                     <p>'.$session['details'].'</p>
                     <p>Price: $'.$session['price'].'</p>
-                    <form action = "post">    
+                    <form method = "post">    
                         <div class="cart-actions">
                             <div class="quantity">
                                 <button class="btn btn-minus" name = "submit" onclick="decreaseQuantity(this)">-</button>
@@ -27,7 +27,10 @@
                                 <button class="btn btn-plus" name = "submit" onclick="increaseQuantity(this)">+</button>
                             </div>
                             <input type="hidden" name="id" value="'.$session['dish_id'].'" >
-                            <button class="btn btn-sm btn-remove" onclick="removeItem(this)">Remove</button>
+                            <input type="hidden" name="cartid" value="'.$i.'" >
+                            <input type="hidden" name="form-type" value="delete">
+                            <input type="hidden" name="cart_id" value="'.$session['cart_id'].'" >
+                            <button type="submit" class="btn btn-sm btn-remove" ">Remove</button>
                         </div>
                     </form>
                 </div>
@@ -104,8 +107,6 @@ function getCart(){
 }
 
 
-
-// Thêm các câu lệnh đóng kết nối cơ sở dữ liệu ở đây
 
     public function getOrdersList($id) {
         // Không cần sử dụng global $db ở đây, sử dụng $this->db thay thế

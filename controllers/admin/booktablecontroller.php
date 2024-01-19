@@ -1,14 +1,9 @@
 <?php
 require_once "models/admin/booktablemodel.php";
-
 $heading = "Post Page";
-
 $statement = $db->prepare("SELECT * FROM Booktable ");
 $statement->execute();
 $posts = $statement->fetchAll();
-
-
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $action = $_POST['action']; // Thêm dòng này để lấy hành động từ form
 
@@ -26,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Invalid action";
     }
 }
-
 function handleCreate($db) {
     if (!empty($_POST['User_id']) && !empty($_POST['Table_id']) && !empty($_POST['time']) && !empty($_POST['phone']) && !empty($_POST['num_guests']) ) {
         $User_id = $_POST['User_id'];
@@ -67,8 +61,6 @@ function handleEdit($db) {
         echo "Missing data or ID";
     }
 }
-
-
 function handleDelete($db) {
     // Xử lý xóa
     if (isset($_POST['Book_id'])) {
@@ -86,7 +78,5 @@ function handleDelete($db) {
         echo "Missing ID";
     }
 }
-
-
 require_once "views/admin/booktableview.php";
 ?>
