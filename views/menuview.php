@@ -1,3 +1,6 @@
+<?php
+    // var_dump($_POST);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,19 +24,73 @@
             createTitle($array_title["h1"][1], $array_title['p'][1], '', 'title-h1', 'title-p', '', 'hero-title')
             ?>
         </div>
-        <div class="row" style="gap:15px; display:flex; flex-direction: row; justify-content: center; ">
+        <div style= "display:flex; justify-content: center;margin: 0rem 2rem 2rem;" class="search">
+            <form action="#" method="post">
+                <input style="width: 41rem ;height: 3rem;;border: 1px solid; border-radius: 20px; outline: none; padding-left:30px" type="text" name="search" value="" placeholder="Typing name to search...">
+                <button style="margin-left: 1rem;" class= "btn" type="submit">Search</button>
+            </form>
+        </div>
+        <!-- <div class="row" style="gap:15px; display:flex; flex-direction: row; justify-content: center; "> -->
+        <div>
             <?php
-            include_once 'components/button.php';
-            $arrayButton = ["All", "Breakfast", "Main Dishes", "Drinks", "Desserts"];
-            foreach ($arrayButton as $key) {
-                if($key === "All") {
-                    createButton($key, "btn-id", "btn active btn-ourmenu-allmenu");
-                }
-                else{
-                    createButton($key, "btn-id", "btn btn-ourmenu-allmenu");
-                }
-            }
+                include_once 'components/button.php';
             ?>
+            <form action="#" method="post">
+                <div class="row" style="gap:15px; display:flex; flex-direction: row; justify-content: center; ">
+                <?php
+                $arrayButton = ["All", "Breakfast", "Main Dishes", "Drinks", "Desserts"];
+                $classButton = 'btn-ourmenu-allmenu';
+                
+
+
+                foreach ($arrayButton as $key) {
+                    // $act = (isset($_POST['Dishes'])) ? $_POST['Dishes'] : '';
+                    // // // echo "dd ".$active."aa";
+                    // var_dump ($act);
+                    // switch ($act){
+                    //     case 'All':
+                    //         $active = 'active';
+                        
+                    // }
+                    // if(isset($_POST[$key])){
+                        
+                        // $active = (isset($_POST[$key]) && $_POST[$key] === $key) ? 'active' : '';
+                    // }
+                    // var_dump ($key);
+                    // $active = '';
+                    // if(isset($_POST[$key]) && $_POST[$key] === $key){
+                    //     $active = 'active';
+                    //     createbtnmenu($key,$classButton,$active);
+
+                    // }else{
+                    //     createbtnmenu($key,$classButton,$active);
+
+                    // }
+                    // $active = ($activeButton === $key) ? 'active' : '';
+
+                    
+
+                    
+                    // if(isset($_POST[$key])){
+                    //     $active ='active';
+                    // }else{
+                    //     $active ='';
+                    // }
+                    // if($key === "All") {
+                    //     createButton($key, "btn-id", "btn active btn-ourmenu-allmenu");
+                    // }
+                    // else{
+                        // createButton($key, "btn-id", "btn btn-ourmenu-allmenu");
+                    // }
+                    if ($key == 'Main Dishes'){$key = 'Main';}
+                    $active ='';
+                    createbtnmenu($key,$classButton,$active);
+                }
+                ?>
+
+                </div>
+            </form>    
+
         </div>
     </div>
 
@@ -41,8 +98,9 @@
     <div class="container" style="margin-top:2em">
         <div class="row" style="gap:2em;">
             <?php
-            $i = 0;
             include 'components/food-item.php';
+            $i = 0;
+
             while ($i < count($Foods)) {
                 createFood($Foods[$i], $class);
                 $i++;

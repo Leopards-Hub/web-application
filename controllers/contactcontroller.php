@@ -13,7 +13,7 @@
         $contact->createContact($values);
         if ($contact==true){
             echo '<script>alert("Thank you your feedback!")</script>';
-            header('Location:contact');
+            // header('Location:contact');
         }
     }
 

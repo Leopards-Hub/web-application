@@ -11,7 +11,6 @@ $array_contact_us = array(
         "123 Bridge Street Nowhere Land, LA 12345 United States"
     )
 );
-
 function generateContactUs($label,$content,$class){
     echo "
         <div class='container'>
@@ -20,8 +19,6 @@ function generateContactUs($label,$content,$class){
         </div>
     ";
 }
-
-
 ?>
 <style>
     .custom-class {

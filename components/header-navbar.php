@@ -26,27 +26,20 @@
         ["label" => "Changelog", "url" => ""],
         ["label" => "View More", "url" => ""]
     ];
-
     function generateNavbar($navItems,$class) {
         echo "<nav>";
         echo "<ul class='$class'>";
-        
         foreach ($navItems as $item) {
             echo "<li>";
-            
-            // Kiểm tra nếu $item là mảng (đối tượng)
             if (is_array($item)) {
                 echo '<a href="' . $item["url"] . '">' . $item["label"] . '</a>';
             } else {
-                // Nếu không phải mảng, giả sử là chuỗi
                 echo '<a href="#">' . $item . '</a>';
             }
-            
             echo '</li>';
         }
         echo '</ul>';
         echo '</nav>';
-        
     }
 ?>
 

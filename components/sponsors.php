@@ -150,25 +150,17 @@
 </svg>'],
     
 );
-
-
 $class = ['sponsors-first', 'sponsors-second'];
 
 function createSponsor($arraySponsors)
 {
-  
   $name = isset($arraySponsors['name']) ? $arraySponsors['name'] : '';
   $label = isset($arraySponsors['label']) ? $arraySponsors['label'] : '';
-  
         $class = ($name === 'DOORDASH' || $name === 'FOODPANDA' || $name === 'DELIVEROO') ? 'sponsors-second' : 'sponsors-first';
-
-        
         $html = '<div class="' . $class . '">';
         $html .= $label;
         $html .= '</div>';
-
         echo $html;
-    
 }
 
 

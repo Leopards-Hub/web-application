@@ -10,6 +10,7 @@ function getBookingById($db, $bookingId) {
     $statement = $db->prepare("SELECT * FROM bookings WHERE id = ?");
     $statement->execute([$bookingId]);
     return $statement->fetch();
+//sua
 }
 
 ?>

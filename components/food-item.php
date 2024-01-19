@@ -1,8 +1,5 @@
 <?php
-    // include 'linkbootstrap5.php';
     include 'root/CSS/component/food-item.css.php';
-    // require_once 'models/menumodel.php';
-
     function createFood($Foods, $class) {
         // Extract parameters from the array or set default values
         $dish_id = isset($Foods['dish_id']) ? $Foods['dish_id'] : '';
@@ -10,8 +7,6 @@
         $h1Cost = isset($Foods['Price']) ? $Foods['Price'] : '';
         $h1Title = isset($Foods['Dish_name']) ? $Foods['Dish_name'] : '';
         $infor = isset($Foods['Detail']) ? $Foods['Detail'] : '';
-        
-        // Generate HTML code for the card
         
         $html = '<div class="card '.$class.'" style="width: 19rem;">';
         $html .= '<img src="' . $src . '" class="card-img-top" alt="images">';
@@ -29,64 +24,15 @@
         $html .= '<button type= "submit" name="addtocart" id ="addtocart" value="addtocart" class="btn btn-primary add-to-cart-btn">ADD TO CART</button>';
         $html .= '</form>';
         $html .= '</div>';
-
-        
-
-
-        // Display the result using echo
         echo $html;
     }
 
     $class = '';
-
-    $Foods = FoodItem();
-    // Example usage
-    // $Foods = array(
-    //     ['src'   => './root/assets/images-food/food1.png',
-    //     'cost' => '$ 9.99',
-    //     'title' => 'Fried Eggs',
-    //     'infor'     => 'How to prepare the perfect french fries in an air frye'
-    //     ],
-    //     ['src'   => './root/assets/images-food/food2.png',
-    //     'cost' => '$ 9.99',
-    //     'title' => 'Fried Eggs',
-    //     'infor'     => 'How to prepare delicious chicken tenders'
-    //     ],
-    //     ['src'   => './root/assets/images-food/food3.png',
-    //     'cost' => '$ 9.99',
-    //     'title' => 'Fried Eggs',
-    //     'infor'     => '7 delicious cheesecake recipes you can prepare'
-    //     ],
-    //     ['src'   => './root/assets/images-food/food4.png',
-    //     'cost' => '$ 9.99',
-    //     'title' => 'Fried Eggs',
-    //     'infor'     => '5 great pizza restaurants you should visit this city'
-    //     ],
-    //     ['src'   => './root/assets/images-food/food5.png',
-    //     'cost' => '$ 9.99',
-    //     'title' => 'Fried Eggs',
-    //     'infor'     => '5 great pizza restaurants you should visit this city'
-    //     ],
-    //     ['src'   => './root/assets/images-food/food6.png',
-    //     'cost' => '$ 9.99',
-    //     'title' => 'Fried Eggs',
-    //     'infor'     => '5 great pizza restaurants you should visit this city'
-    //     ],
-    //     ['src'   => './root/assets/images-food/food7.png',
-    //     'cost' => '$ 9.99',
-    //     'title' => 'Fried Eggs',
-    //     'infor'     => '5 great pizza restaurants you should visit this city'
-    //     ],
-    //     ['src'   => './root/assets/images-food/food8.png',
-    //     'cost' => '$ 9.99',
-    //     'title' => 'Fried Eggs',
-    //     'infor'     => '5 great pizza restaurants you should visit this city'
-    //     ],
-
-    // );
-
-    // Call the function, and it will automatically echo the result
-    // createFood($Foods[0],$class);
+    if((isset($_POST['search'])  || isset($_POST['All']) || isset($_POST['Breakfast']) || isset($_POST['Dishes']) || isset($_POST['Dessert'])) && !empty(search()) ){
+        $Foods = search();
+    }else{
+        $Foods = FoodItem();
+    }
 
 ?>
 

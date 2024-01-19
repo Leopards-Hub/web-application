@@ -12,6 +12,4 @@
         </div>
     </div>
     <?php generateSocial("");?>
-    
-
 </div>
