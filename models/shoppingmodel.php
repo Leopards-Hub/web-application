@@ -106,8 +106,6 @@ function getCart(){
     return $result;
 }
 
-
-
     public function getOrdersList($id) {
         // Không cần sử dụng global $db ở đây, sử dụng $this->db thay thế
         $query = "SELECT o.order_id, o.order_date, o.status, o.delivery_date, o.user_id, o.discount,

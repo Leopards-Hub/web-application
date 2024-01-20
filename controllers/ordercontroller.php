@@ -70,8 +70,8 @@ if (isset($_POST['payUrl']) || isset($_POST['payCOD'])) {
                 $amount = intval($_POST['amount'])*20000;
                 $nameUser = $_POST['name'];
                 $orderId = time() . "";
-                $redirectUrl = "http://localhost/web-application/thankyou";
-                $ipnUrl = "http://localhost/web-application/order";
+                $redirectUrl = "http://localhost:3000/thankyou";
+                $ipnUrl = "http://localhost:3000/order";
                 $extraData = "";
 
                 $partnerCode = $partnerCode;

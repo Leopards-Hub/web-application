@@ -1,10 +1,17 @@
 <?php
+require_once 'models/shoppingmodel.php';
 include 'components/button.php';
 include 'components/header-navbar.php';
 include 'root/CSS/component/header-navbar.css.php'; // Include external CSS file if needed
 include 'components/logo.php';
 
 $isLoggedIn = isset($_SESSION['user']);
+if(isset($_SESSION['user'])){
+    $listOrd = new Shopping($db);
+    if (!empty($listOrd->getCart())) {
+        $_SESSION['cart'] = $listOrd->getCart();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,6 +62,7 @@ $isLoggedIn = isset($_SESSION['user']);
             echo '<img id="nav-avatar" class="mt-2" src="https://media.istockphoto.com/id/1311497219/vi/vec-to/avatar-phong-c%C3%A1ch-m%C3%A0u-%C4%91en-trong-m%E1%BB%99t-v%C3%B2ng-tr%C3%B2n-m%C3%A0u-v%C3%A0ng-m%E1%BA%ABu-h%E1%BB%93-s%C6%A1-cho-c%C3%A1c-trang-web-%E1%BB%A9ng-d%E1%BB%A5ng.jpg?s=612x612&w=0&k=20&c=NssOkuK56TEoY2a8DYCfXUnthKqy50u46Eb9BhOPQ0I=" alt="avatar">';
             echo '</a>';
             echo '<ul class="dropdown-menu" id="dropdown-menu">';
+            echo '<li><a class="dropdown-item">Welcome ' . ucwords($_SESSION['user']['Name']) . '</li>';
             echo '<li><a class="dropdown-item" href="logout" id="logout">Log out</a></li>';
 if(isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin'){
     echo '<li><a class="dropdown-item" href="admin" id="admin">admin</a></li>';
