@@ -44,7 +44,7 @@
                 </div>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
-                        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" id="profileDropdown" href="/admin" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <div class="nav-profile-img">
                                 <img src="./root/assets/images-food/food1.png" alt="image">
@@ -73,7 +73,7 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item nav-profile">
-                        <a href="#" class="nav-link">
+                        <a href="/admin" class="nav-link">
                            
                             <div class="nav-profile-text d-flex flex-column">
                                 <span class="font-weight-bold mb-2">Admin</span>
@@ -82,7 +82,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="./admin">
                             <span class="menu-title">Dashboard</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
@@ -114,25 +114,25 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/forms/basic_elements.html">
+                        <a class="nav-link" href="">
                             <span class="menu-title">Forms</span>
                             <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/charts/chartjs.html">
+                        <a class="nav-link" href="">
                             <span class="menu-title">Charts</span>
                             <i class="mdi mdi-chart-bar menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/tables/basic-table.html">
+                        <a class="nav-link" href="">
                             <span class="menu-title">Tables</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false"
+                        <a class="nav-link" data-bs-toggle="collapse" href="" aria-expanded="false"
                             aria-controls="general-pages">
                             <span class="menu-title">Sample Pages</span>
                             <i class="menu-arrow"></i>
@@ -212,30 +212,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-7 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="clearfix">
-                                        <h4 class="card-title float-left">Google Analytics</h4>
-                                        <div id="visit-sale-chart-legend"
-                                            class="rounded-legend legend-horizontal legend-top-right float-right"></div>
-                                    </div>
-                                    <canvas id="visit-sale-chart" class="mt-4"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Traffic Sources</h4>
-                                    <canvas id="traffic-chart"></canvas>
-                                    <div id="traffic-chart-legend"
-                                        class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
 
                 <div class="container-fluid p-5 ">
