@@ -49,10 +49,7 @@ class Shopping {
     
 
 function addToCart($sp) {
-
     $connection = connectdb();
-
-    
         $user_id = $_SESSION["user"]["user_id"];
 
         // Kiểm tra xem sản phẩm đã tồn tại trong bảng cart chưa
@@ -105,8 +102,6 @@ function getCart(){
 
     return $result;
 }
-
-
 
     public function getOrdersList($id) {
         // Không cần sử dụng global $db ở đây, sử dụng $this->db thay thế

@@ -19,7 +19,7 @@
     
         if (isset($_POST['search'])) {
             $searchValue = "%" . $_POST["search"] . "%";
-            $sql = "SELECT * FROM `dish` WHERE Category LIKE :searchValue ORDER BY dish_id ASC";
+            $sql = "SELECT * FROM `dish` WHERE dish_name LIKE :searchValue ORDER BY dish_id ASC";
         } elseif (isset($_POST['All'])) {
             $sql = "SELECT * FROM `dish` ORDER BY dish_id ASC";
         } elseif (isset($_POST['Breakfast'])) {

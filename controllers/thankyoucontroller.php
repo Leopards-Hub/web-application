@@ -6,7 +6,6 @@
     $phone = $_SESSION['orderInform']['phone'];
     $totalPrice = $_GET['amount'];
     $cartQuantity = $_SESSION['cart'][0]['price'];
-    echo "<pre>"; print_r($_SESSION['cart']);echo '</pre>';
     require_once 'views/thankyou.php';
     if(isset($_GET['partnerCode'])){
         $dish_name = $_SESSION['cart'][0]['dish_name'];
