@@ -33,7 +33,7 @@
             "payment"=>"Momo",
         ];
         $od->createOrder($order, $orderdetail);
-        $od->deleteCartUser($_SESSION['user']['user_id']);
+        $od->deleteCartUserID($_SESSION['user']['user_id']);
         unset($_SESSION['cart']);
         unset($_SESSION['orderInform']);
         

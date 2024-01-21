@@ -1,9 +1,9 @@
 <?php
-// if(isset($_SESSION['cart'])){
-//     echo var_dump($_SESSION['cart']);
+if(isset($_SESSION['cart'])){
+    echo var_dump($_SESSION['cart']);
     // unset($_SESSION['cart'][0]);
     // echo count($_SESSION['cart']);
-// }
+}
 
 // if (isset($_SESSION['user'])) {
 //     session_start();
@@ -139,7 +139,6 @@
                     <td>$<?php echo $list['total_price'];?></td>
                     <td><?php echo $list['payment'];?></td>
                 </tr>
-
             <?php }?>
         </tbody>
     </table>
