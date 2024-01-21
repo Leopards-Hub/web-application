@@ -46,20 +46,14 @@ if ((isset($_POST["addtocart"])) && ($_POST["addtocart"])) {
     exit;
 }
 if (isset($_POST['form-type']) && $_POST['form-type'] === 'delete') {
-    // if($_SESSION['cart'] == 1){
-    //     $od->deleteCartUser($_POST['cart_id']);
-    //     unset($_SESSION['cart']);
-    // }else{
-        $od->deleteCartUser($_POST['cart_id']);
-        $i =0;
-        for ($j = 0; $j <= count($_SESSION['cart']); $j++) {
-            if ($_SESSION['cart'][$j]['cart_id'] === $_POST['cart_id']) {
-                unset($_SESSION['cart'][$j]);
-            }
-            header('location: shopping');
+
+    $od->deleteCartUser($_POST['cart_id']);
+    for ($j = 0; $j < count($_SESSION['cart']); $j++) {
+        if ($_SESSION['cart'][$j]['cart_id'] === $_POST['cart_id']) {
+            unset($_SESSION['cart'][$j]);
         }
 
-    // }
+    }
 }
 require_once 'views/shoppingcartview.php';
 

@@ -21,7 +21,6 @@ class Contact{
         }
     }
     public function createContact($contact){
-        // Sử dụng filter_var để làm sạch dữ liệu nhập vào
         $cleanedName = filter_var($contact['name'], FILTER_SANITIZE_STRING);
         $cleanedEmail = filter_var($contact['email'], FILTER_SANITIZE_EMAIL);
         $cleanedSubject = filter_var($contact['subject'], FILTER_SANITIZE_STRING);

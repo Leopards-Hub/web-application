@@ -318,7 +318,18 @@ VALUES (:order_id, :dish_id, :dish_name, :price, :quantity, :total_price, :addre
         }
 
     }
+    public function deleteCartUserID($id){
+        try{
+            $query = "DELETE FROM cart WHERE user_id = :user_id;";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':user_id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+        }catch (PDOException $e){
+            echo "Error deleting order: " . $e->getMessage();
+            return false;
+        }
 
+    }
 
     // hàm tính total_price
     public function getTotalPrice($price, $quantity, $discount)

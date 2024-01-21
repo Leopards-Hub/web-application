@@ -26,7 +26,6 @@ if (isset($_POST['payUrl']) || isset($_POST['payCOD'])) {
     if (isset($_SESSION['user'])) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_POST['payUrl'])) {
-
                 function execPostRequest($url, $data)
                 {
                     $ch = curl_init($url);
@@ -122,10 +121,10 @@ if (isset($_POST['payUrl']) || isset($_POST['payCOD'])) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['payCOD'])) {
             //handle POST request
             echo '<script>alert("đơn hàng của bạn đang được giao");</script>';
-            $dish_name = $_SESSION['cart'][0][2];
+            $dish_name = $_SESSION['cart'][0]['dish_name'];
             $dish = $od->getDetailDish($dish_name);
             $totalprice = $_SESSION['orderInform']['price'];
-
+    
             $order = [
                 "user_id" => $_SESSION['user']['user_id'],
                 "order_date" => $od->getCurrentDateTime(),
@@ -137,18 +136,18 @@ if (isset($_POST['payUrl']) || isset($_POST['payCOD'])) {
             // Prepare data for order_detail table
             $orderdetail = [
                 "dish_id" => $dish['dish_id'],
-                "dish_name" => $_SESSION['cart'][0][2],
+                "dish_name" => $_SESSION['cart'][0]['dish_name'],
                 "price" => $dish['Price'],
-                "quantity" => $_SESSION['cart'][0][5],
+                "quantity" => $_SESSION['cart'][0]['quantity'],
                 "total_price" => $totalprice,
                 "address" =>  $_SESSION['orderInform']['address'],
                 "phone" =>  $_SESSION['orderInform']['phone'],
                 "payment"=>"COD",
             ];
             $od->createOrder($order, $orderdetail);
+            $od->deleteCartUserID($_SESSION['user']['user_id']);
             unset($_SESSION['cart']);
             unset($_SESSION['orderInform']);
-
 
             echo '<script>window.location.href = "shopping";</script>';
             exit();

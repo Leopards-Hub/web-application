@@ -1,19 +1,3 @@
-<?php
-if(isset($_SESSION['cart'])){
-    echo var_dump($_SESSION['cart']);
-    // unset($_SESSION['cart'][0]);
-    // echo count($_SESSION['cart']);
-}
-
-// if (isset($_SESSION['user'])) {
-//     session_start();
-// }
-// if (isset($_SESSION["user"]) && isset($_SESSION["user"]["user_id"])) {
-//     $user_id = $_SESSION["user"]["user_id"];
-//     echo $user_id;
-// }
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,18 +17,15 @@ if(isset($_SESSION['cart'])){
             include_once 'components/header.php';
         ?>
     </div>
-
     <div class="container cart-container">
         <div class="cart-total">
             <?php
                 $total = 0;
                 $i = 1;
                 if(isset($_SESSION['cart']) && (count($_SESSION['cart']))>0){
-                    // var_dump($_SESSION['cart'][0]);
                     foreach($_SESSION['cart'] as $item){
                         $total += $item['quantity'] * $item['price'];
                         $i++;
-                        
                     }
                 }
             ?>
@@ -56,27 +37,9 @@ if(isset($_SESSION['cart'])){
             </form>
         </div>
             <?php
-                // $bienSoLuongAddToCart = isset($_POST['quantity']) ? $_POST['quantity'] : 1;
-
-                // // Kiểm tra xem có sự kiện nút đã được nhấn không
-                // if (isset($_POST['submit'])) {
-                // // Kiểm tra xem nút nào đã được nhấn
-                //     if ($_POST['submit'] == '-') {
-                //         // Giảm giá trị nếu nút '-' được nhấn
-                //         $bienSoLuongAddToCart = max(1, $bienSoLuongAddToCart - 1);
-                //         $newsl = max ($newsl - $bienSoLuongAddToCart);
-                //         $_SESSION['cart'][$j][5] = $newsl;
-                //     } elseif ($_POST['submit'] == '+') {
-                //         // Tăng giá trị nếu nút '+' được nhấn
-                //         $bienSoLuongAddToCart += 1;
-                //         $newsl = max ($newsl - $bienSoLuongAddToCart);
-                //         $_SESSION['cart'][$j][5] = $newsl;
-                //     }
-                // }
                 $total = 0;
                 $i = 1;
                 if(isset($_SESSION['cart']) && (count($_SESSION['cart']))>0){
-                    // var_dump($_SESSION['cart'][0]);
                     foreach($_SESSION['cart'] as $item){
                         $total += $item['quantity'] * $item['price'];
                         showcart($item,$i);
@@ -84,35 +47,7 @@ if(isset($_SESSION['cart'])){
                         
                     }
                 }
-
-                
             ?>
-        <!-- <div class="cart-item">
-            <div class="row">
-                <div class="col-md-1 d-flex align-items-center justify-content-center">
-                    <h5>1</h5>
-                </div>
-                <div class="col-md-3">
-                    <img src="https://images.squarespace-cdn.com/content/v1/53883795e4b016c956b8d243/1551783604684-AE2UE7DYUGV96DUT4G80/chup-anh-thuc-an-1.jpg" alt="Product Image">
-                </div>
-                <div class="col-md-8">
-                    <h4>Product Title</h4>
-                    <p>Description lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Price: $19.99</p>
-                    <div class="cart-actions">
-                        <div class="quantity">
-                            <button class="btn btn-sm btn-outline-secondary" onclick="decreaseQuantity(this)">-</button>
-                            <input type="text" value="1">
-                            <button class="btn btn-sm btn-outline-secondary" onclick="increaseQuantity(this)">+</button>
-                        </div>
-                        <button class="btn btn-sm btn-remove" onclick="removeItem(this)">Remove</button>
-                        <label class="checkbox-label" for="checkbox-id">
-                            <input type="checkbox" class="checkbox" id="checkbox-id">
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <a href="menu">ADD MORE</a>
         </div>
     </div>
@@ -130,7 +65,6 @@ if(isset($_SESSION['cart'])){
             </tr>
         </thead>
         <tbody>
-            <!-- Your table content goes here -->
             <?php foreach($lists as $list){ ?>
                 <tr>
                     <td><?php echo $list['dish_name'];?></td>
@@ -139,7 +73,6 @@ if(isset($_SESSION['cart'])){
                     <td>$<?php echo $list['total_price'];?></td>
                     <td><?php echo $list['payment'];?></td>
                 </tr>
-
             <?php }?>
         </tbody>
     </table>

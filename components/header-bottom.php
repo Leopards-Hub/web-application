@@ -2,7 +2,7 @@
 require_once 'models/shoppingmodel.php';
 include 'components/button.php';
 include 'components/header-navbar.php';
-include 'root/CSS/component/header-navbar.css.php'; // Include external CSS file if needed
+include 'root/CSS/component/header-navbar.css.php'; 
 include 'components/logo.php';
 
 $isLoggedIn = isset($_SESSION['user']);
@@ -74,7 +74,9 @@ if(isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin'){
         }
         ?>
         <?php 
-        if (isset($_SESSION['user'])){ echo '<a href = "shopping">';}
+        if (isset($_SESSION['user'])){ 
+            
+            echo '<a href = "shopping">';}
         else {
             echo '<a href = "login">';
         }?>
