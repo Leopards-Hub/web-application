@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($registration_result) {
             // Registration successful, redirect to the login page
-            header('Location: /web-application/login');
+            header('Location: /login');
             exit(); // Ensure that no further code is executed after the redirect
         } else {
             echo "Registration failed. Please try again.";

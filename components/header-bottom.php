@@ -2,7 +2,7 @@
 require_once 'models/shoppingmodel.php';
 include 'components/button.php';
 include 'components/header-navbar.php';
-include 'root/CSS/component/header-navbar.css.php'; // Include external CSS file if needed
+include 'root/CSS/component/header-navbar.css.php'; 
 include 'components/logo.php';
 
 $isLoggedIn = isset($_SESSION['user']);
@@ -12,7 +12,6 @@ if(isset($_SESSION['user'])){
         $_SESSION['cart'] = $listOrd->getCart();
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

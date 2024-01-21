@@ -2,6 +2,7 @@
 require_once 'models/shoppingmodel.php';
 require_once 'models/admin/ordermodel.php';
 $od = new OrderModel($db);
+global $countcart;
 
 $listOrder = new Shopping($db);
 $lists = $listOrder->getOrdersList($_SESSION['user']['user_id']);
