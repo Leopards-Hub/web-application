@@ -39,6 +39,22 @@ class App {
             '/login' => 'logincontroller.php',
             '/logout' => 'logoutcontroller.php',
             '/register' => 'registercontroller.php',
+        ];
+        if(isset($_SESSION['user'])&& $_SESSION['user']['role']=='admin'){
+            $routes = [
+            '/' => 'homecontroller.php',
+            '/home' => 'homecontroller.php',
+            '/about' => 'aboutcontroller.php',
+            '/menu' => 'menucontroller.php',
+            '/booktable' => 'booktablecontroller.php',
+            '/blog' => 'blogcontroller.php',
+            '/shopping' => 'shoppingcartcontroller.php',
+            '/order' => 'ordercontroller.php',
+            '/thankyou' => 'thankyoucontroller.php',
+            '/contact' => 'contactcontroller.php',
+            '/login' => 'logincontroller.php',
+            '/logout' => 'logoutcontroller.php',
+            '/register' => 'registercontroller.php',
             '/admin' => 'admincontroller.php',
             '/admin/order' => 'admin/ordercontroller.php',
             '/admin/table' => 'admin/tablecontroller.php',
@@ -46,8 +62,8 @@ class App {
             '/admin/dish' => 'admin/dishcontroller.php',
             '/admin/orderdetail' => 'admin/orderdetailcontroller.php',
             '/admin/user' => 'admin/usercontroller.php',
-            '/admin/bookings' => 'admin/bookingscontroller.php',
-        ];
+            '/admin/bookings' => 'admin/bookingscontroller.php',];       
+         }
     
         foreach ($routes as $route => $controllerFile) {
             if ($route == $url) {
@@ -55,7 +71,6 @@ class App {
                 break;
             }
         }
-    
     }}
     
 
