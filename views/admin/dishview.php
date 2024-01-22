@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="" aria-expanded="false"
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
                             aria-controls="ui-basic">
                             <span class="menu-title">Manage</span>
                             <i class="menu-arrow"></i>
@@ -105,12 +105,12 @@
                                 <li class="nav-item"> <a class="nav-link"
                                         href="#">Dish</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="booktable">Book table</a></li>
+                                        href="booktable">Booked table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="user">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="orderdetail">Order detail</a></li>
-                                        <li class="nav-item"> <a class="nav-link"
+                                <li class="nav-item"> <a class="nav-link"
                                         href="bookings">Bookings</a></li>
                             </ul>
                         </div>
@@ -169,8 +169,10 @@
         <th>ID</th>
         <th>DISH NAME</th>
         <th style="text-align: center;">IMAGE</th>
+        <th>CATEGORY</th>
         <th>DETAIL</th>
         <th>PRICE</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -178,12 +180,13 @@
         <tr>
           <td><?php echo $post['dish_id']; ?></td>
           <td><?php echo $post['Dish_name']; ?></td>
-          <td style="text-align: center;"><img style="border-radius: 15px !important; width: 40%; height: auto;" src="<?php echo $post['Image_dish']; ?>" alt="image"></td>
+          <td style="text-align: center;"><img style="border-radius: 15px !important; width: 50%; height: 20rem;" src="<?php echo $post['Image_dish']; ?>" alt="image"></td>
+          <td><?php echo $post['Category']; ?></td>
           <td><?php echo $post['Detail']; ?></td>
           <td style="font-weight: bold; color:crimson"><?php echo '$ '.$post['Price']; ?></td>
           <td>
             <a class='btn btn-danger' onclick="openDeleteModal(<?php echo $post['dish_id']; ?>)">Delete</a> 
-            <a class='btn btn-success' onclick="openEditModal(<?php echo $post['dish_id']; ?>, '<?php echo $post['Image_dish']; ?>', '<?php echo $post['Dish_name']; ?>', '<?php echo $post['Detail']; ?>',<?php echo $post['Price']; ?>)">Edit</a>
+            <a class='btn btn-success' onclick="openEditModal(<?php echo $post['dish_id']; ?>, '<?php echo $post['Image_dish']; ?>' , '<?php echo $post['Category']; ?>', '<?php echo $post['Dish_name']; ?>', '<?php echo $post['Detail']; ?>',<?php echo $post['Price']; ?>)">Edit</a>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -210,6 +213,16 @@
           <div class="form-group">
             <label for="imagedish">Image:</label>
             <input type="text" class="form-control" id="imagedish" name="imagedish">
+          </div>
+          <div class="form-group">
+            <label for="category">Category:</label>
+            <!-- <input type="text" class="form-control" id="category" name="category"> -->
+            <select class="form-control" id="category" name="category">
+              <option value="Breakfast">Breakfast</option>
+              <option value="Main">Main</option>
+              <option value="Drink">Drink</option>
+              <option value="Dessert">Dessert</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="details">Details:</label>
@@ -251,12 +264,22 @@
             <input type="text" class="form-control" id="editImageDish" name="Image_dish">
           </div>
           <div class="form-group">
+            <label for="editCategory">Category:</label>
+            <!-- <input type="text" class="form-control w-20 d-block" id="editCategory" name="Category"> -->
+            <select class="form-control" id="editCategory" name="Category">
+              <option value="Breakfast">Breakfast</option>
+              <option value="Main">Main</option>
+              <option value="Drink">Drink</option>
+              <option value="Dessert">Dessert</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="editDetails">Details:</label>
             <input type="text" class="form-control w-20 d-block" id="editDetails" name="Detail">
           </div>
           <div class="form-group">
             <label for="editPrice">Price:</label>
-            <input type="number" class="form-control" id="editPrice" name="Price">
+            <input type="number" class="form-control" id="editPrice" name="Price" step="0.01">
           </div>
           <!-- Add other fields as needed -->
           <div class="modal-footer">
@@ -295,10 +318,11 @@
 
 <script>
  // Function to open the Edit Modal
- function openEditModal(dishId, image, dishName, detail, price) {
+ function openEditModal(dishId, image, dishName,category, detail, price) {
     $('#editDishId').val(dishId);
     $('#editImageDish').val(image);
     $('#editDishName').val(dishName);
+    $('#editDishName').val(category);
     $('#editDetails').val(detail);
     $('#editPrice').val(price);
 

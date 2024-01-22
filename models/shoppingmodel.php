@@ -1,43 +1,46 @@
 <?php
     require_once 'database/database.php';
-    // $user = $_SESSION['user'];
-    // function AddToCart(){
-    //     $db = connectdb();
-    //     $sql = 
-    // }
+
     function showcart($session,$i){
-    $html = '<div class="cart-item">
-    
-            <div class="row">
-                <div class="col-md-1 d-flex align-items-center justify-content-center">
-                    <h5>' . $i . '</h5>
-                </div>
-                <div class="col-md-3">
-                    <img src="'.$session['image'].'" alt="Product Image">
-                </div>
-                <div class="col-md-8">
-                    <h4>'.$session['dish_name'].'</h4>
-                    <p>'.$session['details'].'</p>
-                    <p>Price: $'.$session['price'].'</p>
-                    <form method = "post">    
-                        <div class="cart-actions">
-                            <div class="quantity">
-                                <button class="btn btn-minus" name = "submit" onclick="decreaseQuantity(this)">-</button>
-                                <input name="quantity" type="text" value="'. $session['quantity'] .'">
-                                <button class="btn btn-plus" name = "submit" onclick="increaseQuantity(this)">+</button>
-                            </div>
-                            <input type="hidden" name="id" value="'.$session['dish_id'].'" >
-                            <input type="hidden" name="cartid" value="'.$i.'" >
-                            <input type="hidden" name="form-type" value="delete">
-                            <input type="hidden" name="cart_id" value="'.$session['cart_id'].'" >
-                            <button type="submit" class="btn btn-sm btn-remove" ">Remove</button>
+        $html = '<div class="cart-item">
+        
+                <div class="row">
+                    <div class="col-md-1 d-flex align-items-center justify-content-center">
+                        <h5>' . $i . '</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="'.$session['image'].'" alt="Product Image">
+                    </div>
+                    <div class="col-md-8">
+                        <h4>'.$session['dish_name'].'</h4>
+                        <p>'.$session['details'].'</p>
+                        <p>Price: $'.$session['price'].'</p>
+                        <div class="d-flex flex-row justify-content-between">
+                            <form method ="post">    
+                                <div class="cart-actions">
+                                    <div class="quantity">
+                                        <input type="hidden" name="form-update" value="update">  
+                                        <button class="btn btn-minus" name ="changequantity" value="decrease" type = "submit">-</button>
+                                        <input name="quantity" type="text" value="'. $session['quantity'] .'">
+                                        <input name="cart1" type="hidden" value="'. $session['cart_id'] .'">
+                                        <input name="cartprice" type="hidden" value="'. $session['price'] .'">
+                                        <button class="btn btn-plus" name ="changequantity" value="increase" type = "submit">+</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <form method = "post">
+                                    <input type="hidden" name="id" value="'.$session['dish_id'].'" >
+                                    <input type="hidden" name="cartid" value="'.$i.'" >
+                                    <input type="hidden" name="form-type" value="delete">
+                                    <input type="hidden" name="cart_id" value="'.$session['cart_id'].'" >
+                                    <button type="submit" class="btn btn-sm btn-remove" ">Remove</button>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>';
-    echo $html;
-}
+            </div>';
+        echo $html;
+    }
 
 class Shopping {
     private $db;
@@ -123,6 +126,8 @@ function getCart(){
             return false;
         }
     }
+        
+        
 }
 
 

@@ -84,7 +84,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="" aria-expanded="false"
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
                             aria-controls="ui-basic">
                             <span class="menu-title">Manage</span>
                             <i class="menu-arrow"></i>
@@ -95,7 +95,7 @@
                                 <li class="nav-item"> <a class="nav-link" href="table">Table</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="order" id="taget_self">Orders</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="dish">Dish</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="booktable">Book table</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="booktable">Booked table</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="user">User</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="orderdetail">Order detail</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="bookings">Bookings</a></li>
