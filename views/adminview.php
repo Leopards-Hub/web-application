@@ -103,7 +103,7 @@
                                 <li class="nav-item"> <a class="nav-link"
                                         href="admin/dish">Dish</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="admin/booktable">Book table</a></li>
+                                        href="admin/booktable">Booked table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="admin/user">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"

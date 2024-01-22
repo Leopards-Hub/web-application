@@ -1,11 +1,11 @@
 <?php
 require_once "database/database.php";
 
-function createDish($Dishname, $DishImage, $Details, $Price, $db)
+function createDish($Dishname, $DishImage, $Category, $Details, $Price, $db)
 {
 
-    $statement = $db->prepare("INSERT INTO `Dish` (`Dish_name`, `Image_dish`, `Detail`, `Price`) VALUES (?, ?, ?, ?)");
-    $createTable=  $statement->execute([$Dishname, $DishImage, $Details, $Price]);
+    $statement = $db->prepare("INSERT INTO `Dish` (`Dish_name`, `Image_dish`, `Category`, `Detail`, `Price`) VALUES (?, ?, ?, ?, ?)");
+    $createTable=  $statement->execute([$Dishname, $DishImage,$Category, $Details, $Price]);
 
     return  $createTable;
 }
@@ -26,11 +26,11 @@ function getDishes(): array
     return $statement->fetchAll();
 }
 
-function updateDish($Dishname, $DishImage,  $Details, $Price, $DishId, $db): bool
+function updateDish($Dishname, $DishImage, $Category, $Details, $Price, $DishId, $db): bool
 {
     // global $db;
-    $statement = $db->prepare("UPDATE `Dish` SET `Dish_name` = ?, `Image_dish` = ?,  `Detail` = ?, `Price` = ? WHERE dish_id = ?");
-    $statement->execute([$Dishname, $DishImage,  $Details, $Price, $DishId]);
+    $statement = $db->prepare("UPDATE `Dish` SET `Dish_name` = ?, `Image_dish` = ?, `Category` = ?, `Detail` = ?, `Price` = ? WHERE dish_id = ?");
+    $statement->execute([$Dishname, $DishImage, $Category, $Details, $Price, $DishId]);
 
     return $statement->rowCount() > 0; // Trả về true nếu có ít nhất một dòng được ảnh hưởng
 }

@@ -183,7 +183,7 @@
                                 <li class="nav-item"> <a class="nav-link"
                                         href="dish">Dish</a></li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="booktable">Book table</a></li>
+                                        href="booktable">Booked table</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="#">User</a></li>
                                 <li class="nav-item"> <a class="nav-link"
