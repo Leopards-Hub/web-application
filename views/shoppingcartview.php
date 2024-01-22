@@ -29,12 +29,13 @@
                     }
                 }
             ?>
-            <form action="" method="" id="form" >
-                <label for="price">Total:</label>
-                <input type="number" name="price" id="price" value="<?php echo $total; ?>" readonly  style="border: none; pointer-events: none; "  >
-                <!-- <h5 class= "price" >Total: $</h5> -->
+            
+                <form action="" method="" id="form" > 
+                <label for="price"><b>Total Price: $</b></label>
+                    <input style = "color:red; border:none; font-weight: bold;" type="number" name="price" id="price" value="<?php echo $total; ?>" readonly  style="border: none; pointer-events: none; "  >
                 <button id="checkout" class="btn btn-checkout">Checkout</button>
-            </form>
+                </form>
+            
         </div>
             <?php
                 $total = 0;

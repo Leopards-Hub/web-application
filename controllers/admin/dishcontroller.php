@@ -25,13 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 function handleCreate($db) {
-    if (!empty($_POST['dishname']) && !empty($_POST['imagedish']) && !empty($_POST['details']) && !empty($_POST['price'])) {
+    if (!empty($_POST['dishname']) && !empty($_POST['imagedish']) && !empty($_POST['details']) && !empty($_POST['price']) && !empty($_POST['category'])) {
         $Dishname = $_POST['dishname'];
         $DishImage = $_POST['imagedish'];
+        $Category = $_POST['category'];
         $Details = $_POST['details'];
+
         $Price = $_POST['price'];
 
-        $create = createDish($Dishname, $DishImage, $Details, $Price, $db);
+        $create = createDish($Dishname, $DishImage,$Category, $Details, $Price, $db);
         
         if ($create) {
             header("Location: dish");
@@ -45,14 +47,15 @@ function handleCreate($db) {
 }
 function handleEdit($db) {
     // Xử lý sửa
-    if (isset($_POST['dish_id']) && !empty($_POST['Dish_name']) && !empty($_POST['Image_dish']) && !empty($_POST['Detail']) && !empty($_POST['Price'])) {
+    if (isset($_POST['dish_id']) && !empty($_POST['Dish_name']) && !empty($_POST['Image_dish']) && !empty($_POST['Detail']) && !empty($_POST['Price']) && !empty($_POST['Category'])) {
         $DishId = $_POST['dish_id'];
         $Dishname = $_POST['Dish_name'];
         $DishImage = $_POST['Image_dish'];
+        $Category = $_POST['Category'];
         $Details = $_POST['Detail'];
         $Price = $_POST['Price'];
 
-        $edit = updateDish($Dishname, $DishImage, $Details, $Price, $DishId, $db);
+        $edit = updateDish($Dishname, $DishImage, $Category, $Details, $Price, $DishId, $db);
 
         if ($edit) {
             header("Location: dish");

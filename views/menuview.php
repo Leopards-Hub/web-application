@@ -44,44 +44,6 @@
 
 
                 foreach ($arrayButton as $key) {
-                    // $act = (isset($_POST['Dishes'])) ? $_POST['Dishes'] : '';
-                    // // // echo "dd ".$active."aa";
-                    // var_dump ($act);
-                    // switch ($act){
-                    //     case 'All':
-                    //         $active = 'active';
-                        
-                    // }
-                    // if(isset($_POST[$key])){
-                        
-                        // $active = (isset($_POST[$key]) && $_POST[$key] === $key) ? 'active' : '';
-                    // }
-                    // var_dump ($key);
-                    // $active = '';
-                    // if(isset($_POST[$key]) && $_POST[$key] === $key){
-                    //     $active = 'active';
-                    //     createbtnmenu($key,$classButton,$active);
-
-                    // }else{
-                    //     createbtnmenu($key,$classButton,$active);
-
-                    // }
-                    // $active = ($activeButton === $key) ? 'active' : '';
-
-                    
-
-                    
-                    // if(isset($_POST[$key])){
-                    //     $active ='active';
-                    // }else{
-                    //     $active ='';
-                    // }
-                    // if($key === "All") {
-                    //     createButton($key, "btn-id", "btn active btn-ourmenu-allmenu");
-                    // }
-                    // else{
-                        // createButton($key, "btn-id", "btn btn-ourmenu-allmenu");
-                    // }
                     if ($key == 'Main Dishes'){$key = 'Main';}
                     $active ='';
                     createbtnmenu($key,$classButton,$active);
