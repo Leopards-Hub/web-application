@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="container bg-white p-5" id="renderOrder">
-        <h3>Giỏ hàng của bạn</h3>
+        <h3>Your order</h3>
         <div class="container-fluid">
     <table class="table table-striped table-bordered table-hover">
         <thead class="table-dark">

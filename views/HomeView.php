@@ -175,5 +175,21 @@
     btn_explore.addEventListener('click',() => {
         window.location.href = "menu";
     })
+    const btn_about_us =document.getElementById("btn-btn-more-about");
+    btn_about_us.addEventListener('click',() => {
+        window.location.href = "about";
+    })
+    const btn_blogs =document.getElementById("btn-btn-read");
+    btn_blogs.addEventListener('click',() => {
+        window.location.href = "blog";
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    var btnMenus = document.querySelectorAll('#btn-menu');
+    btnMenus.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            window.location.href = "menu";
+        });
+    });
+});
 </script>
 </html>
