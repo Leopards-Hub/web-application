@@ -330,6 +330,19 @@ VALUES (:order_id, :dish_id, :dish_name, :price, :quantity, :total_price, :addre
         }
 
     }
+    public function updateQuantityCartID($id,$newQuantity){
+        try{
+            $query = "UPDATE cart SET quantity = :newQuantity WHERE cart_id = :cartId";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':cartId', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':newQuantity', $newQuantity, PDO::PARAM_INT);
+            $stmt->execute();
+        }catch (PDOException $e){
+            echo "Error deleting order: " . $e->getMessage();
+            return false;
+        }
+
+    }
 
     // hàm tính total_price
     public function getTotalPrice($price, $quantity, $discount)

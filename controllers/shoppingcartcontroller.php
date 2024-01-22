@@ -55,6 +55,27 @@ if (isset($_POST['form-type']) && $_POST['form-type'] === 'delete') {
 
     }
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {    
+    if(isset($_POST['changequantity'])){
+        $control = $_POST['changequantity'];
+        if($control === 'decrease'){
+            $newquantity = max(1, $_POST['quantity'] - 1);
+            $newPrice = 1;
+            $newPrice = $newquantity * $_POST['cartprice'];
+            echo $newquantity;
+            $od->updateQuantityCartID($_POST['cart1'],$newquantity);
+        }
+        if($control === 'increase'){
+            $newquantity = max(1, $_POST['quantity'] + 1);
+            $newPrice = 1;
+            $newPrice = $newquantity * $_POST['cartprice'];
+            $od->updateQuantityCartID($_POST['cart1'],$newquantity);
+        }
+    }
+    header('location: shopping');
+}
+
+
 require_once 'views/shoppingcartview.php';
 
 ?>
