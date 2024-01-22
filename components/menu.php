@@ -56,7 +56,7 @@ function createMenuCard($icon, $name, $content)
     echo $icon;
     echo '<h3>' . $name . '</h3>';
     echo '<p>' . $content . '</p>';
-    createButton("Explore Menu", "", "btn-noboder");
+    createButton("Explore Menu", "menu", "btn-noboder");
     echo '</div>';
 }
 ?>
