@@ -120,7 +120,7 @@ if (isset($_POST['payUrl']) || isset($_POST['payCOD'])) {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['payCOD'])) {
             //handle POST request
-            echo '<script>alert("đơn hàng của bạn đang được giao");</script>';
+            echo '<script>alert("Your order is being processed");</script>';
             $dish_name = $_SESSION['cart'][0]['dish_name'];
             $dish = $od->getDetailDish($dish_name);
             $totalprice = $_SESSION['orderInform']['price'];
